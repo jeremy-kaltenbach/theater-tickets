@@ -5,10 +5,18 @@
  */
 package org.sawmill.theater.ticketing.dao;
 
+import java.util.List;
+import org.sawmill.theater.ticketing.model.ShowSeating;
+
 /**
  *
  * @author jeremy
  */
 public interface ShowSeatingDAO {
     
+    public List<ShowSeating> getShowtimeSeats(int showId);
+    public void addShowSeat(ShowSeating seat);
+    public void updateShowSeat(ShowSeating seat);
+    public void deleteShowSeat(int seatId);
+    public void deleteAllShowSeats(int showId);
 }

@@ -6,7 +6,9 @@
 package org.sawmill.theater.ticketing.service;
 
 import java.util.List;
+import org.sawmill.theater.ticketing.dao.ShowSeatingDAO;
 import org.sawmill.theater.ticketing.dao.ShowtimeDAO;
+import org.sawmill.theater.ticketing.model.ShowSeating;
 import org.sawmill.theater.ticketing.model.Showtime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ public class TheatreServiceImpl implements TheatreService {
     
     @Autowired
     private ShowtimeDAO showTimeDAO;
+    private ShowSeatingDAO showSeatingDAO;
 
     @Override
     public List<Showtime> getShowtimes() {
@@ -28,6 +31,46 @@ public class TheatreServiceImpl implements TheatreService {
 
     @Override
     public Showtime getShowtimeByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return showTimeDAO.getShowtimeByName(name);
+    }
+
+    @Override
+    public void addShowtime(Showtime showtime) {
+        showTimeDAO.addShowtime(showtime);
+    }
+
+    @Override
+    public void updateShowtime(Showtime showtime) {
+        showTimeDAO.updateShowtime(showtime);
+    }
+
+    @Override
+    public void deleteShowtime(int showtimeId) {
+        showTimeDAO.deleteShowtime(showtimeId);
+    }
+
+    @Override
+    public List<ShowSeating> getShowtimeSeats(int showId) {
+        return showSeatingDAO.getShowtimeSeats(showId);
+    }
+
+    @Override
+    public void addShowSeat(ShowSeating seat) {
+        showSeatingDAO.addShowSeat(seat);
+    }
+
+    @Override
+    public void updateShowSeat(ShowSeating seat) {
+        showSeatingDAO.updateShowSeat(seat);
+    }
+
+    @Override
+    public void deleteShowSeat(int seatId) {
+        showSeatingDAO.deleteShowSeat(seatId);
+    }
+
+    @Override
+    public void deleteAllShowSeats(int showId) {
+        showSeatingDAO.deleteAllShowSeats(showId);
     }
 }

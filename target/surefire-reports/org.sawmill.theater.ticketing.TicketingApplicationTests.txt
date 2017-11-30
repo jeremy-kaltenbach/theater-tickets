@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.sawmill.theater.ticketing.TicketingApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.398 sec - in org.sawmill.theater.ticketing.TicketingApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.44 sec - in org.sawmill.theater.ticketing.TicketingApplicationTests

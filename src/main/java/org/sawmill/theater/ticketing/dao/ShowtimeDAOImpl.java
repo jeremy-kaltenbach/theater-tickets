@@ -28,9 +28,12 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";
     
     private static final String GET_ALL_SHOWTIMES = "SELECT SHOW_ID, SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME";
+    private static final String GET_SHOWTIMES_BY_NAME = "SELECT SHOW_ID, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME WHERE SHOW_NAME=?";
+    private static final String ADD_SHOWTIME = "INSERT INTO SHOWTIME (SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED) VALUES (?, ?, ?, ?)";
+    private static final String UPDATE_SHOWTIME = "UPDATE SHOWTIME SET SHOW_NAME=?, THEATRE_GROUP=?, SHOW_DATE=?, LAST_UPDATED=? WHERE SHOW_ID=?";
+    private static final String REMOVE_SHOWTIME = "DELETE FROM SHOWTIME WHERE SHOW_ID=?";
     
-    public ShowtimeDAOImpl() {
-        
+    public ShowtimeDAOImpl() { 
     }
 
     @Override
@@ -62,7 +65,78 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
 
     @Override
     public Showtime getShowtimeByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Showtime showtime = null;
+        
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(GET_SHOWTIMES_BY_NAME);
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                showtime = new Showtime();
+                showtime.setShowId(rs.getInt("SHOW_ID"));
+                showtime.setShowName(name);
+                showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
+//                showtime.setShowDate(new Date());
+//                showtime.setLastUpdated(new Date());
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return showtime;
+    }
+
+    @Override
+    public void addShowtime(Showtime showtime) {
+        
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(ADD_SHOWTIME);
+            stmt.setString(1, showtime.getShowName());
+            stmt.setString(2, showtime.getTheatreGroup());
+            stmt.setDate(3, new java.sql.Date(showtime.getShowDate().getTime()));
+            stmt.setDate(4, new java.sql.Date(showtime.getLastUpdated().getTime()));
+            stmt.execute();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void updateShowtime(Showtime showtime) {
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWTIME);
+            stmt.setString(1, showtime.getShowName());
+            stmt.setString(2, showtime.getTheatreGroup());
+            stmt.setDate(3, new java.sql.Date(showtime.getShowDate().getTime()));
+            stmt.setDate(4, new java.sql.Date(showtime.getLastUpdated().getTime()));
+            stmt.setInt(5, showtime.getShowId());
+            stmt.execute();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void deleteShowtime(int showtimeId) {
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWTIME);
+            stmt.setInt(1, showtimeId);
+            stmt.execute();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
