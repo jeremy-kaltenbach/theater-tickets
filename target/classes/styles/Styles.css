@@ -1,0 +1,7 @@
+#AnchorPane {
+    -fx-background-color: #252525;
+}
+
+.button {
+    -fx-font-weight: bold;
+}
