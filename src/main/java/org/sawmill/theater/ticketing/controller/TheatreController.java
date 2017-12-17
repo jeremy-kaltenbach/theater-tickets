@@ -3,8 +3,12 @@ package org.sawmill.theater.ticketing.controller;
 import java.util.List;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Polygon;
+import javafx.stage.Stage;
 import org.sawmill.theater.ticketing.model.Showtime;
 import org.sawmill.theater.ticketing.service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,8 @@ public class TheatreController {
     
     @Autowired
     private TheatreService theatreService;
+    
+    private Stage primaryStage;
     
     @FXML
     private Button btnAddShowtime;
@@ -43,7 +49,39 @@ public class TheatreController {
         }
     }
     
+    @FXML
+    public void showNewShowtime() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewShowtime.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void showMain() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));  
+            primaryStage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void closeApplication() {
         Platform.exit();
+    }
+    
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+            
+    public void setPrimaryStage(Stage stage) {
+        primaryStage = stage;
     }
 }
