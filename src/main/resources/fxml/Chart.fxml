@@ -974,306 +974,6 @@
                 <Double fx:value="40.0" />                
             </points>
         </Polygon>
-      <Polygon fx:id="a9" fill="#009918" layoutX="950.0" layoutY="390.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="42.0" />
-            <Double fx:value="-2.0" />
-            <Double fx:value="38.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="b9" fill="#009918" layoutX="995.0" layoutY="390.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="42.0" />
-            <Double fx:value="-2.0" />
-            <Double fx:value="38.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="c9" fill="#009918" layoutX="1040.0" layoutY="390.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="42.0" />
-            <Double fx:value="-2.0" />
-            <Double fx:value="38.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d9" fill="#009918" layoutX="1085.0" layoutY="390.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="42.0" />
-            <Double fx:value="-2.0" />
-            <Double fx:value="38.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e9" fill="#009918" layoutX="1130.0" layoutY="390.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="42.0" />
-            <Double fx:value="-2.0" />
-            <Double fx:value="38.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="a10" fill="#009918" layoutX="948.0" layoutY="432.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="5.0" />
-            <Double fx:value="32.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="-5.0" />
-            <Double fx:value="30.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="a11" fill="#009918" layoutX="941.0" layoutY="467.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="24.0" />
-            <Double fx:value="46.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="20.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="b12" fill="#009918" layoutX="977.0" layoutY="496.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="24.0" />
-            <Double fx:value="46.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="20.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="c13" fill="#009918" layoutX="1013.0" layoutY="525.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="24.0" />
-            <Double fx:value="46.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="20.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d14" fill="#009918" layoutX="1048.0" layoutY="554.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="24.0" />
-            <Double fx:value="46.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="20.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e15" fill="#009918" layoutX="1083.0" layoutY="582.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="24.0" />
-            <Double fx:value="46.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="20.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="b10" fill="#009918" layoutX="993.0" layoutY="432.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="5.0" />
-            <Double fx:value="32.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="-5.0" />
-            <Double fx:value="30.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="c10" fill="#009918" layoutX="1038.0" layoutY="433.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="5.0" />
-            <Double fx:value="32.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="-5.0" />
-            <Double fx:value="30.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d10" fill="#009918" layoutX="1083.0" layoutY="433.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="5.0" />
-            <Double fx:value="32.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="-5.0" />
-            <Double fx:value="30.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e10" fill="#009918" layoutX="1128.0" layoutY="433.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="40.0" />
-            <Double fx:value="5.0" />
-            <Double fx:value="32.0" />
-            <Double fx:value="38.0" />
-            <Double fx:value="-5.0" />
-            <Double fx:value="30.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="b11" fill="#009918" layoutX="988.0" layoutY="466.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="8.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="26.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="c11" fill="#009918" layoutX="1032.0" layoutY="468.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="8.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="26.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d11" fill="#009918" layoutX="1077.0" layoutY="468.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="8.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="26.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e11" fill="#009918" layoutX="1122.0" layoutY="468.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="8.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="36.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="26.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="c12" fill="#009918" layoutX="1023.0" layoutY="498.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d12" fill="#009918" layoutX="1067.0" layoutY="499.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e12" fill="#009918" layoutX="1112.0" layoutY="499.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="d13" fill="#009918" layoutX="1058.0" layoutY="526.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e13" fill="#009918" layoutX="1102.0" layoutY="528.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
-      <Polygon fx:id="e14" fill="#009918" layoutX="1093.0" layoutY="555.0" stroke="BLACK" strokeType="OUTSIDE">
-         <points>
-            <Double fx:value="0.0" />
-            <Double fx:value="0.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="10.0" />
-            <Double fx:value="26.0" />
-            <Double fx:value="34.0" />
-            <Double fx:value="-8.0" />
-            <Double fx:value="24.0" />
-         </points>
-      </Polygon>
       <Polygon fx:id="a12" fill="#009918" layoutX="814.0" layoutY="576.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
          <points>
             <Double fx:value="0.0" />
@@ -2163,6 +1863,306 @@
          </points>
       </Polygon>
       <Polygon fx:id="e23" fill="#009918" layoutX="117.0" layoutY="594.0" rotate="-38.57" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e9" fill="#009918" layoutX="1129.0" layoutY="390.0" rotate="6.02" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d9" fill="#009918" layoutX="1084.0" layoutY="390.0" rotate="7.5" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="c9" fill="#009918" layoutX="1038.0" layoutY="391.0" rotate="9.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="b9" fill="#009918" layoutX="992.0" layoutY="393.0" rotate="11.25" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="a9" fill="#009918" layoutX="943.0" layoutY="401.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="a10" fill="#009918" layoutX="921.0" layoutY="452.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="a11" fill="#009918" layoutX="887.0" layoutY="498.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="b12" fill="#009918" layoutX="919.0" layoutY="530.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="c13" fill="#009918" layoutX="951.0" layoutY="562.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d14" fill="#009918" layoutX="983.0" layoutY="594.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e15" fill="#009918" layoutX="1015.0" layoutY="626.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="b10" fill="#009918" layoutX="976.0" layoutY="443.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="b11" fill="#009918" layoutX="951.0" layoutY="490.0" rotate="33.75" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="c10" fill="#009918" layoutX="1027.0" layoutY="437.0" rotate="18.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="c11" fill="#009918" layoutX="1009.0" layoutY="481.0" rotate="27.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="c12" fill="#009918" layoutX="983.0" layoutY="523.0" rotate="36.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d13" fill="#009918" layoutX="1014.0" layoutY="558.0" rotate="37.5" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d12" fill="#009918" layoutX="1040.0" layoutY="520.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d11" fill="#009918" layoutX="1061.0" layoutY="479.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="d10" fill="#009918" layoutX="1075.0" layoutY="435.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e10" fill="#009918" layoutX="1122.0" layoutY="434.0" rotate="12.55" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e11" fill="#009918" layoutX="1110.0" layoutY="477.0" rotate="19.08" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e12" fill="#009918" layoutX="1093.0" layoutY="518.0" rotate="25.61" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e13" fill="#009918" layoutX="1071.0" layoutY="557.0" rotate="32.14" stroke="BLACK" strokeType="OUTSIDE">
+         <points>
+            <Double fx:value="0.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="40.0" />
+            <Double fx:value="0.0" />
+            <Double fx:value="40.0" />
+         </points>
+      </Polygon>
+      <Polygon fx:id="e14" fill="#009918" layoutX="1045.0" layoutY="593.0" rotate="38.57" stroke="BLACK" strokeType="OUTSIDE">
          <points>
             <Double fx:value="0.0" />
             <Double fx:value="0.0" />
