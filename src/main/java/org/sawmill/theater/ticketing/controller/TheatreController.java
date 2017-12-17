@@ -1,6 +1,7 @@
 package org.sawmill.theater.ticketing.controller;
 
 import java.util.List;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Polygon;
@@ -37,6 +38,12 @@ public class TheatreController {
             System.out.println("----------Showtime--------------");
             System.out.println("Show: " + st.getShowName());
             System.out.println("Group: " + st.getTheatreGroup());
+            System.out.println("Showtime: " + st.getShowDate());
+            System.out.println("Last Updated: " + st.getLastUpdated());
         }
-    }  
+    }
+    
+    public void closeApplication() {
+        Platform.exit();
+    }
 }

@@ -19,12 +19,29 @@
          </font>
       </Label>
       <Button fx:id="btnAddShowtime" layoutX="55.0" layoutY="289.0" mnemonicParsing="false" onMouseClicked="#getShowtimes" prefHeight="44.0" prefWidth="291.0" text="Add New Showtime">
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor></Button>
-      <Button layoutX="55.0" layoutY="360.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Remove Showtime" />
-      <Button layoutX="55.0" layoutY="428.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Print Tickets" />
-      <Button layoutX="55.0" layoutY="499.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Reports" />
-      <Button layoutX="55.0" layoutY="773.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Exit" />
+        <cursor>
+          <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+      </Button>
+      <Button layoutX="55.0" layoutY="360.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Remove Showtime">
+        <cursor>
+          <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+      </Button>
+      <Button layoutX="55.0" layoutY="428.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Print Tickets" >
+        <cursor>
+          <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+      </Button>
+      <Button layoutX="55.0" layoutY="499.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" text="Reports" >
+        <cursor>
+          <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+      </Button>
+      <Button layoutX="55.0" layoutY="773.0" mnemonicParsing="false" onMouseClicked="#closeApplication" prefHeight="44.0" prefWidth="291.0" text="Exit" >
+        <cursor>
+          <Cursor fx:constant="OPEN_HAND" />
+        </cursor>
+      </Button>
    </children>
 </AnchorPane>

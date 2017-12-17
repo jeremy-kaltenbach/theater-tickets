@@ -10,6 +10,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +42,7 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     @Override
     public List<Showtime> getShowtimes() {
         List<Showtime> showtimes = new ArrayList<>();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -49,14 +53,16 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
                 showtime.setShowId(rs.getInt("SHOW_ID"));
                 showtime.setShowName(rs.getString("SHOW_NAME"));
                 showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
-//                showtime.setShowDate(new Date());
-//                showtime.setLastUpdated(new Date());
+                showtime.setShowDate(df.parse(rs.getString("SHOW_DATE")));
+                showtime.setLastUpdated(df.parse(rs.getString("LAST_UPDATED")));
                 showtimes.add(showtime);
             }
             rs.close();
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -66,6 +72,7 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     @Override
     public Showtime getShowtimeByName(String name) {
         Showtime showtime = null;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -77,13 +84,15 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
                 showtime.setShowId(rs.getInt("SHOW_ID"));
                 showtime.setShowName(name);
                 showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
-//                showtime.setShowDate(new Date());
-//                showtime.setLastUpdated(new Date());
+                showtime.setShowDate(df.parse(rs.getString("SHOW_DATE")));
+                showtime.setLastUpdated(df.parse(rs.getString("LAST_UPDATED")));
             }
             rs.close();
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return showtime;
