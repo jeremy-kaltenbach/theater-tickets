@@ -1,9 +1,15 @@
 package org.sawmill.theater.ticketing.controller;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,12 +21,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TheatreController {
+public class MainController implements Initializable {
     
     @Autowired
     private TheatreService theatreService;
-    
-    private Stage primaryStage;
     
     @FXML
     private Button btnAddShowtime;
@@ -49,39 +53,26 @@ public class TheatreController {
         }
     }
     
-    @FXML
-    public void showNewShowtime() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewShowtime.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            primaryStage.setScene(new Scene(root));
-            primaryStage.show();
-            
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void showMain() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            primaryStage.setScene(new Scene(root));  
-            primaryStage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+    /**
+     * When this method is called, it will change the Scene to a New showtime form
+     */
+    public void showNewShowtime(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/fxml/NewShowtime.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
     }
     
     public void closeApplication() {
         Platform.exit();
     }
-    
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
-            
-    public void setPrimaryStage(Stage stage) {
-        primaryStage = stage;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //TODO
     }
 }

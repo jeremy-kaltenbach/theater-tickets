@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.sawmill.theater.ticketing.controller.TheatreController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -39,8 +38,6 @@ public class TicketingApplication extends Application {
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add("/styles/Styles.css");
         primaryStage.setScene(scene);
-        TheatreController controller = (TheatreController)loader.getController();
-        controller.setPrimaryStage(primaryStage);
         primaryStage.show();
     }
     
