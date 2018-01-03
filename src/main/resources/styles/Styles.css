@@ -9,3 +9,12 @@
 .form-label {
     -fx-font: 25px "Arial";
 }
+
+.form-text-input {
+    -fx-font: 25px "Arial";
+}
+
+.form-date-input {
+    -fx-font: 25px "Arial";
+}
+

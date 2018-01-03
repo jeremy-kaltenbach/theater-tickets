@@ -2,11 +2,13 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import org.sawmill.theater.ticketing.fx.TextFieldLimited?>
 
 <AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1200.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.ShowtimeController">
    <children>
@@ -20,13 +22,22 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblShowName" styleClass="form-label" layoutX="70.0" layoutY="272.0" text="Name:" textFill="WHITE"/>
-      <TextField fx:id="txtBxShowName" styleClass="form-label" layoutX="230.0" layoutY="263.0" prefHeight="48.0" prefWidth="500.0"/>
-      <Label fx:id="lblGroup" styleClass="form-label" layoutX="71.0" layoutY="351.0" text="Group:" textFill="WHITE"/>
-      <TextField fx:id="txtBxGroup" styleClass="form-label" layoutX="230.0" layoutY="342.0" prefHeight="48.0" prefWidth="500.0"/>
-      <Label fx:id="lblDate" styleClass="form-label" layoutX="72.0" layoutY="431.0" text="Date:" textFill="WHITE"/>
-      <DatePicker fx:id="showDate" styleClass="form-label" layoutX="230.0" layoutY="424.0" prefHeight="48.0" prefWidth="500.0"/>
-      <Button fx:id="btnSubmit" layoutX="65.0" layoutY="805.0" mnemonicParsing="false" onAction="#showMain" prefHeight="44.0" prefWidth="150.0" text="Submit">
+      <Label fx:id="lblShowName" layoutX="70.0" layoutY="272.0" styleClass="form-label" text="Name:" textFill="WHITE" />
+      <TextFieldLimited fx:id="txtBxShowName" layoutX="230.0" layoutY="263.0" prefHeight="48.0" prefWidth="500.0" styleClass="form-text-input" />
+      <Label fx:id="lblGroup" layoutX="71.0" layoutY="351.0" styleClass="form-label" text="Group:" textFill="WHITE" />
+      <TextFieldLimited fx:id="txtBxGroup" layoutX="230.0" layoutY="342.0" prefHeight="48.0" prefWidth="500.0" styleClass="form-text-input" />
+      <Label fx:id="lblDate" layoutX="72.0" layoutY="431.0" styleClass="form-label" text="Date:" textFill="WHITE" />
+      <DatePicker fx:id="showDatePicker" layoutX="230.0" layoutY="424.0" prefHeight="48.0" prefWidth="341.0" styleClass="form-text-input" />
+      <Label fx:id="lblTime" layoutX="72.0" layoutY="515.0" styleClass="form-label" text="Time:" textFill="WHITE" />
+      <TextFieldLimited fx:id="txtBxTimeHour" layoutX="229.0" layoutY="507.0" prefHeight="48.0" prefWidth="72.0" styleClass="form-label" />
+      <Label fx:id="lblTimeDivider" layoutX="311.0" layoutY="511.0" styleClass="form-label" text=":" textFill="WHITE" />
+      <TextFieldLimited fx:id="txtBxTimeMinute" layoutX="330.0" layoutY="507.0" prefHeight="48.0" prefWidth="72.0" styleClass="form-text-input" />
+      <ComboBox fx:id="cmboBxAmPm" layoutX="435.0" layoutY="508.0" prefHeight="48.0" prefWidth="134.0" styleClass="form-date-input" />
+      <Label fx:id="lblNameError" layoutX="756.0" layoutY="275.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please enter a name" textFill="RED" />
+      <Label fx:id="lblGroupError" layoutX="756.0" layoutY="353.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please enter a group" textFill="RED" />
+      <Label fx:id="lblDateError" layoutX="756.0" layoutY="437.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please select a date" textFill="RED" />
+      <Label fx:id="lblTimeError" layoutX="756.0" layoutY="517.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please enter a time" textFill="RED" />
+      <Button fx:id="btnSubmit" layoutX="65.0" layoutY="805.0" mnemonicParsing="false" onAction="#validateFields" prefHeight="44.0" prefWidth="150.0" text="Submit">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
