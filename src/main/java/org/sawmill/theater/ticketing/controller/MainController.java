@@ -40,6 +40,10 @@ public class MainController implements Initializable {
     @FXML
     private Polygon a30;
     
+    public void setTheatreService(TheatreService service) {
+        this.theatreService = service;
+    }
+    
     public void getShowtimes() {
         List<Showtime> showtimeList = theatreService.getShowtimes();
         
@@ -57,7 +61,10 @@ public class MainController implements Initializable {
      * When this method is called, it will change the Scene to a New showtime form
      */
     public void showNewShowtime(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/fxml/NewShowtime.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NewShowtime.fxml"));
+        Parent tableViewParent = loader.load();
+        ShowtimeController controller = loader.getController();
+        controller.setTheatreService(theatreService);
         Scene tableViewScene = new Scene(tableViewParent);
         
         //This line gets the Stage information

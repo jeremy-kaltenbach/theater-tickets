@@ -67,9 +67,18 @@ public class ShowtimeController implements Initializable {
     @FXML private Label lblDateError;
     @FXML private Label lblTimeError;
     
+    public void setTheatreService(TheatreService service) {
+        this.theatreService = service;
+    }
+    
  
     public void showMain(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+        Parent tableViewParent = loader.load();
+        MainController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        
+//        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         
         //This line gets the Stage information

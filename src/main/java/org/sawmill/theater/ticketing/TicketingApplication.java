@@ -16,7 +16,7 @@ public class TicketingApplication extends Application {
     private ConfigurableApplicationContext springContext;
     private Parent root;
     private FXMLLoader loader;
-    
+     
     @FXML
     public Stage primaryStage;
 
