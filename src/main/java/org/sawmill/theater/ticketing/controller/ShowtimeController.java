@@ -71,7 +71,6 @@ public class ShowtimeController implements Initializable {
         this.theatreService = service;
     }
     
- 
     public void showMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         Parent tableViewParent = loader.load();
@@ -80,6 +79,21 @@ public class ShowtimeController implements Initializable {
         
 //        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    
+    public void showChart(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
+        Parent tableViewParent = loader.load();
+        ChartController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        Scene tableViewScene = new Scene(tableViewParent);
+        controller.setUpSeatLabels(tableViewScene);
         
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -167,6 +181,7 @@ public class ShowtimeController implements Initializable {
         if (isValid) {
             System.out.println("Fields are valid");
             saveShowtime(showName, showGroup, showDate, hour, minute, amPm);
+            showChart(event);
         }
         
     }
