@@ -2,7 +2,6 @@ package org.sawmill.theater.ticketing.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -14,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import org.sawmill.theater.ticketing.model.Showtime;
 import org.sawmill.theater.ticketing.service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,6 +58,24 @@ public class MainController implements Initializable {
         ShowtimeController controller = loader.getController();
         controller.setTheatreService(theatreService);
         controller.setEditMode(true);
+        Scene tableViewScene = new Scene(tableViewParent);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    
+    /**
+     * When this method is called, it will change the Scene to a Delete Show form
+     */
+    public void deleteShowtime(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
+        Parent tableViewParent = loader.load();
+        ShowtimeController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        controller.setDeleteMode(true);
         Scene tableViewScene = new Scene(tableViewParent);
         
         //This line gets the Stage information
