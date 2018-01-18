@@ -33,27 +33,33 @@ public class MainController implements Initializable {
         this.theatreService = service;
     }
     
-    public void getShowtimes() {
-        List<Showtime> showtimeList = theatreService.getShowtimes();
-        
-        System.out.println("Found: " + showtimeList.size() + " showtimes");
-        for (Showtime st : showtimeList) {
-            System.out.println("----------Showtime--------------");
-            System.out.println("Show: " + st.getShowName());
-            System.out.println("Group: " + st.getTheatreGroup());
-            System.out.println("Showtime: " + st.getShowDate());
-            System.out.println("Last Updated: " + st.getLastUpdated());
-        }
-    }
-    
     /**
      * When this method is called, it will change the Scene to a New Show form
      */
     public void showNewShowtime(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NewShowtime.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
         Parent tableViewParent = loader.load();
         ShowtimeController controller = loader.getController();
         controller.setTheatreService(theatreService);
+        controller.setEditMode(false);
+        Scene tableViewScene = new Scene(tableViewParent);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    
+    /**
+     * When this method is called, it will change the Scene to a Edit Show form
+     */
+    public void updateShowtime(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
+        Parent tableViewParent = loader.load();
+        ShowtimeController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        controller.setEditMode(true);
         Scene tableViewScene = new Scene(tableViewParent);
         
         //This line gets the Stage information

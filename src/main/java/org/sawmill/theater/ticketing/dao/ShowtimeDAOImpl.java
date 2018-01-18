@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -42,19 +43,24 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     @Override
     public List<Showtime> getShowtimes() {
         List<Showtime> showtimes = new ArrayList<>();
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar calendar = Calendar.getInstance();
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(GET_ALL_SHOWTIMES);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
+                
                 Showtime showtime = new Showtime();
                 showtime.setShowId(rs.getInt("SHOW_ID"));
                 showtime.setShowName(rs.getString("SHOW_NAME"));
                 showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
-                showtime.setShowDate(df.parse(rs.getString("SHOW_DATE")));
-                showtime.setLastUpdated(df.parse(rs.getString("LAST_UPDATED")));
+                
+                calendar.setTimeInMillis(Long.parseLong(rs.getString("SHOW_DATE")));
+                showtime.setShowDate(calendar.getTime());
+                calendar.setTimeInMillis(Long.parseLong(rs.getString("LAST_UPDATED")));
+                showtime.setLastUpdated(calendar.getTime());
+                
                 showtimes.add(showtime);
             }
             rs.close();
@@ -62,40 +68,9 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return showtimes;
-    }
-
-    @Override
-    public Showtime getShowtimeByName(String name) {
-        Showtime showtime = null;
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(GET_SHOWTIMES_BY_NAME);
-            stmt.setString(1, name);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                showtime = new Showtime();
-                showtime.setShowId(rs.getInt("SHOW_ID"));
-                showtime.setShowName(name);
-                showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
-                showtime.setShowDate(df.parse(rs.getString("SHOW_DATE")));
-                showtime.setLastUpdated(df.parse(rs.getString("LAST_UPDATED")));
-            }
-            rs.close();
-            stmt.close();
-            conn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return showtime;
     }
 
     @Override

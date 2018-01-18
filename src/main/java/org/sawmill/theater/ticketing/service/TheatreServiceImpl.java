@@ -30,11 +30,6 @@ public class TheatreServiceImpl implements TheatreService {
     }
 
     @Override
-    public Showtime getShowtimeByName(String name) {
-        return showTimeDAO.getShowtimeByName(name);
-    }
-
-    @Override
     public void addShowtime(Showtime showtime) {
         showTimeDAO.addShowtime(showtime);
     }

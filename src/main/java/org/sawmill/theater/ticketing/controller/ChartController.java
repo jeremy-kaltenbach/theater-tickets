@@ -10,13 +10,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import org.sawmill.theater.ticketing.service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -425,6 +428,21 @@ public class ChartController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+    
+    public void showMain(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+        Parent tableViewParent = loader.load();
+        MainController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        
+        Scene tableViewScene = new Scene(tableViewParent);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
+    }
 
     public void setUpSeatLabels(Scene scene) {
         addLabelsForSeatSection(scene, SECTION_ONE_SEAT_LABELS);
@@ -448,6 +466,8 @@ public class ChartController implements Initializable {
         StackPane seatPane = ((StackPane)event.getSource());
         Rectangle selectedSeat = (Rectangle)seatPane.getChildren().get(0);
         System.out.println("Selected seat: " + selectedSeat.getId());
+        selectedSeat.getStyleClass().clear();
+        selectedSeat.getStyleClass().add("seat-selected");
     }
      
 }
