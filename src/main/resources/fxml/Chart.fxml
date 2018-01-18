@@ -6,602 +6,923 @@
 
 <AnchorPane id="AnchorPane" prefHeight="900" prefWidth="1200" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.ChartController">
     <children>
-      <StackPane layoutX="29.0" layoutY="29.0">
+      <StackPane layoutX="29.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 1st row -->
-              <Rectangle fx:id="e36" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e36" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="29.0">
+      <StackPane layoutX="74.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d42" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d42" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="29.0">
+      <StackPane layoutX="119.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c38" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c38" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="29.0">
+      <StackPane layoutX="164.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b34" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b34" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="29.0">
+      <StackPane layoutX="209.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a30" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a30" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane fx:id="a1Stack" layoutX="949.0" layoutY="29.0">
+      <StackPane layoutX="949.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a1" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a1" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="29.0">
+      <StackPane layoutX="994.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b1" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b1" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="29.0">
+      <StackPane layoutX="1039.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c1" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c1" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="29.0">
+      <StackPane layoutX="1084.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d1" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d1" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="29.0">
+      <StackPane layoutX="1129.0" layoutY="29.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e1" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e1" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="74.0">
+      <StackPane layoutX="29.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 2nd row -->
-              <Rectangle fx:id="e35" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e35" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="74.0">
+      <StackPane layoutX="74.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d41" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d41" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="74.0">
+      <StackPane layoutX="119.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c37" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c37" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="74.0">
+      <StackPane layoutX="164.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b33" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b33" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="74.0">
+      <StackPane layoutX="209.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a29" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a29" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="74.0">
+      <StackPane layoutX="949.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a2" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a2" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="74.0">
+      <StackPane layoutX="994.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b2" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b2" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="74.0">
+      <StackPane layoutX="1039.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c2" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c2" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="74.0">
+      <StackPane layoutX="1084.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d2" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d2" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="74.0">
+      <StackPane layoutX="1129.0" layoutY="74.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e2" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e2" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="119.0">
+      <StackPane layoutX="29.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 3rd row -->
-              <Rectangle fx:id="e34" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e34" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="119.0">
+      <StackPane layoutX="74.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d40" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d40" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="119.0">
+      <StackPane layoutX="119.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c36" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c36" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="119.0">
+      <StackPane layoutX="164.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b32" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b32" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="119.0">
+      <StackPane layoutX="209.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a28" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a28" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="119.0">
+      <StackPane layoutX="949.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a3" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a3" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="119.0">
+      <StackPane layoutX="994.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b3" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b3" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="119.0">
+      <StackPane layoutX="1039.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c3" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c3" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="119.0">
+      <StackPane layoutX="1084.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d3" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d3" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="119.0">
+      <StackPane layoutX="1129.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e3" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e3" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="164.0">
+      <StackPane layoutX="29.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 4th row -->
-              <Rectangle fx:id="e33" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e33" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="164.0">
+      <StackPane layoutX="74.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d39" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d39" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="164.0">
+      <StackPane layoutX="119.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c35" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c35" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="164.0">
+      <StackPane layoutX="164.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b31" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b31" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="164.0">
+      <StackPane layoutX="209.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a27" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a27" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="164.0">
+      <StackPane layoutX="949.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a4" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a4" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="164.0">
+      <StackPane layoutX="994.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b4" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b4" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="164.0">
+      <StackPane layoutX="1039.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c4" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c4" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="164.0">
+      <StackPane layoutX="1084.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d4" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d4" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="164.0">
+      <StackPane layoutX="1129.0" layoutY="164.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e4" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e4" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="209.0">
+      <StackPane layoutX="29.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 5th row -->
-              <Rectangle fx:id="e32" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e32" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="209.0">
+      <StackPane layoutX="74.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d38" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d38" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="209.0">
+      <StackPane layoutX="119.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c34" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c34" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="209.0">
+      <StackPane layoutX="164.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b30" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b30" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="209.0">
+      <StackPane layoutX="209.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a26" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a26" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="209.0">
+      <StackPane layoutX="949.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a5" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a5" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="209.0">
+      <StackPane layoutX="994.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b5" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b5" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="209.0">
+      <StackPane layoutX="1039.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c5" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c5" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="209.0">
+      <StackPane layoutX="1084.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d5" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d5" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="209.0">
+      <StackPane layoutX="1129.0" layoutY="209.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e5" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e5" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="254.0">
+      <StackPane layoutX="29.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 6th row -->
-              <Rectangle fx:id="e31" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e31" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="254.0">
+      <StackPane layoutX="74.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d37" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d37" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="254.0">
+      <StackPane layoutX="119.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c33" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c33" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="254.0">
+      <StackPane layoutX="164.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b29" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b29" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="254.0">
+      <StackPane layoutX="209.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a25" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a25" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="254.0">
+      <StackPane layoutX="949.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a6" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a6" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="254.0">
+      <StackPane layoutX="994.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b6" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b6" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="254.0">
+      <StackPane layoutX="1039.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c6" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c6" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="254.0">
+      <StackPane layoutX="1084.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d6" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d6" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="254.0">
+      <StackPane layoutX="1129.0" layoutY="254.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e6" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e6" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="299.0">
+      <StackPane layoutX="29.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 7th row -->
-              <Rectangle fx:id="e30" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e30" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="299.0">
+      <StackPane layoutX="74.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d36" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d36" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="299.0">
+      <StackPane layoutX="119.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c32" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c32" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="299.0">
+      <StackPane layoutX="164.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b28" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b28" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="299.0">
+      <StackPane layoutX="209.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a24" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a24" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="299.0">
+      <StackPane layoutX="949.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a7" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a7" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="299.0">
+      <StackPane layoutX="994.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b7" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b7" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="299.0">
+      <StackPane layoutX="1039.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c7" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c7" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="299.0">
+      <StackPane layoutX="1084.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d7" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d7" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="299.0">
+      <StackPane layoutX="1129.0" layoutY="299.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e7" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e7" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="29.0" layoutY="344.0">
+      <StackPane layoutX="29.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 8th row -->
-              <Rectangle fx:id="e29" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e29" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="74.0" layoutY="344.0">
+      <StackPane layoutX="74.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d35" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d35" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="119.0" layoutY="344.0">
+      <StackPane layoutX="119.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c31" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c31" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="164.0" layoutY="344.0">
+      <StackPane layoutX="164.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b27" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b27" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="209.0" layoutY="344.0">
+      <StackPane layoutX="209.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a23" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a23" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="949.0" layoutY="344.0">
+      <StackPane layoutX="949.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="a8" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="a8" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="994.0" layoutY="344.0">
+      <StackPane layoutX="994.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="b8" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="b8" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1039.0" layoutY="344.0">
+      <StackPane layoutX="1039.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="c8" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="c8" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1084.0" layoutY="344.0">
+      <StackPane layoutX="1084.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="d8" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="d8" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
-      <StackPane layoutX="1129.0" layoutY="344.0">
+      <StackPane layoutX="1129.0" layoutY="344.0" onMouseClicked="#seatSelected">
          <children>
-              <Rectangle fx:id="e8" fill="#009918" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+              <Rectangle fx:id="e8" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
          </children>
       </StackPane>
       
-        <!-- Section 2 -->
-      <Rectangle fx:id="a12" fill="#009918" height="40.0" layoutX="814.0" layoutY="576.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b13" fill="#009918" height="40.0" layoutX="846.0" layoutY="608.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c14" fill="#009918" height="40.0" layoutX="878.0" layoutY="640.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d15" fill="#009918" height="40.0" layoutX="910.0" layoutY="672.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e16" fill="#009918" height="40.0" layoutX="942.0" layoutY="704.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a15" fill="#009918" height="40.0" layoutX="656.0" layoutY="640.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b17" fill="#009918" height="40.0" layoutX="656.0" layoutY="686.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c19" fill="#009918" height="40.0" layoutX="656.0" layoutY="732.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d21" fill="#009918" height="40.0" layoutX="656.0" layoutY="778.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a14" fill="#009918" height="40.0" layoutX="715.0" layoutY="632.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a13" fill="#009918" height="40.0" layoutX="767.0" layoutY="611.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b16" fill="#009918" height="40.0" layoutX="709.0" layoutY="681.0" rotate="-11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b15" fill="#009918" height="40.0" layoutX="760.0" layoutY="666.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b14" fill="#009918" height="40.0" layoutX="806.0" layoutY="641.0" rotate="-33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c18" fill="#009918" height="40.0" layoutX="708.0" layoutY="730.0" rotate="-9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c17" fill="#009918" height="40.0" layoutX="756.0" layoutY="719.0" rotate="-18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c16" fill="#009918" height="40.0" layoutX="801.0" layoutY="698.0" rotate="-27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c15" fill="#009918" height="40.0" layoutX="843.0" layoutY="672.0" rotate="-36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d20" fill="#009918" height="40.0" layoutX="705.0" layoutY="778.0" rotate="-7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d19" fill="#009918" height="40.0" layoutX="753.0" layoutY="770.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d18" fill="#009918" height="40.0" layoutX="798.0" layoutY="754.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d17" fill="#009918" height="40.0" layoutX="839.0" layoutY="733.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d16" fill="#009918" height="40.0" layoutX="877.0" layoutY="705.0" rotate="-37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e17" fill="#009918" height="40.0" layoutX="910.0" layoutY="737.0" rotate="-38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e18" fill="#009918" height="40.0" layoutX="873.0" layoutY="767.0" rotate="-32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+      <!-- Section 2 -->
+      <StackPane layoutX="814.0" layoutY="576.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="a12" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="846.0" layoutY="608.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b13" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="878.0" layoutY="640.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c14" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="910.0" layoutY="672.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d15" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="942.0" layoutY="704.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e16" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="656.0" layoutY="640.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a15" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>      
+      <StackPane layoutX="656.0" layoutY="686.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b17" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>         
+      <StackPane layoutX="656.0" layoutY="732.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c19" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>     
+      <StackPane layoutX="656.0" layoutY="778.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d21" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>        
+      <StackPane layoutX="715.0" layoutY="632.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a14" styleClass="seat-open" height="40.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>            
+      <StackPane layoutX="767.0" layoutY="611.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a13" styleClass="seat-open" height="40.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>        
+      <StackPane layoutX="709.0" layoutY="681.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b16" styleClass="seat-open" height="40.0" rotate="-11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>        
+      <StackPane layoutX="760.0" layoutY="666.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b15" styleClass="seat-open" height="40.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>         
+      <StackPane layoutX="806.0" layoutY="641.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b14" styleClass="seat-open" height="40.0" rotate="-33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="708.0" layoutY="730.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c18" styleClass="seat-open" height="40.0" rotate="-9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="756.0" layoutY="719.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c17" styleClass="seat-open" height="40.0" rotate="-18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="801.0" layoutY="698.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c16" styleClass="seat-open" height="40.0" rotate="-27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="843.0" layoutY="672.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c15" styleClass="seat-open" height="40.0" rotate="-36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="705.0" layoutY="778.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d20" styleClass="seat-open" height="40.0" rotate="-7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="753.0" layoutY="770.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d19" styleClass="seat-open" height="40.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="798.0" layoutY="754.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d18" styleClass="seat-open" height="40.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="839.0" layoutY="733.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d17" styleClass="seat-open" height="40.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="877.0" layoutY="705.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d16" styleClass="seat-open" height="40.0" rotate="-37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="910.0" layoutY="737.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e17" styleClass="seat-open" height="40.0" rotate="-38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="873.0" layoutY="767.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e18" styleClass="seat-open" height="40.0" rotate="-32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      
 
       <!-- Section 3 -->
-      <Rectangle fx:id="a16" fill="#009918" height="40.0" layoutX="515.0" layoutY="640.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b18" fill="#009918" height="40.0" layoutX="515.0" layoutY="686.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c20" fill="#009918" height="40.0" layoutX="515.0" layoutY="732.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d22" fill="#009918" height="40.0" layoutX="515.0" layoutY="778.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a17" fill="#009918" height="40.0" layoutX="458.0" layoutY="633.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b19" fill="#009918" height="40.0" layoutX="463.0" layoutY="681.0" rotate="11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c21" fill="#009918" height="40.0" layoutX="464.0" layoutY="728.0" rotate="9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d23" fill="#009918" height="40.0" layoutX="467.0" layoutY="777.0" rotate="7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a18" fill="#009918" height="40.0" layoutX="403.0" layoutY="613.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b20" fill="#009918" height="40.0" layoutX="412.0" layoutY="668.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c22" fill="#009918" height="40.0" layoutX="415.0" layoutY="717.0" rotate="18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d24" fill="#009918" height="40.0" layoutX="419.0" layoutY="768.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a19" fill="#009918" height="40.0" layoutX="354.0" layoutY="579.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b22" fill="#009918" height="40.0" layoutX="323.0" layoutY="611.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c25" fill="#009918" height="40.0" layoutX="292.0" layoutY="643.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d28" fill="#009918" height="40.0" layoutX="261.0" layoutY="675.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e21" fill="#009918" height="40.0" layoutX="230.0" layoutY="707.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b21" fill="#009918" height="40.0" layoutX="365.0" layoutY="644.0" rotate="33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c23" fill="#009918" height="40.0" layoutX="367.0" layoutY="699.0" rotate="27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d25" fill="#009918" height="40.0" layoutX="373.0" layoutY="753.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c24" fill="#009918" height="40.0" layoutX="326.0" layoutY="676.0" rotate="36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d26" fill="#009918" height="40.0" layoutX="331.0" layoutY="733.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d27" fill="#009918" height="40.0" layoutX="293.0" layoutY="708.0" rotate="37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e20" fill="#009918" height="40.0" layoutX="265.0" layoutY="742.0" rotate="38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e19" fill="#009918" height="40.0" layoutX="304.0" layoutY="769.0" rotate="32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+      <StackPane layoutX="515.0" layoutY="640.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a16" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="515.0" layoutY="686.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b18" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="515.0" layoutY="732.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c20" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="515.0" layoutY="778.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d22" styleClass="seat-open" height="40.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="458.0" layoutY="633.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a17" styleClass="seat-open" height="40.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="463.0" layoutY="681.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b19" styleClass="seat-open" height="40.0" rotate="11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="464.0" layoutY="728.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c21" styleClass="seat-open" height="40.0" rotate="9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="467.0" layoutY="777.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d23" styleClass="seat-open" height="40.0" rotate="7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="403.0" layoutY="613.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a18" styleClass="seat-open" height="40.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="412.0" layoutY="668.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b20" styleClass="seat-open" height="40.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="415.0" layoutY="717.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c22" styleClass="seat-open" height="40.0" rotate="18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="419.0" layoutY="768.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d24" styleClass="seat-open" height="40.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="354.0" layoutY="579.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a19" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="323.0" layoutY="611.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b22" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="292.0" layoutY="643.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c25" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="261.0" layoutY="675.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d28" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="230.0" layoutY="707.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e21" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="365.0" layoutY="644.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="b21" styleClass="seat-open" height="40.0" rotate="33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="367.0" layoutY="699.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c23" styleClass="seat-open" height="40.0" rotate="27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="373.0" layoutY="753.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d25" styleClass="seat-open" height="40.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="326.0" layoutY="676.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="c24" styleClass="seat-open" height="40.0" rotate="36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="331.0" layoutY="733.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d26" styleClass="seat-open" height="40.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="293.0" layoutY="708.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="d27" styleClass="seat-open" height="40.0" rotate="37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="265.0" layoutY="742.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e20" styleClass="seat-open" height="40.0" rotate="38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="304.0" layoutY="769.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="e19" styleClass="seat-open" height="40.0" rotate="32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      
+      <!-- Section 4 -->
+      <StackPane layoutX="217.0" layoutY="400.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a22" styleClass="seat-open" height="40.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="239.0" layoutY="454.0" onMouseClicked="#seatSelected">
+          <children>
+              <Rectangle fx:id="a21" styleClass="seat-open" height="40.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+          </children>
+      </StackPane>
+      <StackPane layoutX="271.0" layoutY="499.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="a20" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="240.0" layoutY="531.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b23" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="209.0" layoutY="563.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c26" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="178.0" layoutY="595.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d29" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="147.0" layoutY="627.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e22" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="169.0" layoutY="392.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b26" styleClass="seat-open" height="40.0" rotate="-11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="183.0" layoutY="443.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b25" styleClass="seat-open" height="40.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="208.0" layoutY="493.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b24" styleClass="seat-open" height="40.0" rotate="-33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="123.0" layoutY="391.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c30" styleClass="seat-open" height="40.0" rotate="-9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="133.0" layoutY="438.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c29" styleClass="seat-open" height="40.0" rotate="-18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="153.0" layoutY="485.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c28" styleClass="seat-open" height="40.0" rotate="-27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="178.0" layoutY="528.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c27" styleClass="seat-open" height="40.0" rotate="-36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="147.0" layoutY="559.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d30" styleClass="seat-open" height="40.0" rotate="-37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="121.0" layoutY="520.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d31" styleClass="seat-open" height="40.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="101.0" layoutY="478.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d32" styleClass="seat-open" height="40.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="86.0" layoutY="434.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d33" styleClass="seat-open" height="40.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="77.0" layoutY="390.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d34" styleClass="seat-open" height="40.0" rotate="-7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="32.0" layoutY="390.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e28" styleClass="seat-open" height="40.0" rotate="-6.02" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="39.0" layoutY="435.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e27" styleClass="seat-open" height="40.0" rotate="-12.55" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="51.0" layoutY="478.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e26" styleClass="seat-open" height="40.0" rotate="-19.08" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="68.0" layoutY="519.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e25" styleClass="seat-open" height="40.0" rotate="-25.61" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="90.0" layoutY="558.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e24" styleClass="seat-open" height="40.0" rotate="-32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="117.0" layoutY="594.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e23" styleClass="seat-open" height="40.0" rotate="-38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      
+      <!-- Section 1 -->
+      <StackPane layoutX="1129.0" layoutY="390.0" onMouseClicked="#seatSelected">
+         <children> 
+            <Rectangle fx:id="e9" styleClass="seat-open" height="40.0" rotate="6.02" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1084.0" layoutY="390.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d9" styleClass="seat-open" height="40.0" rotate="7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1038.0" layoutY="391.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c9" styleClass="seat-open" height="40.0" rotate="9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="992.0" layoutY="393.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b9" styleClass="seat-open" height="40.0" rotate="11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="943.0" layoutY="401.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="a9" styleClass="seat-open" height="40.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="921.0" layoutY="452.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="a10" styleClass="seat-open" height="40.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="887.0" layoutY="498.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="a11" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="919.0" layoutY="530.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b12" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="951.0" layoutY="562.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c13" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="983.0" layoutY="594.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d14" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1015.0" layoutY="626.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e15" styleClass="seat-open" height="40.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="976.0" layoutY="443.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b10" styleClass="seat-open" height="40.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="951.0" layoutY="490.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="b11" styleClass="seat-open" height="40.0" rotate="33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1027.0" layoutY="437.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c10" styleClass="seat-open" height="40.0" rotate="18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1009.0" layoutY="481.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c11" styleClass="seat-open" height="40.0" rotate="27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="983.0" layoutY="523.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="c12" styleClass="seat-open" height="40.0" rotate="36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1014.0" layoutY="558.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d13" styleClass="seat-open" height="40.0" rotate="37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1040.0" layoutY="520.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d12" styleClass="seat-open" height="40.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1061.0" layoutY="479.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d11" styleClass="seat-open" height="40.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1075.0" layoutY="435.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="d10" styleClass="seat-open" height="40.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1122.0" layoutY="434.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e10" styleClass="seat-open" height="40.0" rotate="12.55" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1110.0" layoutY="477.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e11" styleClass="seat-open" height="40.0" rotate="19.08" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1093.0" layoutY="518.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e12" styleClass="seat-open" height="40.0" rotate="25.61" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1071.0" layoutY="557.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e13" styleClass="seat-open" height="40.0" rotate="32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
+      <StackPane layoutX="1045.0" layoutY="593.0" onMouseClicked="#seatSelected">
+         <children>
+            <Rectangle fx:id="e14" styleClass="seat-open" height="40.0" rotate="38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
+         </children>
+      </StackPane>
 
-            <!-- Section 4 -->
-      <Rectangle fx:id="a22" fill="#009918" height="40.0" layoutX="217.0" layoutY="400.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a21" fill="#009918" height="40.0" layoutX="239.0" layoutY="454.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a20" fill="#009918" height="40.0" layoutX="271.0" layoutY="499.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b23" fill="#009918" height="40.0" layoutX="240.0" layoutY="531.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c26" fill="#009918" height="40.0" layoutX="209.0" layoutY="563.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d29" fill="#009918" height="40.0" layoutX="178.0" layoutY="595.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e22" fill="#009918" height="40.0" layoutX="147.0" layoutY="627.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b26" fill="#009918" height="40.0" layoutX="169.0" layoutY="392.0" rotate="-11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b25" fill="#009918" height="40.0" layoutX="183.0" layoutY="443.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b24" fill="#009918" height="40.0" layoutX="208.0" layoutY="493.0" rotate="-33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c30" fill="#009918" height="40.0" layoutX="123.0" layoutY="391.0" rotate="-9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c29" fill="#009918" height="40.0" layoutX="133.0" layoutY="438.0" rotate="-18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c28" fill="#009918" height="40.0" layoutX="153.0" layoutY="485.0" rotate="-27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c27" fill="#009918" height="40.0" layoutX="178.0" layoutY="528.0" rotate="-36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d30" fill="#009918" height="40.0" layoutX="147.0" layoutY="559.0" rotate="-37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d31" fill="#009918" height="40.0" layoutX="121.0" layoutY="520.0" rotate="-30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d32" fill="#009918" height="40.0" layoutX="101.0" layoutY="478.0" rotate="-22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d33" fill="#009918" height="40.0" layoutX="86.0" layoutY="434.0" rotate="-15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d34" fill="#009918" height="40.0" layoutX="77.0" layoutY="390.0" rotate="-7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e28" fill="#009918" height="40.0" layoutX="32.0" layoutY="390.0" rotate="-6.02" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e27" fill="#009918" height="40.0" layoutX="39.0" layoutY="435.0" rotate="-12.55" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e26" fill="#009918" height="40.0" layoutX="51.0" layoutY="478.0" rotate="-19.08" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e25" fill="#009918" height="40.0" layoutX="68.0" layoutY="519.0" rotate="-25.61" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e24" fill="#009918" height="40.0" layoutX="90.0" layoutY="558.0" rotate="-32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e23" fill="#009918" height="40.0" layoutX="117.0" layoutY="594.0" rotate="-38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-
-      <!-- Section 1 -->    
-      <Rectangle fx:id="e9" fill="#009918" height="40.0" layoutX="1129.0" layoutY="390.0" rotate="6.02" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d9" fill="#009918" height="40.0" layoutX="1084.0" layoutY="390.0" rotate="7.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c9" fill="#009918" height="40.0" layoutX="1038.0" layoutY="391.0" rotate="9.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b9" fill="#009918" height="40.0" layoutX="992.0" layoutY="393.0" rotate="11.25" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a9" fill="#009918" height="40.0" layoutX="943.0" layoutY="401.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a10" fill="#009918" height="40.0" layoutX="921.0" layoutY="452.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="a11" fill="#009918" height="40.0" layoutX="887.0" layoutY="498.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b12" fill="#009918" height="40.0" layoutX="919.0" layoutY="530.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c13" fill="#009918" height="40.0" layoutX="951.0" layoutY="562.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d14" fill="#009918" height="40.0" layoutX="983.0" layoutY="594.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e15" fill="#009918" height="40.0" layoutX="1015.0" layoutY="626.0" rotate="45.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b10" fill="#009918" height="40.0" layoutX="976.0" layoutY="443.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="b11" fill="#009918" height="40.0" layoutX="951.0" layoutY="490.0" rotate="33.75" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c10" fill="#009918" height="40.0" layoutX="1027.0" layoutY="437.0" rotate="18.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c11" fill="#009918" height="40.0" layoutX="1009.0" layoutY="481.0" rotate="27.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="c12" fill="#009918" height="40.0" layoutX="983.0" layoutY="523.0" rotate="36.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d13" fill="#009918" height="40.0" layoutX="1014.0" layoutY="558.0" rotate="37.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d12" fill="#009918" height="40.0" layoutX="1040.0" layoutY="520.0" rotate="30.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d11" fill="#009918" height="40.0" layoutX="1061.0" layoutY="479.0" rotate="22.5" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="d10" fill="#009918" height="40.0" layoutX="1075.0" layoutY="435.0" rotate="15.0" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e10" fill="#009918" height="40.0" layoutX="1122.0" layoutY="434.0" rotate="12.55" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e11" fill="#009918" height="40.0" layoutX="1110.0" layoutY="477.0" rotate="19.08" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e12" fill="#009918" height="40.0" layoutX="1093.0" layoutY="518.0" rotate="25.61" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e13" fill="#009918" height="40.0" layoutX="1071.0" layoutY="557.0" rotate="32.14" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-      <Rectangle fx:id="e14" fill="#009918" height="40.0" layoutX="1045.0" layoutY="593.0" rotate="38.57" stroke="BLACK" strokeType="OUTSIDE" width="40.0" />
-
-<!--      <Label fx:id="lbla1" layoutX="957.0" layoutY="37.0" text="A1">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla2" layoutX="957.0" layoutY="82.0" text="A2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla3" layoutX="957.0" layoutY="126.0" text="A3">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla4" layoutX="957.0" layoutY="171.0" text="A4">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla6" layoutX="957.0" layoutY="216.0" text="A5">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla11" layoutX="957.0" layoutY="261.0" text="A6">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla7" layoutX="957.0" layoutY="306.0" text="A7">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbla8" layoutX="957.0" layoutY="350.0" text="A8">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb1" layoutX="1001.0" layoutY="38.0" text="B1">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb2" layoutX="1001.0" layoutY="82.0" text="B2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb3" layoutX="1001.0" layoutY="126.0" text="B3">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb4" layoutX="1001.0" layoutY="172.0" text="B4">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb5" layoutX="1001.0" layoutY="216.0" text="B5">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb6" layoutX="1001.0" layoutY="261.0" text="B6">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb7" layoutX="1001.0" layoutY="306.0" text="B7">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblb8" layoutX="1001.0" layoutY="350.0" text="B8">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>-->
     </children>
 </AnchorPane>

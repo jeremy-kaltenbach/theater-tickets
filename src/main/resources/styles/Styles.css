@@ -4,6 +4,7 @@
 
 .button {
     -fx-font-weight: bold;
+    -fx-cursor: hand
 }
 
 .form-label {
@@ -20,5 +21,21 @@
 
 .seat-label {
     -fx-font: 20px "Arial";
+    -fx-cursor: hand;
+}
+
+.seat-open {
+    -fx-cursor: hand;
+    -fx-fill: #009918;    
+}
+
+.seat-occupied {
+    -fx-cursor: hand;
+    -fx-fill: #aaaaaa;
+}
+
+.seat-selected {
+    -fx-cursor: hand;
+    -fx-fill: #4286f4;
 }
 

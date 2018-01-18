@@ -13,7 +13,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 import org.sawmill.theater.ticketing.model.Showtime;
 import org.sawmill.theater.ticketing.service.TheatreService;
@@ -29,16 +28,6 @@ public class MainController implements Initializable {
     @FXML
     private Button btnAddShowtime;
     
-    @FXML
-    private Polygon e36;
-    @FXML
-    private Polygon d42;
-    @FXML
-    private Polygon c38;
-    @FXML
-    private Polygon b34;
-    @FXML
-    private Polygon a30;
     
     public void setTheatreService(TheatreService service) {
         this.theatreService = service;
@@ -58,7 +47,7 @@ public class MainController implements Initializable {
     }
     
     /**
-     * When this method is called, it will change the Scene to a New showtime form
+     * When this method is called, it will change the Scene to a New Show form
      */
     public void showNewShowtime(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NewShowtime.fxml"));

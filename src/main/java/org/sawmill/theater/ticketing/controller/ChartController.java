@@ -5,13 +5,16 @@
  */
 package org.sawmill.theater.ticketing.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import org.sawmill.theater.ticketing.service.TheatreService;
@@ -24,7 +27,27 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class ChartController implements Initializable {
     
-    private static final String[] SEAT_LABELS = {"a1", "b1", "c1", "d1", "e1"};
+    
+    private static final String[] SECTION_ONE_SEAT_LABELS = 
+      {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10", "a11", "b1", "b2", "b3", "b4", "b5", "b6", 
+       "b7", "b8", "b9", "b10", "b11", "b12", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", 
+       "c12", "c13", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", 
+       "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e10", "e11", "e12", "e13", "e14", "e15"};
+    
+    private static final String[] SECTION_TWO_SEAT_LABELS = 
+      {"a12", "a13", "a14", "a15", "b13", "b14", "b15", "b16", "b17", "c14", "c15", "c16", "c17", "c18", "c19",
+       "d15", "d16", "d17", "d18", "d19", "d20", "d21", "e16", "e17", "e18"};
+    
+    private static final String[] SECTION_THREE_SEAT_LABELS = 
+      {"a16", "a17", "a18", "a19", "b18", "b19", "b20", "b21", "b22", "c20", "c21", "c22", "c23", "c24", "c25",
+       "d22", "d23", "d24", "d25", "d26", "d27", "d28", "e19", "e20", "e21"};
+    
+    private static final String[] SECTION_FOUR_SEAT_LABELS = 
+      {"a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "b23", "b24", "b25", "b26", 
+       "b27", "b28", "b29", "b30", "b31", "b32", "b33", "b34", "c26", "c27", "c28", "c29", "c30", "c31", "c32", 
+       "c33", "c34", "c35", "c36", "c37", "c38", "d29", "d30", "d31", "d32", "d33", "d34", "d35", "d36", "d37", 
+       "d38", "d39", "d40", "d41", "d42", "e22", "e23", "e24", "e25", "e26", "e27", "e28", "e29", "e30", "e31", 
+       "e32", "e33", "e34", "e35", "e36"};
     
     @Autowired
     private TheatreService theatreService;
@@ -404,14 +427,27 @@ public class ChartController implements Initializable {
     }
 
     public void setUpSeatLabels(Scene scene) {
-        for (int i = 0; i < SEAT_LABELS.length; i++) {
-            Rectangle seat = (Rectangle)scene.lookup("#" + SEAT_LABELS[i]);
+        addLabelsForSeatSection(scene, SECTION_ONE_SEAT_LABELS);
+        addLabelsForSeatSection(scene, SECTION_TWO_SEAT_LABELS);
+        addLabelsForSeatSection(scene, SECTION_THREE_SEAT_LABELS);
+        addLabelsForSeatSection(scene, SECTION_FOUR_SEAT_LABELS);
+    }
+    
+    private void addLabelsForSeatSection(Scene scene, String[] sectionSeats) {
+        for (int i = 0; i < sectionSeats.length; i++) {
+            Rectangle seat = (Rectangle)scene.lookup("#" + sectionSeats[i]);
             StackPane parent = (StackPane)seat.getParent();
-            Label seatLabel = new Label(SEAT_LABELS[i].toUpperCase());
+            Label seatLabel = new Label(sectionSeats[i].toUpperCase());
             seatLabel.getStyleClass().clear();
             seatLabel.getStyleClass().add("seat-label");
             parent.getChildren().add(seatLabel);
         }
     }
     
+    public void seatSelected(MouseEvent event) throws IOException {
+        StackPane seatPane = ((StackPane)event.getSource());
+        Rectangle selectedSeat = (Rectangle)seatPane.getChildren().get(0);
+        System.out.println("Selected seat: " + selectedSeat.getId());
+    }
+     
 }

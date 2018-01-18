@@ -38,14 +38,8 @@
       <Label fx:id="lblDateError" layoutX="756.0" layoutY="437.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please select a date" textFill="RED" />
       <Label fx:id="lblTimeError" layoutX="756.0" layoutY="517.0" prefHeight="30.0" prefWidth="361.0" styleClass="form-label" text="* Please enter a time" textFill="RED" />
       <Button fx:id="btnSubmit" layoutX="65.0" layoutY="805.0" mnemonicParsing="false" onAction="#validateFields" prefHeight="44.0" prefWidth="150.0" text="Submit">
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
       </Button>
       <Button fx:id="btnCancel" layoutX="241.0" layoutY="805.0" mnemonicParsing="false" onAction="#showMain" prefHeight="44.0" prefWidth="150.0" text="Cancel">
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
       </Button>
    </children>    
 </AnchorPane>
