@@ -85,6 +85,27 @@ public class MainController implements Initializable {
         window.show();
     }
     
+    
+    /**
+     * When this method is called, it will change the Scene to a Delete Show form
+     */
+    public void updateSeats(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
+        Parent tableViewParent = loader.load();
+        ChartController controller = loader.getController();
+        controller.setTheatreService(theatreService);
+        Scene tableViewScene = new Scene(tableViewParent);
+        controller.setScene(tableViewScene);
+        controller.setUpSeatLabels();
+        controller.getShowtimes();
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();
+    }
+    
     public void closeApplication() {
         Platform.exit();
     }

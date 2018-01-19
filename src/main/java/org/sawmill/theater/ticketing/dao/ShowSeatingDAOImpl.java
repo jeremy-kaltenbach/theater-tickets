@@ -10,16 +10,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.sawmill.theater.ticketing.model.ShowSeating;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author jeremy
  */
+@Service
 public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
     private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";
@@ -64,22 +67,32 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     }
 
     @Override
-    public void addShowSeat(ShowSeating seat) {
+    public ShowSeating addShowSeat(ShowSeating seat) {
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(ADD_SHOWSEAT);
-            stmt.setInt(1, seat.getSection());
-            stmt.setString(2, seat.getRow());
-            stmt.setInt(3, seat.getSeatNumber());
-            stmt.setString(4, seat.getLastName());
-            stmt.setString(5, seat.getFirstName());
-            stmt.setInt(6, seat.getSeatId());
+            stmt.setInt(1, seat.getShowId());
+            stmt.setInt(2, seat.getSection());
+            stmt.setString(3, seat.getRow());
+            stmt.setInt(4, seat.getSeatNumber());
+            stmt.setString(5, seat.getLastName());
+            stmt.setString(6, seat.getFirstName());
             stmt.execute();
+            
+            Statement stmt2 = conn.createStatement();
+            ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()");
+            if (generatedKeys.next()) {
+                int generatedKey = generatedKeys.getInt(1);
+                seat.setSeatId(generatedKey);
+            }
+           
             stmt.close();
             conn.close();
+            
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return seat;
     }
 
     @Override
@@ -87,12 +100,12 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWSEAT);
-            stmt.setInt(1, seat.getShowId());
-            stmt.setInt(2, seat.getSection());
-            stmt.setString(3, seat.getRow());
-            stmt.setInt(4, seat.getSeatNumber());
-            stmt.setString(5, seat.getLastName());
-            stmt.setString(6, seat.getFirstName());
+            stmt.setInt(1, seat.getSection());
+            stmt.setString(2, seat.getRow());
+            stmt.setInt(3, seat.getSeatNumber());
+            stmt.setString(4, seat.getLastName());
+            stmt.setString(5, seat.getFirstName());
+            stmt.setInt(6, seat.getSeatId());
             stmt.execute();
             stmt.close();
             conn.close();

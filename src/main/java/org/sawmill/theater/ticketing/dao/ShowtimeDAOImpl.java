@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,6 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";
     
     private static final String GET_ALL_SHOWTIMES = "SELECT SHOW_ID, SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME";
-    private static final String GET_SHOWTIMES_BY_NAME = "SELECT SHOW_ID, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME WHERE SHOW_NAME=?";
     private static final String ADD_SHOWTIME = "INSERT INTO SHOWTIME (SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED) VALUES (?, ?, ?, ?)";
     private static final String UPDATE_SHOWTIME = "UPDATE SHOWTIME SET SHOW_NAME=?, THEATRE_GROUP=?, SHOW_DATE=?, LAST_UPDATED=? WHERE SHOW_ID=?";
     private static final String REMOVE_SHOWTIME = "DELETE FROM SHOWTIME WHERE SHOW_ID=?";
@@ -74,7 +74,7 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     }
 
     @Override
-    public void addShowtime(Showtime showtime) {
+    public Showtime addShowtime(Showtime showtime) {
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -84,11 +84,20 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
             stmt.setDate(3, new java.sql.Date(showtime.getShowDate().getTime()));
             stmt.setDate(4, new java.sql.Date(showtime.getLastUpdated().getTime()));
             stmt.execute();
+            
+            Statement stmt2 = conn.createStatement();
+            ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()");
+            if (generatedKeys.next()) {
+                int generatedKey = generatedKeys.getInt(1);
+                showtime.setShowId(generatedKey);
+            }
+            
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return showtime;
     }
 
     @Override

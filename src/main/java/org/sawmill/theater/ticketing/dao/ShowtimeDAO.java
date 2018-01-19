@@ -17,7 +17,7 @@ import org.sawmill.theater.ticketing.model.Showtime;
 public interface ShowtimeDAO {
     
     public List<Showtime> getShowtimes();
-    public void addShowtime(Showtime showtime);
+    public Showtime addShowtime(Showtime showtime);
     public void updateShowtime(Showtime showtime);
     public void deleteShowtime(int showtimeId);
     

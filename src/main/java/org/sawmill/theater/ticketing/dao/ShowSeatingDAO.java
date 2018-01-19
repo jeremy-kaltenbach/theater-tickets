@@ -15,7 +15,7 @@ import org.sawmill.theater.ticketing.model.ShowSeating;
 public interface ShowSeatingDAO {
     
     public List<ShowSeating> getShowtimeSeats(int showId);
-    public void addShowSeat(ShowSeating seat);
+    public ShowSeating addShowSeat(ShowSeating seat);
     public void updateShowSeat(ShowSeating seat);
     public void deleteShowSeat(int seatId);
     public void deleteAllShowSeats(int showId);

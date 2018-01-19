@@ -22,6 +22,7 @@ public class TheatreServiceImpl implements TheatreService {
     
     @Autowired
     private ShowtimeDAO showTimeDAO;
+    @Autowired
     private ShowSeatingDAO showSeatingDAO;
 
     @Override
@@ -30,8 +31,8 @@ public class TheatreServiceImpl implements TheatreService {
     }
 
     @Override
-    public void addShowtime(Showtime showtime) {
-        showTimeDAO.addShowtime(showtime);
+    public Showtime addShowtime(Showtime showtime) {
+        return showTimeDAO.addShowtime(showtime);
     }
 
     @Override
@@ -50,8 +51,8 @@ public class TheatreServiceImpl implements TheatreService {
     }
 
     @Override
-    public void addShowSeat(ShowSeating seat) {
-        showSeatingDAO.addShowSeat(seat);
+    public ShowSeating addShowSeat(ShowSeating seat) {
+        return showSeatingDAO.addShowSeat(seat);
     }
 
     @Override

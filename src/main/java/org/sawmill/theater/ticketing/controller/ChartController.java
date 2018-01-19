@@ -7,7 +7,15 @@ package org.sawmill.theater.ticketing.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +23,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import org.sawmill.theater.ticketing.model.ShowSeating;
+import org.sawmill.theater.ticketing.model.Showtime;
 import org.sawmill.theater.ticketing.service.TheatreService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -49,376 +67,58 @@ public class ChartController implements Initializable {
       {"a20", "a21", "a22", "a23", "a24", "a25", "a26", "a27", "a28", "a29", "a30", "b23", "b24", "b25", "b26", 
        "b27", "b28", "b29", "b30", "b31", "b32", "b33", "b34", "c26", "c27", "c28", "c29", "c30", "c31", "c32", 
        "c33", "c34", "c35", "c36", "c37", "c38", "d29", "d30", "d31", "d32", "d33", "d34", "d35", "d36", "d37", 
-       "d38", "d39", "d40", "d41", "d42", "e22", "e23", "e24", "e25", "e26", "e27", "e28", "e29", "e30", "e31", 
+       "d38", "d39", "d40", "d41", "d42", "e22", "e23", "e24", "e25", "e26", "e27", "e28", "e29", "e30", "e31",
        "e32", "e33", "e34", "e35", "e36"};
+    
+    // Validation error messages
+    private static final String FULL_NAME_MISSING_ERROR = "* Please enter a name";
+    private static final String FIRST_NAME_MISSING_ERROR = "* Please enter first name";
+    private static final String LAST_NAME_MISSING_ERROR = "* Please enter last name";
+    private static final String FIRST_NAME_TOO_LONG = "* First name is too long";
+    private static final String LAST_NAME_TOO_LONG = "* Last name is too long";
+    private static final String SEAT_OPEN_ERROR = "* Seat is open";
     
     @Autowired
     private TheatreService theatreService;
-
-    @FXML
-    private Rectangle e36;
-    @FXML
-    private Rectangle d42;
-    @FXML
-    private Rectangle c38;
-    @FXML
-    private Rectangle b34;
-    @FXML
-    private Rectangle a30;
-    @FXML
-    private Rectangle a1;
-    @FXML
-    private Rectangle b1;
-    @FXML
-    private Rectangle c1;
-    @FXML
-    private Rectangle d1;
-    @FXML
-    private Rectangle e1;
-    @FXML
-    private Rectangle e35;
-    @FXML
-    private Rectangle d41;
-    @FXML
-    private Rectangle c37;
-    @FXML
-    private Rectangle b33;
-    @FXML
-    private Rectangle a29;
-    @FXML
-    private Rectangle a2;
-    @FXML
-    private Rectangle b2;
-    @FXML
-    private Rectangle c2;
-    @FXML
-    private Rectangle d2;
-    @FXML
-    private Rectangle e2;
-    @FXML
-    private Rectangle e34;
-    @FXML
-    private Rectangle d40;
-    @FXML
-    private Rectangle c36;
-    @FXML
-    private Rectangle b32;
-    @FXML
-    private Rectangle a28;
-    @FXML
-    private Rectangle a3;
-    @FXML
-    private Rectangle b3;
-    @FXML
-    private Rectangle c3;
-    @FXML
-    private Rectangle d3;
-    @FXML
-    private Rectangle e3;
-    @FXML
-    private Rectangle e33;
-    @FXML
-    private Rectangle d39;
-    @FXML
-    private Rectangle c35;
-    @FXML
-    private Rectangle b31;
-    @FXML
-    private Rectangle a27;
-    @FXML
-    private Rectangle a4;
-    @FXML
-    private Rectangle b4;
-    @FXML
-    private Rectangle c4;
-    @FXML
-    private Rectangle d4;
-    @FXML
-    private Rectangle e4;
-    @FXML
-    private Rectangle e32;
-    @FXML
-    private Rectangle d38;
-    @FXML
-    private Rectangle c34;
-    @FXML
-    private Rectangle b30;
-    @FXML
-    private Rectangle a26;
-    @FXML
-    private Rectangle a5;
-    @FXML
-    private Rectangle b5;
-    @FXML
-    private Rectangle c5;
-    @FXML
-    private Rectangle d5;
-    @FXML
-    private Rectangle e5;
-    @FXML
-    private Rectangle e31;
-    @FXML
-    private Rectangle d37;
-    @FXML
-    private Rectangle c33;
-    @FXML
-    private Rectangle b29;
-    @FXML
-    private Rectangle a25;
-    @FXML
-    private Rectangle a6;
-    @FXML
-    private Rectangle b6;
-    @FXML
-    private Rectangle c6;
-    @FXML
-    private Rectangle d6;
-    @FXML
-    private Rectangle e6;
-    @FXML
-    private Rectangle e30;
-    @FXML
-    private Rectangle d36;
-    @FXML
-    private Rectangle c32;
-    @FXML
-    private Rectangle b28;
-    @FXML
-    private Rectangle a24;
-    @FXML
-    private Rectangle a7;
-    @FXML
-    private Rectangle b7;
-    @FXML
-    private Rectangle c7;
-    @FXML
-    private Rectangle d7;
-    @FXML
-    private Rectangle e7;
-    @FXML
-    private Rectangle e29;
-    @FXML
-    private Rectangle d35;
-    @FXML
-    private Rectangle c31;
-    @FXML
-    private Rectangle b27;
-    @FXML
-    private Rectangle a23;
-    @FXML
-    private Rectangle a8;
-    @FXML
-    private Rectangle b8;
-    @FXML
-    private Rectangle c8;
-    @FXML
-    private Rectangle d8;
-    @FXML
-    private Rectangle e8;
-    @FXML
-    private Rectangle a12;
-    @FXML
-    private Rectangle b13;
-    @FXML
-    private Rectangle c14;
-    @FXML
-    private Rectangle d15;
-    @FXML
-    private Rectangle e16;
-    @FXML
-    private Rectangle a15;
-    @FXML
-    private Rectangle b17;
-    @FXML
-    private Rectangle c19;
-    @FXML
-    private Rectangle d21;
-    @FXML
-    private Rectangle a14;
-    @FXML
-    private Rectangle a13;
-    @FXML
-    private Rectangle b16;
-    @FXML
-    private Rectangle b15;
-    @FXML
-    private Rectangle b14;
-    @FXML
-    private Rectangle c18;
-    @FXML
-    private Rectangle c17;
-    @FXML
-    private Rectangle c16;
-    @FXML
-    private Rectangle c15;
-    @FXML
-    private Rectangle d20;
-    @FXML
-    private Rectangle d19;
-    @FXML
-    private Rectangle d18;
-    @FXML
-    private Rectangle d17;
-    @FXML
-    private Rectangle d16;
-    @FXML
-    private Rectangle e17;
-    @FXML
-    private Rectangle e18;
-    @FXML
-    private Rectangle a16;
-    @FXML
-    private Rectangle b18;
-    @FXML
-    private Rectangle c20;
-    @FXML
-    private Rectangle d22;
-    @FXML
-    private Rectangle a17;
-    @FXML
-    private Rectangle b19;
-    @FXML
-    private Rectangle c21;
-    @FXML
-    private Rectangle d23;
-    @FXML
-    private Rectangle a18;
-    @FXML
-    private Rectangle b20;
-    @FXML
-    private Rectangle c22;
-    @FXML
-    private Rectangle d24;
-    @FXML
-    private Rectangle a19;
-    @FXML
-    private Rectangle b22;
-    @FXML
-    private Rectangle c25;
-    @FXML
-    private Rectangle d28;
-    @FXML
-    private Rectangle e21;
-    @FXML
-    private Rectangle b21;
-    @FXML
-    private Rectangle c23;
-    @FXML
-    private Rectangle d25;
-    @FXML
-    private Rectangle c24;
-    @FXML
-    private Rectangle d26;
-    @FXML
-    private Rectangle d27;
-    @FXML
-    private Rectangle e20;
-    @FXML
-    private Rectangle e19;
-    @FXML
-    private Rectangle a22;
-    @FXML
-    private Rectangle a21;
-    @FXML
-    private Rectangle a20;
-    @FXML
-    private Rectangle b23;
-    @FXML
-    private Rectangle c26;
-    @FXML
-    private Rectangle d29;
-    @FXML
-    private Rectangle e22;
-    @FXML
-    private Rectangle b26;
-    @FXML
-    private Rectangle b25;
-    @FXML
-    private Rectangle b24;
-    @FXML
-    private Rectangle c30;
-    @FXML
-    private Rectangle c29;
-    @FXML
-    private Rectangle c28;
-    @FXML
-    private Rectangle c27;
-    @FXML
-    private Rectangle d30;
-    @FXML
-    private Rectangle d31;
-    @FXML
-    private Rectangle d32;
-    @FXML
-    private Rectangle d33;
-    @FXML
-    private Rectangle d34;
-    @FXML
-    private Rectangle e28;
-    @FXML
-    private Rectangle e27;
-    @FXML
-    private Rectangle e26;
-    @FXML
-    private Rectangle e25;
-    @FXML
-    private Rectangle e24;
-    @FXML
-    private Rectangle e23;
-    @FXML
-    private Rectangle e9;
-    @FXML
-    private Rectangle d9;
-    @FXML
-    private Rectangle c9;
-    @FXML
-    private Rectangle b9;
-    @FXML
-    private Rectangle a9;
-    @FXML
-    private Rectangle a10;
-    @FXML
-    private Rectangle a11;
-    @FXML
-    private Rectangle b12;
-    @FXML
-    private Rectangle c13;
-    @FXML
-    private Rectangle d14;
-    @FXML
-    private Rectangle e15;
-    @FXML
-    private Rectangle b10;
-    @FXML
-    private Rectangle b11;
-    @FXML
-    private Rectangle c10;
-    @FXML
-    private Rectangle c11;
-    @FXML
-    private Rectangle c12;
-    @FXML
-    private Rectangle d13;
-    @FXML
-    private Rectangle d12;
-    @FXML
-    private Rectangle d11;
-    @FXML
-    private Rectangle d10;
-    @FXML
-    private Rectangle e10;
-    @FXML
-    private Rectangle e11;
-    @FXML
-    private Rectangle e12;
-    @FXML
-    private Rectangle e13;
-    @FXML
-    private Rectangle e14;
     
+    private Scene parentScene;
+    
+    private final List<String> sectionOneSeats = Arrays.asList(SECTION_ONE_SEAT_LABELS);
+    private final List<String> sectionTwoSeats = Arrays.asList(SECTION_TWO_SEAT_LABELS);
+    private final List<String> sectionThreeSeats = Arrays.asList(SECTION_THREE_SEAT_LABELS);
+    private final List<String> sectionFourSeats = Arrays.asList(SECTION_FOUR_SEAT_LABELS);
+    
+    @FXML private ComboBox<Showtime> cmboBxSelectShow;
+    @FXML private Label lblGroupOutput;
+    @FXML private Label lblDateOutput;
+    @FXML private Label lblSectionOutput;
+    @FXML private Label lblRowOutput;
+    @FXML private Label lblSeatOutput;
+    
+    @FXML private Label lblNameError;
+    
+    @FXML private TextField txtBxFirstName;
+    @FXML private TextField txtBxLastName;
+    @FXML private Button btnAdd;
+    @FXML private Button btnDelete;
+    
+    private Rectangle previousSelectedSeat;
+    private String previousSelectedSeatStyle;
+    
+    private int seatSection;
+    private String seatRow;
+    private int seatNumber;
+    
+    private boolean showSelected = false;
+    private boolean editMode = false;
+    private Map<String, ShowSeating> occupiedSeats;
     
     public void setTheatreService(TheatreService service) {
         theatreService = service;
+    }
+    
+    public void setScene(Scene scene) {
+        parentScene = scene;
     }
 
     /**
@@ -426,7 +126,10 @@ public class ChartController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        hideErrorLabel();
+        btnAdd.setDisable(true);
+        btnDelete.setDisable(true);
+        occupiedSeats = new HashMap<String, ShowSeating>();
     }
     
     public void showMain(ActionEvent event) throws IOException {
@@ -444,16 +147,16 @@ public class ChartController implements Initializable {
         window.show();
     }
 
-    public void setUpSeatLabels(Scene scene) {
-        addLabelsForSeatSection(scene, SECTION_ONE_SEAT_LABELS);
-        addLabelsForSeatSection(scene, SECTION_TWO_SEAT_LABELS);
-        addLabelsForSeatSection(scene, SECTION_THREE_SEAT_LABELS);
-        addLabelsForSeatSection(scene, SECTION_FOUR_SEAT_LABELS);
+    public void setUpSeatLabels() {
+        addLabelsForSeatSection(SECTION_ONE_SEAT_LABELS);
+        addLabelsForSeatSection(SECTION_TWO_SEAT_LABELS);
+        addLabelsForSeatSection(SECTION_THREE_SEAT_LABELS);
+        addLabelsForSeatSection(SECTION_FOUR_SEAT_LABELS);
     }
     
-    private void addLabelsForSeatSection(Scene scene, String[] sectionSeats) {
+    private void addLabelsForSeatSection(String[] sectionSeats) {
         for (int i = 0; i < sectionSeats.length; i++) {
-            Rectangle seat = (Rectangle)scene.lookup("#" + sectionSeats[i]);
+            Rectangle seat = (Rectangle)parentScene.lookup("#" + sectionSeats[i]);
             StackPane parent = (StackPane)seat.getParent();
             Label seatLabel = new Label(sectionSeats[i].toUpperCase());
             seatLabel.getStyleClass().clear();
@@ -462,12 +165,257 @@ public class ChartController implements Initializable {
         }
     }
     
+    public void getShowtimes() {
+        
+        DateFormat df = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
+        List<Showtime> showtimeList = theatreService.getShowtimes();
+              
+        // Set the combo box to the list of showtimes and give it a custom display
+        Callback<ListView<Showtime>, ListCell<Showtime>> factory = lv -> new ListCell<Showtime>() {
+            @Override
+            protected void updateItem(Showtime item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getShowName());
+            }
+        };
+        cmboBxSelectShow.setCellFactory(factory);
+        cmboBxSelectShow.setButtonCell(factory.call(null));
+        cmboBxSelectShow.getItems().addAll(showtimeList);
+    }
+    
+    public void setSelectedShowtime(Showtime newShow) {
+        List<Showtime> showtimes = cmboBxSelectShow.getItems();
+        for (Showtime showtime : showtimes) {
+            if (showtime.getShowId() == newShow.getShowId()) {
+                cmboBxSelectShow.setValue(showtime);
+            }
+        }
+        
+        showSelected();
+    }
+    
     public void seatSelected(MouseEvent event) throws IOException {
+        
+        hideErrorLabel();
+        
         StackPane seatPane = ((StackPane)event.getSource());
         Rectangle selectedSeat = (Rectangle)seatPane.getChildren().get(0);
-        System.out.println("Selected seat: " + selectedSeat.getId());
+        String seatId = selectedSeat.getId();
+        
+        if (previousSelectedSeat != null) {
+            previousSelectedSeat.getStyleClass().clear();
+            previousSelectedSeat.getStyleClass().add(previousSelectedSeatStyle);
+        }
+        previousSelectedSeat = selectedSeat;
+        previousSelectedSeatStyle = selectedSeat.getStyleClass().get(0);
+        
+        System.out.println("Selected seat: " + seatId);
         selectedSeat.getStyleClass().clear();
         selectedSeat.getStyleClass().add("seat-selected");
+        
+        //Find out which section the seat is located
+        if (sectionOneSeats.contains(seatId)) {
+            seatSection = 1;
+        }
+        else if (sectionTwoSeats.contains(seatId)) {
+            seatSection = 2;
+        }
+        else if (sectionThreeSeats.contains(seatId)) {
+            seatSection = 3;
+        }
+        else {
+            seatSection = 4;
+        }
+        
+        seatRow = seatId.substring(0, 1).toUpperCase();
+        seatNumber = Integer.parseInt(seatId.substring(1));
+        
+        lblSectionOutput.setText(String.valueOf(seatSection));
+        lblRowOutput.setText(seatRow);
+        lblSeatOutput.setText(String.valueOf(seatNumber));
+        
+
+        // Enabled buttons for adding/updating and deleting seat
+        if (showSelected) {
+            
+            // If seat is occupied, then show the name of the person
+            if (occupiedSeats.containsKey(seatId)) {
+                ShowSeating seat = occupiedSeats.get(seatId);
+                txtBxFirstName.setText(seat.getFirstName());
+                txtBxLastName.setText(seat.getLastName());
+                
+                btnAdd.setText("Update");
+                btnDelete.setDisable(false);
+                editMode = true;
+            }
+            else {
+                txtBxFirstName.setText("");
+                txtBxLastName.setText("");
+                btnAdd.setText("Add");
+                btnDelete.setDisable(true);
+                editMode = false;
+            }
+            
+            btnAdd.setDisable(false);
+        }
+    }
+    
+    public void showSelected() {
+        
+        hideErrorLabel();
+        
+        // Clear occupied seats (if any)
+        for (String seatId : occupiedSeats.keySet()) {
+            Rectangle occupiedSeat = (Rectangle)parentScene.lookup("#" + seatId);
+            occupiedSeat.getStyleClass().clear();
+            occupiedSeat.getStyleClass().add("seat-open");
+        }
+        
+        // Remove previously selected seat
+        previousSelectedSeat = null;
+        
+        DateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
+        
+        Showtime selectedShow = cmboBxSelectShow.getValue();
+        
+        lblGroupOutput.setText(selectedShow.getTheatreGroup());
+        lblDateOutput.setText(dateFormat.format(selectedShow.getShowDate()));
+        
+        showSelected = true;
+        
+        setOccupiedSeats();
+    }
+    
+    private void setOccupiedSeats() {
+        
+        occupiedSeats = new HashMap<String, ShowSeating>();
+        
+        List<ShowSeating> seatList = theatreService.getShowtimeSeats(cmboBxSelectShow.getValue().getShowId());
+        for (ShowSeating seat : seatList) {
+            String seatId = seat.getRow().toLowerCase() + String.valueOf(seat.getSeatNumber());
+            Rectangle occupiedSeat = (Rectangle)parentScene.lookup("#" + seatId);
+            occupiedSeat.getStyleClass().clear();
+            occupiedSeat.getStyleClass().add("seat-occupied");
+            
+            occupiedSeats.put(seatId, seat);
+        }
+    }
+    
+    public void modifySeat(ActionEvent event) {
+        
+        boolean isValid = true;
+        
+        hideErrorLabel();
+        
+        String firstName = txtBxFirstName.getText();
+        String lastName = txtBxLastName.getText();
+        
+        // Validate first and last name
+        if (firstName.isEmpty() && lastName.isEmpty()) {
+            // Check for empty fields for both
+            lblNameError.setText(FULL_NAME_MISSING_ERROR);
+            lblNameError.setVisible(true);
+            isValid = false;
+        }
+        else if (firstName.isEmpty()) {
+            // Check for empty field in first name
+            lblNameError.setText(FIRST_NAME_MISSING_ERROR);
+            lblNameError.setVisible(true);
+            isValid = false;
+        }
+        else if (lastName.isEmpty()) {
+            // Check for empty field in last name
+            lblNameError.setText(LAST_NAME_MISSING_ERROR);
+            lblNameError.setVisible(true);
+            isValid = false;
+        }        
+        else if (firstName.length() > 255) {
+            // Check if first name is too long
+            lblNameError.setText(FIRST_NAME_TOO_LONG);
+            lblNameError.setVisible(true);
+            isValid = false;
+        }
+        else if (lastName.length() > 255) {
+            // Check if first name is too long
+            lblNameError.setText(LAST_NAME_TOO_LONG);
+            lblNameError.setVisible(true);
+            isValid = false;
+        }
+        
+        if (isValid) {
+            System.out.println("Name is valid");
+            if (editMode) {
+                updateSeat(firstName, lastName);
+            }
+            else {
+                addSeat(firstName, lastName);
+            }
+        }
+    }
+    
+    private void addSeat(String firstName, String lastName) {
+        ShowSeating newSeat = new ShowSeating();
+        newSeat.setShowId(cmboBxSelectShow.getValue().getShowId());
+        newSeat.setSection(seatSection);
+        newSeat.setRow(seatRow);
+        newSeat.setSeatNumber(seatNumber);
+        newSeat.setFirstName(firstName);
+        newSeat.setLastName(lastName);
+        
+        // Returned seat will have its generated ID
+        newSeat = theatreService.addShowSeat(newSeat);
+        
+        // Set this as the previous selected seat so it shows as occupied when selecting another
+        String seatId = seatRow.toLowerCase() + seatNumber;
+        Rectangle occupiedSeat = (Rectangle)parentScene.lookup("#" + seatId);
+        previousSelectedSeat = occupiedSeat;
+        previousSelectedSeatStyle = "seat-occupied";
+        
+        occupiedSeats.put(seatId, newSeat);
+        
+        btnAdd.setText("Update");
+        editMode = true;
+        
+    }
+    
+    private void updateSeat(String firstName, String lastName) {
+        
+        ShowSeating seat = occupiedSeats.get(seatRow.toLowerCase() + seatNumber);
+        seat.setFirstName(firstName);
+        seat.setLastName(lastName);
+        
+        theatreService.updateShowSeat(seat);
+    }
+    
+    public void deleteSeat(ActionEvent event) {
+         
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Delete");
+        alert.setHeaderText("Are you sure you want to remove this seat?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            
+            String seatId = seatRow.toLowerCase() + seatNumber;
+            ShowSeating seat = occupiedSeats.get(seatId);
+            theatreService.deleteShowSeat(seat.getSeatId());
+            
+            // Set this as the previous selected seat so it shows as open when selecting another
+            Rectangle occupiedSeat = (Rectangle)parentScene.lookup("#" + seatId);
+            previousSelectedSeat = occupiedSeat;
+            previousSelectedSeatStyle = "seat-open";
+            
+            occupiedSeats.remove(seatId);
+            
+            txtBxFirstName.setText("");
+            txtBxLastName.setText("");
+            btnAdd.setText("Add");
+            editMode = false;
+        }
+    }
+    
+    private void hideErrorLabel() {
+        lblNameError.setVisible(false);
     }
      
 }

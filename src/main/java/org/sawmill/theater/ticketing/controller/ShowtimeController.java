@@ -60,8 +60,8 @@ public class ShowtimeController implements Initializable {
     private static final String INVALID_HOUR = "* Hour entered is invalid";
     private static final String INVALID_MINUTE = "* Minute entered is invalid";
     
-    private static final String NAME_TOO_LONG = "Name is too long";
-    private static final String GROUP_TOO_LONG = "Group is too long";
+    private static final String NAME_TOO_LONG = "* Name is too long";
+    private static final String GROUP_TOO_LONG = "* Group is too long";
     
     private static final String SHOW_NOT_SELECTED = "* Please select a show";
     
@@ -125,13 +125,16 @@ public class ShowtimeController implements Initializable {
         window.show();
     }
     
-    public void showChart(ActionEvent event) throws IOException {
+    private void showChart(ActionEvent event, Showtime newShow) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
         Parent tableViewParent = loader.load();
         ChartController controller = loader.getController();
         controller.setTheatreService(theatreService);
         Scene tableViewScene = new Scene(tableViewParent);
-        controller.setUpSeatLabels(tableViewScene);
+        controller.setScene(tableViewScene);
+        controller.setUpSeatLabels();
+        controller.getShowtimes();
+        controller.setSelectedShowtime(newShow);
         
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -160,6 +163,8 @@ public class ShowtimeController implements Initializable {
     
     public void showSelected(ActionEvent event) throws IOException, ParseException {
         
+        // Check if we're in the middle of deleting a show
+        // This event gets triggered when resetting the show select combo box for some reason
         if (!deletingShow) {
             
             hideErrorLabels();
@@ -278,8 +283,8 @@ public class ShowtimeController implements Initializable {
                 updateShowtime(showName, showGroup, showDate, hour, minute, amPm);
             }
             else {
-                saveShowtime(showName, showGroup, showDate, hour, minute, amPm);
-                showChart(event);                
+                Showtime newShow = saveShowtime(showName, showGroup, showDate, hour, minute, amPm);
+                showChart(event, newShow);                
             }
         }
         
@@ -339,7 +344,7 @@ public class ShowtimeController implements Initializable {
         return isValid;
     }
     
-    private void saveShowtime(String name, String group, LocalDate showDate, String hour, String minute, String amPm) throws ParseException {
+    private Showtime saveShowtime(String name, String group, LocalDate showDate, String hour, String minute, String amPm) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
         
         // Parse the date fields into the full datetime
@@ -351,7 +356,7 @@ public class ShowtimeController implements Initializable {
         newShow.setShowDate(df.parse(dateString));
         newShow.setLastUpdated(new Date());
         
-        theatreService.addShowtime(newShow);
+        return theatreService.addShowtime(newShow);
         
     }
     
@@ -373,7 +378,7 @@ public class ShowtimeController implements Initializable {
     
     private void deleteShowtime() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Delete");
+        alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are you sure you want to delete this show?");
         alert.setContentText("This can not be undone");
 
@@ -411,14 +416,10 @@ public class ShowtimeController implements Initializable {
     }
     
     private void setFieldsReadOnly() {
-//        txtBxShowName.setEditable(false);
         txtBxShowName.setDisable(true);
-//        txtBxGroup.setEditable(false);
         txtBxGroup.setDisable(true);
         showDatePicker.setDisable(true);
-//        txtBxTimeHour.setEditable(false);
         txtBxTimeHour.setDisable(true);
-//        txtBxTimeMinute.setEditable(false);
         txtBxTimeMinute.setDisable(true);
         cmboBxAmPm.setDisable(true);
     }

@@ -16,12 +16,12 @@ import org.sawmill.theater.ticketing.model.Showtime;
 public interface TheatreService {
     
     public List<Showtime> getShowtimes();
-    public void addShowtime(Showtime showtime);
+    public Showtime addShowtime(Showtime showtime);
     public void updateShowtime(Showtime showtime);
     public void deleteShowtime(int showtimeId);
     
     public List<ShowSeating> getShowtimeSeats(int showId);
-    public void addShowSeat(ShowSeating seat);
+    public ShowSeating addShowSeat(ShowSeating seat);
     public void updateShowSeat(ShowSeating seat);
     public void deleteShowSeat(int seatId);
     public void deleteAllShowSeats(int showId);

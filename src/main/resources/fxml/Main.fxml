@@ -21,7 +21,7 @@
       </Button>
       <Button fx:id="btnRemoveShow" layoutX="55.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Remove Show">
       </Button>
-      <Button layoutX="55.0" layoutY="551.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Add/Remove Seats">
+      <Button layoutX="55.0" layoutY="551.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" onAction="#updateSeats" styleClass="button" text="Update Seats">
       </Button>
       <Button layoutX="55.0" layoutY="612.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Print Tickets">
       </Button>
