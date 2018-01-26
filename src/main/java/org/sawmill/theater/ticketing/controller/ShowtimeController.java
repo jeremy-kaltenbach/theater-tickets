@@ -37,71 +37,77 @@ import org.apache.commons.lang3.StringUtils;
 import org.sawmill.theater.ticketing.fx.TextFieldLimited;
 import org.sawmill.theater.ticketing.model.Showtime;
 import org.sawmill.theater.ticketing.service.TheatreService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.sawmill.theater.ticketing.service.TheatreServiceImpl;
 
 /**
  *
  * @author jeremy
  */
-@Component
-public class ShowtimeController implements Initializable { 
-    
-    @Autowired
-    private TheatreService theatreService;
-    
+public class ShowtimeController implements Initializable {
+
+    private TheatreService theatreService = new TheatreServiceImpl();
+
     // Validation error messages
     private static final String NAME_MISSING_ERROR = "* Please enter a name";
-    private static final String GROUP_MISSING_ERROR= "* Please enter a group";
+    private static final String GROUP_MISSING_ERROR = "* Please enter a group";
     private static final String DATE_MISSING_ERROR = "* Please select a date";
     private static final String TIME_MISSING_ERROR = "* Please enter a time";
     private static final String HOUR_MISSING_ERROR = "* Please enter the hour";
     private static final String MINUTE_MISSING_ERROR = "* Please enter the minute";
     private static final String INVALID_HOUR = "* Hour entered is invalid";
     private static final String INVALID_MINUTE = "* Minute entered is invalid";
-    
+
     private static final String NAME_TOO_LONG = "* Name is too long";
     private static final String GROUP_TOO_LONG = "* Group is too long";
-    
+
     private static final String SHOW_NOT_SELECTED = "* Please select a show";
-    
-    @FXML private Label lblSelectShow;
-    @FXML private ComboBox<Showtime> cmboBxSelectShow;
-    @FXML private TextFieldLimited txtBxShowName;
-    @FXML private TextFieldLimited txtBxGroup;
-    @FXML private DatePicker showDatePicker;
-    @FXML private TextFieldLimited txtBxTimeHour;
-    @FXML private TextFieldLimited txtBxTimeMinute;
-    @FXML private ComboBox cmboBxAmPm;
-    
-    @FXML private Label lblShowSelectError;
-    @FXML private Label lblNameError;
-    @FXML private Label lblGroupError;
-    @FXML private Label lblDateError;
-    @FXML private Label lblTimeError;
-    
-    @FXML private Button btnSubmit;
-    
+
+    @FXML
+    private Label lblSelectShow;
+    @FXML
+    private ComboBox<Showtime> cmboBxSelectShow;
+    @FXML
+    private TextFieldLimited txtBxShowName;
+    @FXML
+    private TextFieldLimited txtBxGroup;
+    @FXML
+    private DatePicker showDatePicker;
+    @FXML
+    private TextFieldLimited txtBxTimeHour;
+    @FXML
+    private TextFieldLimited txtBxTimeMinute;
+    @FXML
+    private ComboBox cmboBxAmPm;
+
+    @FXML
+    private Label lblShowSelectError;
+    @FXML
+    private Label lblNameError;
+    @FXML
+    private Label lblGroupError;
+    @FXML
+    private Label lblDateError;
+    @FXML
+    private Label lblTimeError;
+
+    @FXML
+    private Button btnSubmit;
+
     private boolean editMode = false;
     private boolean deleteMode = false;
     private boolean deletingShow = false;
-    
-    public void setTheatreService(TheatreService service) {
-        this.theatreService = service;
-    }
-    
+
     public void setEditMode(boolean editMode) {
         this.editMode = editMode;
         toggleShowSelect(editMode);
         if (editMode) {
             getShowtimes();
             btnSubmit.setText("Update");
-        }
-        else {
+        } else {
             setDefaultTime();
         }
     }
-    
+
     public void setDeleteMode(boolean deleteMode) {
         this.deleteMode = deleteMode;
         toggleShowSelect(true);
@@ -109,45 +115,42 @@ public class ShowtimeController implements Initializable {
         setFieldsReadOnly();
         getShowtimes();
     }
-    
+
     public void showMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         Parent tableViewParent = loader.load();
-        MainController controller = loader.getController();
-        controller.setTheatreService(theatreService);
-        
+
         Scene tableViewScene = new Scene(tableViewParent);
-        
+
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         window.setScene(tableViewScene);
         window.show();
     }
-    
+
     private void showChart(ActionEvent event, Showtime newShow) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
         Parent tableViewParent = loader.load();
         ChartController controller = loader.getController();
-        controller.setTheatreService(theatreService);
         Scene tableViewScene = new Scene(tableViewParent);
         controller.setScene(tableViewScene);
         controller.setUpSeatLabels();
         controller.getShowtimes();
         controller.setSelectedShowtime(newShow);
-        
+
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         window.setScene(tableViewScene);
         window.show();
     }
-    
+
     public void getShowtimes() {
-        
+
         DateFormat df = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
         List<Showtime> showtimeList = theatreService.getShowtimes();
-              
+
         // Set the combo box to the list of showtimes and give it a custom display
         Callback<ListView<Showtime>, ListCell<Showtime>> factory = lv -> new ListCell<Showtime>() {
             @Override
@@ -160,15 +163,15 @@ public class ShowtimeController implements Initializable {
         cmboBxSelectShow.setButtonCell(factory.call(null));
         cmboBxSelectShow.getItems().addAll(showtimeList);
     }
-    
+
     public void showSelected(ActionEvent event) throws IOException, ParseException {
-        
+
         // Check if we're in the middle of deleting a show
         // This event gets triggered when resetting the show select combo box for some reason
         if (!deletingShow) {
-            
+
             hideErrorLabels();
-        
+
             // Parse out the date of the show in date and time pieces to fill the form
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             DateFormat hourFormat = new SimpleDateFormat("h");
@@ -184,144 +187,135 @@ public class ShowtimeController implements Initializable {
 
             txtBxTimeHour.setText(hourFormat.format(selectedShow.getShowDate()));
             txtBxTimeMinute.setText(minuteFormat.format(selectedShow.getShowDate()));
-            cmboBxAmPm.setValue(amPmFormat.format(selectedShow.getShowDate())); 
-            
+            cmboBxAmPm.setValue(amPmFormat.format(selectedShow.getShowDate()));
+
         }
-   
+
     }
-    
+
     public void validateFields(ActionEvent event) throws IOException, ParseException {
-        
+
         boolean isValid = true;
-        
+
         hideErrorLabels();
-        
+
         if ((editMode || deleteMode) && cmboBxSelectShow.getValue() == null) {
             lblShowSelectError.setText(SHOW_NOT_SELECTED);
             lblShowSelectError.setVisible(true);
             return;
         }
-        
+
         if (deleteMode) {
             deleteShowtime();
             return;
         }
-        
+
         String showName = txtBxShowName.getText();
         String showGroup = txtBxGroup.getText();
         LocalDate showDate = showDatePicker.getValue();
         String hour = txtBxTimeHour.getText();
         String minute = txtBxTimeMinute.getText();
         String amPm = cmboBxAmPm.getValue().toString();
-        
+
         // Validate show name
         if (showName.isEmpty()) {
             // Check for empty field
             lblNameError.setText(NAME_MISSING_ERROR);
             lblNameError.setVisible(true);
             isValid = false;
-        }
-        else if (showName.length() > 255) {
+        } else if (showName.length() > 255) {
             // Check if it's too long
             lblNameError.setText(NAME_TOO_LONG);
             lblNameError.setVisible(true);
             isValid = false;
         }
-        
+
         // Validate show group
         if (showGroup.isEmpty()) {
             // Check for empty field
             lblGroupError.setText(GROUP_MISSING_ERROR);
             lblGroupError.setVisible(true);
             isValid = false;
-        }
-        else if (showGroup.length() > 255) {
+        } else if (showGroup.length() > 255) {
             // Check if it's too long
             lblGroupError.setText(GROUP_TOO_LONG);
             lblGroupError.setVisible(true);
             isValid = false;
         }
-        
+
         // Validate show date
         if (showDate == null) {
             lblDateError.setText(DATE_MISSING_ERROR);
             lblDateError.setVisible(true);
             isValid = false;
         }
-        
+
         // Validate time
         if (hour.isEmpty() && minute.isEmpty()) {
             lblTimeError.setText(TIME_MISSING_ERROR);
             lblTimeError.setVisible(true);
             isValid = false;
-        }
-        else if (hour.isEmpty()) {
+        } else if (hour.isEmpty()) {
             lblTimeError.setText(HOUR_MISSING_ERROR);
             lblTimeError.setVisible(true);
             isValid = false;
-        }
-        else if (minute.isEmpty()) {
+        } else if (minute.isEmpty()) {
             lblTimeError.setText(MINUTE_MISSING_ERROR);
             lblTimeError.setVisible(true);
             isValid = false;
-        }
-        else if (!isValidHour(hour)) {
+        } else if (!isValidHour(hour)) {
             lblTimeError.setText(INVALID_HOUR);
             lblTimeError.setVisible(true);
             isValid = false;
-        }
-        
-        else if (!isValidMinute(minute)) {
+        } else if (!isValidMinute(minute)) {
             lblTimeError.setText(INVALID_MINUTE);
             lblTimeError.setVisible(true);
             isValid = false;
         }
-        
+
         if (isValid) {
             System.out.println("Fields are valid");
             if (editMode) {
                 updateShowtime(showName, showGroup, showDate, hour, minute, amPm);
-            }
-            else {
+            } else {
                 Showtime newShow = saveShowtime(showName, showGroup, showDate, hour, minute, amPm);
-                showChart(event, newShow);                
+                showChart(event, newShow);
             }
         }
-        
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         // Hide error labels and show selector
         hideErrorLabels();
         toggleShowSelect(false);
-             
+
         // Make sure the date picker can only be edited by selecting a date
         showDatePicker.setEditable(false);
-        
+
         // Set the character limits in the text fields
         txtBxShowName.setMaxlength(255);
         txtBxGroup.setMaxlength(255);
         txtBxTimeHour.setMaxlength(2);
         txtBxTimeMinute.setMaxlength(2);
     }
-    
+
     private void setDefaultTime() {
         // Default the show time to 7:00 PM
         txtBxTimeHour.setText("7");
         txtBxTimeMinute.setText("00");
         cmboBxAmPm.getItems().add("AM");
         cmboBxAmPm.getItems().add("PM");
-        cmboBxAmPm.setValue("PM");    
+        cmboBxAmPm.setValue("PM");
     }
-    
+
     private boolean isValidHour(String hourString) {
         boolean isValid = true;
         if (!StringUtils.isNumeric(hourString)) {
             isValid = false;
-        }
-        else {
+        } else {
             int hour = Integer.parseInt(hourString);
             if (hour < 1 || hour > 12) {
                 isValid = false;
@@ -329,13 +323,12 @@ public class ShowtimeController implements Initializable {
         }
         return isValid;
     }
-    
+
     private boolean isValidMinute(String minuteString) {
         boolean isValid = true;
         if (!StringUtils.isNumeric(minuteString)) {
             isValid = false;
-        }
-        else {
+        } else {
             int minute = Integer.parseInt(minuteString);
             if (minute < 0 || minute > 59) {
                 isValid = false;
@@ -343,39 +336,39 @@ public class ShowtimeController implements Initializable {
         }
         return isValid;
     }
-    
+
     private Showtime saveShowtime(String name, String group, LocalDate showDate, String hour, String minute, String amPm) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
-        
+
         // Parse the date fields into the full datetime
         String dateString = showDate.toString() + " " + hour + ":" + minute + " " + amPm;
-        
+
         Showtime newShow = new Showtime();
         newShow.setShowName(name);
         newShow.setTheatreGroup(group);
         newShow.setShowDate(df.parse(dateString));
         newShow.setLastUpdated(new Date());
-        
+
         return theatreService.addShowtime(newShow);
-        
+
     }
-    
+
     private void updateShowtime(String name, String group, LocalDate showDate, String hour, String minute, String amPm) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
-        
+
         // Parse the date fields into the full datetime
         String dateString = showDate.toString() + " " + hour + ":" + minute + " " + amPm;
-        
+
         Showtime updatedShow = cmboBxSelectShow.getValue();
         updatedShow.setShowName(name);
         updatedShow.setTheatreGroup(group);
         updatedShow.setShowDate(df.parse(dateString));
         updatedShow.setLastUpdated(new Date());
-        
+
         theatreService.updateShowtime(updatedShow);
-        
+
     }
-    
+
     private void deleteShowtime() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirm Delete");
@@ -383,7 +376,7 @@ public class ShowtimeController implements Initializable {
         alert.setContentText("This can not be undone");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             deletingShow = true;
             theatreService.deleteShowtime(cmboBxSelectShow.getValue().getShowId());
             cmboBxSelectShow.getItems().remove(cmboBxSelectShow.getValue());
@@ -391,13 +384,13 @@ public class ShowtimeController implements Initializable {
             resetForm();
         }
     }
-    
+
     private void toggleShowSelect(boolean isVisible) {
         // Show/Hide show selector combo box
         lblSelectShow.setVisible(isVisible);
         cmboBxSelectShow.setVisible(isVisible);
     }
-    
+
     private void hideErrorLabels() {
         lblShowSelectError.setVisible(false);
         lblNameError.setVisible(false);
@@ -405,7 +398,7 @@ public class ShowtimeController implements Initializable {
         lblDateError.setVisible(false);
         lblTimeError.setVisible(false);
     }
-    
+
     private void resetForm() {
         txtBxShowName.setText("");
         txtBxGroup.setText("");
@@ -414,7 +407,7 @@ public class ShowtimeController implements Initializable {
         txtBxTimeMinute.setText("");
         deletingShow = false;
     }
-    
+
     private void setFieldsReadOnly() {
         txtBxShowName.setDisable(true);
         txtBxGroup.setDisable(true);
@@ -423,5 +416,5 @@ public class ShowtimeController implements Initializable {
         txtBxTimeMinute.setDisable(true);
         cmboBxAmPm.setDisable(true);
     }
-    
+
 }

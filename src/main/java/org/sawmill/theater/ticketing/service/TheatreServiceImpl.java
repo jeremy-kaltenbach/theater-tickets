@@ -6,24 +6,23 @@
 package org.sawmill.theater.ticketing.service;
 
 import java.util.List;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAO;
+import org.sawmill.theater.ticketing.dao.ShowSeatingDAOImpl;
 import org.sawmill.theater.ticketing.dao.ShowtimeDAO;
+import org.sawmill.theater.ticketing.dao.ShowtimeDAOImpl;
 import org.sawmill.theater.ticketing.model.ShowSeating;
 import org.sawmill.theater.ticketing.model.Showtime;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  *
  * @author jeremy
  */
-@Service
 public class TheatreServiceImpl implements TheatreService {
-    
-    @Autowired
-    private ShowtimeDAO showTimeDAO;
-    @Autowired
-    private ShowSeatingDAO showSeatingDAO;
+
+    private ShowtimeDAO showTimeDAO = new ShowtimeDAOImpl();
+    private ShowSeatingDAO showSeatingDAO = new ShowSeatingDAOImpl();
 
     @Override
     public List<Showtime> getShowtimes() {

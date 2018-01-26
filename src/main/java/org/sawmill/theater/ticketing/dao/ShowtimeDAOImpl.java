@@ -11,23 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.sawmill.theater.ticketing.model.Showtime;
-import org.springframework.stereotype.Service;
 
 /**
  *
  * @author jeremy
  */
-@Service
 public class ShowtimeDAOImpl implements ShowtimeDAO {
     
     private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";

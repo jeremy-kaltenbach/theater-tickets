@@ -6,16 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication
 public class TicketingApplication extends Application {
-    
-    private ConfigurableApplicationContext springContext;
-    private Parent root;
-    private FXMLLoader loader;
      
     @FXML
     public Stage primaryStage;
@@ -24,16 +16,10 @@ public class TicketingApplication extends Application {
         launch(TicketingApplication.class, args);
     }
     
-    @Override
-    public void init() throws Exception {
-        springContext = SpringApplication.run(TicketingApplication.class);
-        loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
-        loader.setControllerFactory(springContext::getBean);
-        root = loader.load();
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         primaryStage.setTitle("Cook Forest Sawmill Theatre");
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add("/styles/Styles.css");
@@ -41,8 +27,4 @@ public class TicketingApplication extends Application {
         primaryStage.show();
     }
     
-    @Override
-    public void stop() throws Exception {
-        springContext.stop();
-    }
 }

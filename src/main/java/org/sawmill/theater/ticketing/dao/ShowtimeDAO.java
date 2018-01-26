@@ -5,8 +5,6 @@
  */
 package org.sawmill.theater.ticketing.dao;
 
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.List;
 import org.sawmill.theater.ticketing.model.Showtime;
 
