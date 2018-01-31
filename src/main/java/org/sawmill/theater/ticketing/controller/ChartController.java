@@ -412,12 +412,12 @@ public class ChartController implements Initializable {
         lblNameError.setVisible(false);
     }
 
-    public void printSetup(ActionEvent event) {
+    public void printSetup(ActionEvent event) throws IOException {
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        TextArea textArea = new TextArea();
-        textArea.setText("Hello world");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Ticket.fxml"));
+        Parent ticketParent = loader.load();
 
         PrinterJob job = PrinterJob.createPrinterJob();
 
@@ -429,7 +429,7 @@ public class ChartController implements Initializable {
         boolean proceed = job.showPrintDialog(window);
 
         if (proceed) {
-            print(job, textArea);
+            print(job, ticketParent);
         }
     }
 
