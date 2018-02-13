@@ -67,7 +67,7 @@ public class MainController implements Initializable {
     
     
     /**
-     * When this method is called, it will change the Scene to a Delete Show form
+     * When this method is called, it will change the Scene to the seat chart for updating seats
      */
     public void updateSeats(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
@@ -83,6 +83,23 @@ public class MainController implements Initializable {
         
         window.setScene(tableViewScene);
         window.show();
+    }
+    
+    public void printTickets(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
+        Parent tableViewParent = loader.load();
+        ChartController controller = loader.getController();
+        Scene tableViewScene = new Scene(tableViewParent);
+        controller.setScene(tableViewScene);
+        controller.setUpSeatLabels();
+        controller.getShowtimes();
+        controller.setPrintMode(true);
+        
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(tableViewScene);
+        window.show();        
     }
     
     public void closeApplication() {

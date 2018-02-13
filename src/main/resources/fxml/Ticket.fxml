@@ -18,22 +18,22 @@
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="16.0" prefWidth="500.0" text="PRESENTS" />
-                  <Label fx:id="lblShowName" alignment="CENTER" prefHeight="50.0" prefWidth="499.0" text="Lion King">
+                  <Label fx:id="lblShowName" alignment="CENTER" prefHeight="75.0" prefWidth="499.0" text="The Lion King" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
                      <font>
-                        <Font size="31.0" />
+                        <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblGroup" alignment="CENTER" prefHeight="24.0" prefWidth="500.0" text="BY SOME AWESOME THEATRE GROUP">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblDate" alignment="CENTER" prefHeight="44.0" prefWidth="499.0" text="Saturday, February 3rd, 2018, 8:00 PM">
+                  <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="499.0" text="BY SOME AWESOME THEATRE GROUP">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="40.0" prefWidth="499.0">
+                  <Label fx:id="lblDate" alignment="CENTER" prefHeight="31.0" prefWidth="499.0" text="Saturday, February 3rd, 2018, 8:00 PM">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="26.0" prefWidth="499.0">
                      <children>
                         <Label fx:id="lblSection" alignment="CENTER" prefHeight="52.0" prefWidth="167.0" text="Section: 1" />
                         <Label fx:id="lblRow" alignment="CENTER" prefHeight="54.0" prefWidth="166.0" text="Row: A" />
