@@ -323,7 +323,18 @@ public class ChartController implements Initializable {
         seatsToPrint.clear();
 
         // Remove previously selected seat
+        if (previousSelectedSeat != null) {
+            previousSelectedSeat.getStyleClass().clear();
+            previousSelectedSeat.getStyleClass().add("seat-open");
+        }
         previousSelectedSeat = null;
+        
+        // Clear selected seat labels and name labels
+        lblSectionOutput.setText("");
+        lblRowOutput.setText("");
+        lblSeatOutput.setText("");
+        txtBxFirstName.setText("");
+        txtBxLastName.setText("");
         
         DateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
         

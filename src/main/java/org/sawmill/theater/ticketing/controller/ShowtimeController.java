@@ -115,6 +115,24 @@ public class ShowtimeController implements Initializable {
         setFieldsReadOnly();
         getShowtimes();
     }
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        // Hide error labels and show selector
+        hideErrorLabels();
+        toggleShowSelect(false);
+
+        // Make sure the date picker can only be edited by selecting a date
+        showDatePicker.setEditable(false);
+
+        // Set the character limits in the text fields
+        txtBxShowName.setMaxlength(255);
+        txtBxGroup.setMaxlength(255);
+        txtBxTimeHour.setMaxlength(2);
+        txtBxTimeMinute.setMaxlength(2);
+    }
 
     public void showMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
@@ -283,23 +301,6 @@ public class ShowtimeController implements Initializable {
             }
         }
 
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        // Hide error labels and show selector
-        hideErrorLabels();
-        toggleShowSelect(false);
-
-        // Make sure the date picker can only be edited by selecting a date
-        showDatePicker.setEditable(false);
-
-        // Set the character limits in the text fields
-        txtBxShowName.setMaxlength(255);
-        txtBxGroup.setMaxlength(255);
-        txtBxTimeHour.setMaxlength(2);
-        txtBxTimeMinute.setMaxlength(2);
     }
 
     private void setDefaultTime() {

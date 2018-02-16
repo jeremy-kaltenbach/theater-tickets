@@ -6,8 +6,6 @@
 package org.sawmill.theater.ticketing.service;
 
 import java.util.List;
-import javafx.print.PrinterJob;
-import javafx.scene.Node;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAO;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAOImpl;
 import org.sawmill.theater.ticketing.dao.ShowtimeDAO;
@@ -42,6 +40,7 @@ public class TheatreServiceImpl implements TheatreService {
     @Override
     public void deleteShowtime(int showtimeId) {
         showTimeDAO.deleteShowtime(showtimeId);
+        showSeatingDAO.deleteAllShowSeats(showtimeId);
     }
 
     @Override
