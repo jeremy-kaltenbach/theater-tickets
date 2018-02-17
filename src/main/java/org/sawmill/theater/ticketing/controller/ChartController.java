@@ -33,6 +33,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -124,6 +125,10 @@ public class ChartController implements Initializable {
     private boolean showSelected = false;
     private boolean editMode = false;
     private boolean printMode = false;
+    
+    private String selectedShowName;
+    private String selectedShowGroup;
+    private String selectedShowDate;
     private Map<String, ShowSeating> occupiedSeats;
     private List<ShowSeating> seatsToPrint;
     
@@ -337,10 +342,15 @@ public class ChartController implements Initializable {
         txtBxLastName.setText("");
         
         DateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
+        DateFormat ticketDateFormat = new SimpleDateFormat("EEEE, MMMM dd, yyyy, h:mm aaaa");
         
         Showtime selectedShow = cmboBxSelectShow.getValue();
         
-        lblGroupOutput.setText(selectedShow.getTheatreGroup());
+        selectedShowName = selectedShow.getShowName();
+        selectedShowGroup = selectedShow.getTheatreGroup();
+        selectedShowDate = ticketDateFormat.format(selectedShow.getShowDate());
+        
+        lblGroupOutput.setText(selectedShowGroup);
         lblDateOutput.setText(dateFormat.format(selectedShow.getShowDate()));
         
         showSelected = true;
@@ -477,10 +487,25 @@ public class ChartController implements Initializable {
     
     public void printSetup(ActionEvent event) throws IOException {
         
+        HBox ticketBox = new HBox();
+        
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Ticket.fxml"));
-        Parent ticketParent = loader.load();
+        for (ShowSeating seat : seatsToPrint) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Ticket.fxml"));
+            Parent ticketParent = loader.load();
+            TicketController controller = loader.getController();
+
+            controller.setShowName(selectedShowName);
+            controller.setGroupName(selectedShowGroup);
+            controller.setDate(selectedShowDate);
+            controller.setSection("Section: " + seat.getSection());
+            controller.setRow("Row: " + seat.getRow());
+            controller.setSeat("Seat: " + seat.getSeatNumber());  
+            
+            ticketBox.getChildren().add(ticketParent);
+        }
+
         
         PrinterJob job = PrinterJob.createPrinterJob();
         
@@ -492,7 +517,7 @@ public class ChartController implements Initializable {
         boolean proceed = job.showPrintDialog(window);
         
         if (proceed) {
-            print(job, ticketParent);
+            print(job, ticketBox);
         }
     }
     
