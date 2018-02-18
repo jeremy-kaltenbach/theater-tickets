@@ -23,11 +23,16 @@
                               <Font size="30.0" />
                           </font>
                       </Label>
-                      <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="499.0" text="BY: TEST SHOW GROUP">
+                      <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="500.0" text="BY: TEST SHOW GROUP">
                           <font>
-                              <Font size="18.0" />
+                              <Font size="19.0" />
                           </font>
                       </Label>
+                  <Label fx:id="lblHolder" alignment="CENTER" prefWidth="500.0" text="Reserved For: John Doe">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                       <Label fx:id="lblDate" alignment="CENTER" prefHeight="31.0" prefWidth="499.0" text="Saturday, February 3rd, 2018, 8:00 PM">
                           <font>
                               <Font size="18.0" />

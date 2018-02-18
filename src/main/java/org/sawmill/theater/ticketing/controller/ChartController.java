@@ -133,6 +133,7 @@ public class ChartController implements Initializable {
     private String selectedShowGroup;
     private String selectedShowDate;
     private String selectedShowDateShortened;
+    private String selectedSeatHolder;
     private Map<String, ShowSeating> occupiedSeats;
     private List<ShowSeating> seatsToPrint;
     
@@ -266,6 +267,7 @@ public class ChartController implements Initializable {
                     ShowSeating seat = occupiedSeats.get(seatId);
                     txtBxFirstName.setText(seat.getFirstName());
                     txtBxLastName.setText(seat.getLastName());
+                    selectedSeatHolder = seat.getFirstName() + " " + seat.getLastName();
 
                     // If the seat is already added, then remove it (toggle) and un-select it
                     if (seatsToPrint.contains(seat)) {
@@ -294,6 +296,7 @@ public class ChartController implements Initializable {
                     ShowSeating seat = occupiedSeats.get(seatId);
                     txtBxFirstName.setText(seat.getFirstName());
                     txtBxLastName.setText(seat.getLastName());
+                    selectedSeatHolder = seat.getFirstName() + " " + seat.getLastName();
                     
                     btnAdd.setText("Update");
                     btnDelete.setDisable(false);
@@ -497,6 +500,7 @@ public class ChartController implements Initializable {
 
             controller.setShowName(selectedShowName);
             controller.setGroupName("BY: " + selectedShowGroup);
+            controller.setHolder("Reserved for: "  + selectedSeatHolder);
             controller.setDate(selectedShowDate);
             controller.setSection("Section: " + seat.getSection());
             controller.setRow("Row: " + seat.getRow());

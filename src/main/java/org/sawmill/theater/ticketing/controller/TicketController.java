@@ -32,6 +32,8 @@ public class TicketController implements Initializable {
     @FXML
     private Label lblSeat;
     @FXML
+    private Label lblHolder;
+    @FXML
     private HBox ticketStub;
 
     /**
@@ -64,6 +66,10 @@ public class TicketController implements Initializable {
     
     public void setSeat(String seat) {
         lblSeat.setText(seat);
+    }
+    
+    public void setHolder(String holder) {
+        lblHolder.setText(holder);
     }
     
     public HBox getTicketStub() {
