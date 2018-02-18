@@ -71,7 +71,7 @@ public class MainController implements Initializable {
         if (theatreService.getShowtimes().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
-            alert.setHeaderText("There are no shows to delete. Please create one first.");
+            alert.setHeaderText("There are no shows to delete");
             alert.show();
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));

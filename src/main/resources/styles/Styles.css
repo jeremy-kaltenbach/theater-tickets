@@ -1,10 +1,20 @@
+#MainAnchorPane {
+    -fx-background-image: url("../theatre_seating_darkened.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1200 900;
+    -fx-background-position: center center;
+}
+
 #AnchorPane {
     -fx-background-color: #252525;
 }
 
 .button {
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-cursor: hand
+    -fx-background-radius: 0 0 0 0;
+    -fx-background-color: orange;
+    -fx-cursor: hand;
 }
 
 .form-label {

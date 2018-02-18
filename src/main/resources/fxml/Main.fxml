@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1200.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.MainController">
+<AnchorPane id="MainAnchorPane" prefHeight="900.0" prefWidth="1200.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.MainController">
    <children>
       <Label layoutX="39.0" layoutY="36.0" text="COOK FOREST SAWMILL CENTER FOR THE ARTS  |" textFill="WHITE">
          <font>
@@ -17,16 +17,16 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="btnAddShow" layoutX="55.0" layoutY="284.0" mnemonicParsing="false" onAction="#showNewShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Add New Show">
+      <Button fx:id="btnAddShow" layoutX="65.0" layoutY="284.0" mnemonicParsing="false" onAction="#showNewShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="ADD NEW SHOW">
       </Button>
-      <Button fx:id="btnRemoveShow" layoutX="55.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Remove Show">
+      <Button fx:id="btnRemoveShow" layoutX="65.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="REMOVE SHOW">
       </Button>
-      <Button layoutX="55.0" layoutY="551.0" mnemonicParsing="false" onAction="#updateSeats" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Update Seats">
+      <Button layoutX="65.0" layoutY="551.0" mnemonicParsing="false" onAction="#updateSeats" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="UPDATE SEATS">
       </Button>
-      <Button layoutX="55.0" layoutY="612.0" mnemonicParsing="false" onAction="#printTickets" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Print Tickets">
+      <Button layoutX="65.0" layoutY="612.0" mnemonicParsing="false" onAction="#printTickets" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="PRINT TICKETS">
       </Button>
-      <Button layoutX="55.0" layoutY="773.0" mnemonicParsing="false" onMouseClicked="#closeApplication" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Exit">
+      <Button layoutX="65.0" layoutY="805.0" mnemonicParsing="false" onMouseClicked="#closeApplication" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="EXIT">
       </Button>
-      <Button fx:id="btnUpdateShow" layoutX="55.0" layoutY="342.0" mnemonicParsing="false" onAction="#updateShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="Update Show" />
+      <Button fx:id="btnUpdateShow" layoutX="65.0" layoutY="342.0" mnemonicParsing="false" onAction="#updateShowtime" prefHeight="44.0" prefWidth="291.0" styleClass="button" text="UPDATE SHOW" />
    </children>
 </AnchorPane>
