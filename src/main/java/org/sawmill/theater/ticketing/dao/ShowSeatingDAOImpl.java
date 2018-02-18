@@ -23,7 +23,7 @@ import org.sawmill.theater.ticketing.model.ShowSeating;
  */
 public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
-    private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";
+    private static String connectionUrl = "jdbc:sqlite:SawmillTheatreData";
     
     private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME FROM SHOW_SEATING WHERE SHOW_ID=?";
     private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME) VALUES (?, ?, ?, ?, ?, ?)";

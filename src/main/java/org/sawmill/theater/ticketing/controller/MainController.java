@@ -43,7 +43,7 @@ public class MainController implements Initializable {
         
         // Check if there are any shows added first. If not, then alert the user
         if (theatreService.getShowtimes().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
             alert.setHeaderText("There are no shows to update. Please create one first.");
             alert.show();
@@ -69,7 +69,7 @@ public class MainController implements Initializable {
         
         // Check if there are any shows added first. If not, then alert the user
         if (theatreService.getShowtimes().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
             alert.setHeaderText("There are no shows to delete. Please create one first.");
             alert.show();
@@ -96,7 +96,7 @@ public class MainController implements Initializable {
         
         // Check if there are any shows added first. If not, then alert the user
         if (theatreService.getShowtimes().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
             alert.setHeaderText("No shows found for updating seats. Please create one first.");
             alert.show();
@@ -121,7 +121,7 @@ public class MainController implements Initializable {
         
                 // Check if there are any shows added first. If not, then alert the user
         if (theatreService.getShowtimes().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
             alert.setHeaderText("No shows found for printing tickets. Please create one first.");
             alert.show();

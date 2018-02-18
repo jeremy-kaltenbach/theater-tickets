@@ -24,7 +24,7 @@ import org.sawmill.theater.ticketing.model.Showtime;
  */
 public class ShowtimeDAOImpl implements ShowtimeDAO {
     
-    private static String connectionUrl = "jdbc:sqlite:SawmillTheatre";
+    private static String connectionUrl = "jdbc:sqlite:SawmillTheatreData";
     
     private static final String GET_ALL_SHOWTIMES = "SELECT SHOW_ID, SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME";
     private static final String ADD_SHOWTIME = "INSERT INTO SHOWTIME (SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED) VALUES (?, ?, ?, ?)";

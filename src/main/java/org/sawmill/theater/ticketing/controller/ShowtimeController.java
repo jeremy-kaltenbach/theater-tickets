@@ -367,6 +367,11 @@ public class ShowtimeController implements Initializable {
         updatedShow.setLastUpdated(new Date());
 
         theatreService.updateShowtime(updatedShow);
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Show has been updated");
+        alert.show();
 
     }
 
