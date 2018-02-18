@@ -29,6 +29,9 @@
     -fx-font: 25px "Arial";
 }
 
+.show-selector {
+    -fx-font: 25px "Arial";
+}
 .seat-label {
     -fx-font: 20px "Arial";
     -fx-cursor: hand;
@@ -57,7 +60,7 @@
 #theatreTicket {
     -fx-border-color: black;
     -fx-border-style: solid;
-    -fx-border-width: 1px;
+    -fx-border-width: 1px 0px 1px 1px;
 }
 
 #ticketStub {

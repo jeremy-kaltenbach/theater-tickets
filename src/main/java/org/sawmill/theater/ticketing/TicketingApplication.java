@@ -21,6 +21,7 @@ public class TicketingApplication extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         primaryStage.setTitle("Cook Forest Sawmill Theatre");
+        primaryStage.setResizable(false);
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add("/styles/Styles.css");
         primaryStage.setScene(scene);

@@ -20,7 +20,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.print.PrinterJob;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,6 +38,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.sawmill.theater.ticketing.model.ShowSeating;
@@ -129,6 +132,7 @@ public class ChartController implements Initializable {
     private String selectedShowName;
     private String selectedShowGroup;
     private String selectedShowDate;
+    private String selectedShowDateShortened;
     private Map<String, ShowSeating> occupiedSeats;
     private List<ShowSeating> seatsToPrint;
     
@@ -231,7 +235,6 @@ public class ChartController implements Initializable {
             previousSelectedSeat = selectedSeat;
             previousSelectedSeatStyle = selectedSeat.getStyleClass().get(0);
             
-            System.out.println("Selected seat: " + seatId);
             selectedSeat.getStyleClass().clear();
             selectedSeat.getStyleClass().add("seat-selected");
         }
@@ -269,15 +272,11 @@ public class ChartController implements Initializable {
                         selectedSeat.getStyleClass().clear();
                         selectedSeat.getStyleClass().add("seat-occupied");
                         seatsToPrint.remove(seat);
-                        System.out.println("Removing seat: " + seatId + " from print list");
                     } else {
                         selectedSeat.getStyleClass().clear();
                         selectedSeat.getStyleClass().add("seat-selected-printing");
                         seatsToPrint.add(seat);
-                        System.out.println("Adding seat: " + seatId + " to print list");
                     }
-                    
-                    System.out.println(seatsToPrint.size() + " seats ready to print");
                     
                     if (seatsToPrint.size() > 0) {
                         btnPrint.setDisable(false);
@@ -341,17 +340,18 @@ public class ChartController implements Initializable {
         txtBxFirstName.setText("");
         txtBxLastName.setText("");
         
-        DateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
-        DateFormat ticketDateFormat = new SimpleDateFormat("EEEE, MMMM dd, yyyy, h:mm aaaa");
+        DateFormat shortDateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
+        DateFormat longDateFormat = new SimpleDateFormat("EEEE, MMMM dd, yyyy, h:mm aaaa");
         
         Showtime selectedShow = cmboBxSelectShow.getValue();
         
         selectedShowName = selectedShow.getShowName();
         selectedShowGroup = selectedShow.getTheatreGroup();
-        selectedShowDate = ticketDateFormat.format(selectedShow.getShowDate());
+        selectedShowDateShortened = shortDateFormat.format(selectedShow.getShowDate());
+        selectedShowDate = longDateFormat.format(selectedShow.getShowDate());
         
         lblGroupOutput.setText(selectedShowGroup);
-        lblDateOutput.setText(dateFormat.format(selectedShow.getShowDate()));
+        lblDateOutput.setText(selectedShowDateShortened);
         
         showSelected = true;
         
@@ -411,7 +411,6 @@ public class ChartController implements Initializable {
         }
         
         if (isValid) {
-            System.out.println("Name is valid");
             if (editMode) {
                 updateSeat(firstName, lastName);
             } else {
@@ -497,11 +496,30 @@ public class ChartController implements Initializable {
             TicketController controller = loader.getController();
 
             controller.setShowName(selectedShowName);
-            controller.setGroupName(selectedShowGroup);
+            controller.setGroupName("BY: " + selectedShowGroup);
             controller.setDate(selectedShowDate);
             controller.setSection("Section: " + seat.getSection());
             controller.setRow("Row: " + seat.getRow());
             controller.setSeat("Seat: " + seat.getSeatNumber());  
+            
+            // Add ticket stub with rotated labels to the ticket template
+            Label showTitleLabel = new Label(selectedShowName);
+            showTitleLabel.setRotate(-90);
+            showTitleLabel.setPrefSize(200.0, 50.0);
+            showTitleLabel.setAlignment(Pos.CENTER);
+            showTitleLabel.setWrapText(true);
+            showTitleLabel.setTextAlignment(TextAlignment.CENTER);
+            Label showDateLabel = new Label(selectedShowDateShortened);
+            showDateLabel.setRotate(-90);
+            showDateLabel.setPrefSize(200.0, 50.0);
+            showDateLabel.setAlignment(Pos.CENTER);
+            
+            Group titleHolder = new Group(showTitleLabel);
+            Group dateHolder = new Group(showDateLabel);
+            
+            HBox ticketStub = controller.getTicketStub();
+            ticketStub.getChildren().add(titleHolder);
+            ticketStub.getChildren().add(dateHolder);
             
             ticketBox.getChildren().add(ticketParent);
         }

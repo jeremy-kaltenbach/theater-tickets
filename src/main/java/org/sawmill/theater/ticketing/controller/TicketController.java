@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -20,10 +19,6 @@ import javafx.scene.layout.VBox;
  */
 public class TicketController implements Initializable {
 
-    @FXML
-    private HBox theatreTicket;
-    @FXML
-    private VBox mainTicket;
     @FXML
     private Label lblShowName;
     @FXML
@@ -69,6 +64,10 @@ public class TicketController implements Initializable {
     
     public void setSeat(String seat) {
         lblSeat.setText(seat);
+    }
+    
+    public HBox getTicketStub() {
+        return ticketStub;
     }
     
 }

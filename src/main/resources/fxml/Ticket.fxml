@@ -7,42 +7,43 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="TicketAnchorPane" prefHeight="200.0" prefWidth="600.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.TicketController">
-   <children>
+    <children>
       <HBox fx:id="theatreTicket" prefHeight="200.0" prefWidth="600.0">
          <children>
-            <VBox fx:id="mainTicket" prefHeight="200.0" prefWidth="500.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="24.0" prefWidth="500.0" text="VERNA LEITH SAWMILL THEATRE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="500.0" text="PRESENTS" />
-                  <Label fx:id="lblShowName" alignment="CENTER" prefHeight="75.0" prefWidth="499.0" text="The Lion King" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="499.0" text="BY SOME AWESOME THEATRE GROUP">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblDate" alignment="CENTER" prefHeight="31.0" prefWidth="499.0" text="Saturday, February 3rd, 2018, 8:00 PM">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="26.0" prefWidth="499.0">
-                     <children>
-                        <Label fx:id="lblSection" alignment="CENTER" prefHeight="52.0" prefWidth="167.0" text="Section: 1" />
-                        <Label fx:id="lblRow" alignment="CENTER" prefHeight="54.0" prefWidth="166.0" text="Row: A" />
-                        <Label fx:id="lblSeat" alignment="CENTER" prefHeight="52.0" prefWidth="167.0" text="Seat: 1" />
-                     </children>
-                  </HBox>
-               </children></VBox>
+              <VBox prefHeight="200.0" prefWidth="500.0">
+                  <children>
+                      <Label alignment="CENTER" prefHeight="24.0" prefWidth="500.0" text="VERNA LEITH SAWMILL THEATRE">
+                          <font>
+                              <Font size="16.0" />
+                          </font>
+                      </Label>
+                      <Label alignment="CENTER" prefHeight="16.0" prefWidth="500.0" text="PRESENTS" />
+                      <Label fx:id="lblShowName" alignment="CENTER" prefHeight="75.0" prefWidth="499.0" text="Test Show Title" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                          <font>
+                              <Font size="30.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="499.0" text="BY: TEST SHOW GROUP">
+                          <font>
+                              <Font size="18.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="lblDate" alignment="CENTER" prefHeight="31.0" prefWidth="499.0" text="Saturday, February 3rd, 2018, 8:00 PM">
+                          <font>
+                              <Font size="18.0" />
+                          </font>
+                      </Label>
+                      <HBox prefHeight="26.0" prefWidth="499.0">
+                          <children>
+                              <Label fx:id="lblSection" alignment="CENTER" prefHeight="52.0" prefWidth="167.0" text="Section: 1" />
+                              <Label fx:id="lblRow" alignment="CENTER" prefHeight="54.0" prefWidth="166.0" text="Row: A" />
+                              <Label fx:id="lblSeat" alignment="CENTER" prefHeight="52.0" prefWidth="167.0" text="Seat: 1" />
+                          </children>
+                      </HBox>
+                  </children>
+              </VBox>
             <HBox fx:id="ticketStub" prefHeight="200.0" prefWidth="100.0" />
          </children>
       </HBox>
-   </children>
+    </children>
 </AnchorPane>
