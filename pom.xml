@@ -9,25 +9,21 @@
 	<packaging>jar</packaging>
 
 	<name>theater-tickets</name>
-	<description>Demo project for Spring Boot</description>
-
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+	<description>Application for saving theatre shows/seats and printing tickets</description>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <java.version>1.8</java.version>
+            <version.maven.compiler>3.7.0</version.maven.compiler>
+            <artifact.id>ticketing</artifact.id>
 	</properties>
-
+        
 	<dependencies>
                 <dependency>
                     <groupId>org.xerial</groupId>
                     <artifactId>sqlite-jdbc</artifactId>
+                    <version>3.21.0.1</version>
                 </dependency>
                 
                 <dependency>
@@ -36,21 +32,42 @@
                     <version>3.1</version>
                         <type>jar</type>
                 </dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+                
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-
+        
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.maven.compiler}</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-assembly-plugin</artifactId>
+                  <configuration>
+                    <descriptorRefs>
+                      <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                      <manifest>
+                        <mainClass>org.sawmill.theater.ticketing.TicketingApplication</mainClass>
+                      </manifest>
+                    </archive>
+                  </configuration>
+                  <executions>
+                    <execution>
+                      <phase>package</phase> <!-- bind to the packaging phase -->
+                      <goals>
+                        <goal>single</goal>
+                      </goals>
+                    </execution>
+                  </executions>
+                </plugin>
+            </plugins>
+        </build>        
 </project>

@@ -5,6 +5,7 @@
  */
 package org.sawmill.theater.ticketing.service;
 
+import java.io.File;
 import java.util.List;
 import org.sawmill.theater.ticketing.model.ShowSeating;
 import org.sawmill.theater.ticketing.model.Showtime;
@@ -14,6 +15,10 @@ import org.sawmill.theater.ticketing.model.Showtime;
  * @author jeremy
  */
 public interface TheatreService {
+    
+    public boolean isDatabaseConnected();
+    public boolean checkSelectedDatabase(String filePath);
+    public void createDatabase();
     
     public List<Showtime> getShowtimes();
     public Showtime addShowtime(Showtime showtime);

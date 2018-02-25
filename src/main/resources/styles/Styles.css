@@ -9,6 +9,14 @@
     -fx-background-color: #252525;
 }
 
+.ready {
+    -fx-fill: limegreen;
+}
+
+.not-ready {
+    -fx-fill: red;
+}
+
 .button {
     -fx-font-size: 20px;
     -fx-font-weight: bold;

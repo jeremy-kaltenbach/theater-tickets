@@ -5,6 +5,8 @@
  */
 package org.sawmill.theater.ticketing.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.sawmill.theater.ticketing.model.ShowSeating;
@@ -23,7 +26,7 @@ import org.sawmill.theater.ticketing.model.ShowSeating;
  */
 public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
-    private static String connectionUrl = "jdbc:sqlite:SawmillTheatreData";
+    private String connectionUrl;
     
     private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME FROM SHOW_SEATING WHERE SHOW_ID=?";
     private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME) VALUES (?, ?, ?, ?, ?, ?)";
@@ -32,6 +35,16 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     private static final String REMOVE_ALL_SHOW_SHOWSEATS = "DELETE FROM SHOW_SEATING WHERE SHOW_ID=?";
     
     public ShowSeatingDAOImpl() {
+        // Set connection URL from database location stored in the properties file
+        InputStream in = getClass().getResourceAsStream("/application.properties");
+        Properties props = new Properties();
+        try {
+            props.load(in);
+            connectionUrl = "jdbc:sqlite:" + props.getProperty("database.location");
+            in.close();        
+        } catch (IOException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 
     @Override

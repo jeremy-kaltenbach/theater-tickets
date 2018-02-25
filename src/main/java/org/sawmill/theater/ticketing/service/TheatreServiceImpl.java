@@ -5,11 +5,14 @@
  */
 package org.sawmill.theater.ticketing.service;
 
+import java.io.File;
 import java.util.List;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAO;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAOImpl;
 import org.sawmill.theater.ticketing.dao.ShowtimeDAO;
 import org.sawmill.theater.ticketing.dao.ShowtimeDAOImpl;
+import org.sawmill.theater.ticketing.dao.TheatreDAO;
+import org.sawmill.theater.ticketing.dao.TheatreDAOImpl;
 import org.sawmill.theater.ticketing.model.ShowSeating;
 import org.sawmill.theater.ticketing.model.Showtime;
 
@@ -19,8 +22,25 @@ import org.sawmill.theater.ticketing.model.Showtime;
  */
 public class TheatreServiceImpl implements TheatreService {
 
+    private TheatreDAO theatreDAO = new TheatreDAOImpl();
     private ShowtimeDAO showTimeDAO = new ShowtimeDAOImpl();
     private ShowSeatingDAO showSeatingDAO = new ShowSeatingDAOImpl();
+    
+    @Override
+    public boolean isDatabaseConnected() {
+        return theatreDAO.isDatabaseConnected();
+    }
+    
+    
+    @Override
+    public boolean checkSelectedDatabase(String filePath) {
+        return theatreDAO.checkSelectedDatabase(filePath);
+    }
+
+    @Override
+    public void createDatabase() {
+        theatreDAO.createDatabase();
+    }
 
     @Override
     public List<Showtime> getShowtimes() {

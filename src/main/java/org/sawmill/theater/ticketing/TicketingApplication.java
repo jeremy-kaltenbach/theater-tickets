@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.sawmill.theater.ticketing.controller.MainController;
 
 public class TicketingApplication extends Application {
      
@@ -19,13 +20,16 @@ public class TicketingApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+        Parent root = loader.load();
         primaryStage.setTitle("Cook Forest Sawmill Theatre");
         primaryStage.setResizable(false);
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add("/styles/Styles.css");
+        MainController controller = loader.getController();
         primaryStage.setScene(scene);
         primaryStage.show();
+        controller.checkDatabaseStatus();
     }
     
 }

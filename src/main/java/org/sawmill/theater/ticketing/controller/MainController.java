@@ -1,23 +1,44 @@
 package org.sawmill.theater.ticketing.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.sawmill.theater.ticketing.service.TheatreService;
 import org.sawmill.theater.ticketing.service.TheatreServiceImpl;
 
 public class MainController implements Initializable {
+    @FXML
+    private Button btnAddShow;
+    @FXML
+    private Button btnUpdateShow;
+    @FXML
+    private Button btnRemoveShow;
+    @FXML
+    private Button btnUpdateSeats;
+    @FXML
+    private Button btnPrintTickets;
+    @FXML
+    private Circle statusIndicator;
     
     private TheatreService theatreService = new TheatreServiceImpl();
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
     
     /**
      * When this method is called, it will change the Scene to a New Show form
@@ -119,7 +140,7 @@ public class MainController implements Initializable {
     
     public void printTickets(ActionEvent event) throws IOException {
         
-                // Check if there are any shows added first. If not, then alert the user
+        // Check if there are any shows added first. If not, then alert the user
         if (theatreService.getShowtimes().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Shows Found");
@@ -143,12 +164,46 @@ public class MainController implements Initializable {
         }
     }
     
+    public void createDatabase(ActionEvent event) throws IOException {
+        
+    }
+    
+    public void connectToDatabase(ActionEvent event) throws IOException {
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Database File");
+        File dbFile = fileChooser.showOpenDialog(window);
+        if (dbFile != null) {
+            if (theatreService.checkSelectedDatabase(dbFile.getAbsolutePath())) {
+                statusIndicator.getStyleClass().clear();
+                statusIndicator.getStyleClass().add("ready");
+                disableButtons(false);
+            }
+        }
+    }
+    
+    public void checkDatabaseStatus() {
+        if (theatreService.isDatabaseConnected()) {
+            statusIndicator.getStyleClass().clear();
+            statusIndicator.getStyleClass().add("ready");
+            disableButtons(false);
+        } else {
+            statusIndicator.getStyleClass().clear();
+            statusIndicator.getStyleClass().add("not-ready");
+            disableButtons(true);
+        }
+    }
+    
+    private void disableButtons(boolean isDisabled) {
+        btnAddShow.setDisable(isDisabled);
+        btnUpdateShow.setDisable(isDisabled);
+        btnRemoveShow.setDisable(isDisabled);
+        btnUpdateSeats.setDisable(isDisabled);
+        btnPrintTickets.setDisable(isDisabled);
+    }
+    
     public void closeApplication() {
         Platform.exit();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //TODO
-    }
 }
