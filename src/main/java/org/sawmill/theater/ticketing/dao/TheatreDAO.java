@@ -15,6 +15,6 @@ public interface TheatreDAO {
     
     public boolean isDatabaseConnected();
     public boolean checkSelectedDatabase(String filePath);
-    public void createDatabase();
+    public void createDatabase(String filePath);
     
 }

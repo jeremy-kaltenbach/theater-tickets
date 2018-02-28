@@ -28,30 +28,19 @@ import org.sawmill.theater.ticketing.model.Showtime;
  */
 public class ShowtimeDAOImpl implements ShowtimeDAO {
     
-    private String connectionUrl;
-    
     private static final String GET_ALL_SHOWTIMES = "SELECT SHOW_ID, SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED FROM SHOWTIME";
     private static final String ADD_SHOWTIME = "INSERT INTO SHOWTIME (SHOW_NAME, THEATRE_GROUP, SHOW_DATE, LAST_UPDATED) VALUES (?, ?, ?, ?)";
     private static final String UPDATE_SHOWTIME = "UPDATE SHOWTIME SET SHOW_NAME=?, THEATRE_GROUP=?, SHOW_DATE=?, LAST_UPDATED=? WHERE SHOW_ID=?";
     private static final String REMOVE_SHOWTIME = "DELETE FROM SHOWTIME WHERE SHOW_ID=?";
     
     public ShowtimeDAOImpl() { 
-        // Set connection URL from database location stored in the properties file
-        InputStream in = getClass().getResourceAsStream("/application.properties");
-        Properties props = new Properties();
-        try {
-            props.load(in);
-            connectionUrl = "jdbc:sqlite:" + props.getProperty("database.location");
-            in.close();        
-        } catch (IOException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @Override
     public List<Showtime> getShowtimes() {
         List<Showtime> showtimes = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
+        String connectionUrl = getConnectionUrl();
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -83,6 +72,7 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
 
     @Override
     public Showtime addShowtime(Showtime showtime) {
+        String connectionUrl = getConnectionUrl();
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -110,6 +100,8 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
 
     @Override
     public void updateShowtime(Showtime showtime) {
+        String connectionUrl = getConnectionUrl();
+        
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWTIME);
@@ -128,6 +120,8 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
 
     @Override
     public void deleteShowtime(int showtimeId) {
+        String connectionUrl = getConnectionUrl();
+        
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWTIME);
@@ -138,6 +132,22 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private String getConnectionUrl() {
+        // Get connection URL from database location stored in the properties file
+        // This was moved from the constructor in order to get the latest settings
+        String url = "";
+        InputStream in = getClass().getResourceAsStream("/application.properties");
+        Properties props = new Properties();
+        try {
+            props.load(in);
+            url =  "jdbc:sqlite:" + props.getProperty("database.location");
+            in.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return url;
     }
     
 }

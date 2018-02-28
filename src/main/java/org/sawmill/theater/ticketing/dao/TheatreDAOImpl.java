@@ -13,6 +13,7 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +26,13 @@ public class TheatreDAOImpl implements TheatreDAO {
    
     private Properties prop;
     private InputStream input;
+    
+    private static final String CREATE_SHOWTIME_TABLE = "CREATE TABLE SHOWTIME (SHOW_ID INTEGER PRIMARY KEY, "
+            + "SHOW_NAME VARCHAR (255) NOT NULL, THEATRE_GROUP VARCHAR (255) NOT NULL, SHOW_DATE DATETIME NOT NULL, "
+            + "LAST_UPDATED DATETIME);";
+    private static final String CREATE_SHOW_SEATING_TABLE = "CREATE TABLE SHOW_SEATING (SEAT_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+            + "SHOW_ID INTEGER NOT NULL, SECTION INT NOT NULL, \"ROW\" VARCHAR (1) NOT NULL, SEAT_NUMBER INTEGER NOT NULL, "
+            + "LAST_NAME VARCHAR (255) NOT NULL, FIRST_NAME VARCHAR (255));";
     
     public TheatreDAOImpl() {
         prop = new Properties();
@@ -65,23 +73,7 @@ public class TheatreDAOImpl implements TheatreDAO {
         boolean isValid = checkDatabaseAndTables(filePath);
         
         if (isValid) {
-            try {
-                // If the connection to the database is successful, then update the properties
-                // file with the path
-                InputStream in = getClass().getResourceAsStream("/application.properties");
-                Properties props = new Properties();
-                props.load(in);
-                in.close();
-
-                String outfile = getClass().getResource("/application.properties").getFile();
-                FileOutputStream out = new FileOutputStream(outfile);
-                props.setProperty("database.created", "true");
-                props.setProperty("database.location", filePath);
-                props.store(out, null);
-                out.close();
-            } catch (IOException ex) {
-                Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            updatePropertiesFile(filePath);
         }
         
         return isValid;
@@ -107,9 +99,52 @@ public class TheatreDAOImpl implements TheatreDAO {
         return isDbValid;
     }
     
+    private void updatePropertiesFile(String dbFilePath) {
+        try {
+            // If the connection to the database is successful, then update the properties
+            // file with the path
+            InputStream in = getClass().getResourceAsStream("/application.properties");
+            Properties props = new Properties();
+            props.load(in);
+            in.close();
+
+            String outfile = getClass().getResource("/application.properties").getFile();
+            FileOutputStream out = new FileOutputStream(outfile);
+            props.setProperty("database.created", "true");
+            props.setProperty("database.location", dbFilePath);
+            props.store(out, null);
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
-    public void createDatabase() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void createDatabase(String filePath) {
+        
+        // Create the new database file at the specified file path, then add
+        // the SHOWTIME and SHOW_SEATING tables
+        String connectionUrl = "jdbc:sqlite:" + filePath; 
+        try (Connection conn = DriverManager.getConnection(connectionUrl)) {
+            if (conn != null) {
+                DatabaseMetaData meta = conn.getMetaData();
+                System.out.println("The driver name is " + meta.getDriverName());
+                System.out.println("A new database has been created.");
+                
+                try (Statement stmt = conn.createStatement()) {
+                    stmt.execute(CREATE_SHOWTIME_TABLE);
+                    stmt.execute(CREATE_SHOW_SEATING_TABLE);
+                    
+                }
+                
+                System.out.println("Tables added");
+                
+                // Update the properties file with the new database
+                updatePropertiesFile(filePath);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

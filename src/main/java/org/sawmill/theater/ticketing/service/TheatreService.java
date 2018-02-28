@@ -18,7 +18,7 @@ public interface TheatreService {
     
     public boolean isDatabaseConnected();
     public boolean checkSelectedDatabase(String filePath);
-    public void createDatabase();
+    public void createDatabase(String filePath);
     
     public List<Showtime> getShowtimes();
     public Showtime addShowtime(Showtime showtime);

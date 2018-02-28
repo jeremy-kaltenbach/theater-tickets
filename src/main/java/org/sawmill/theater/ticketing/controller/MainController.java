@@ -165,6 +165,22 @@ public class MainController implements Initializable {
     }
     
     public void createDatabase(ActionEvent event) throws IOException {
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Name Database File");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("DB files (*.db)", "*.db");
+        fileChooser.getExtensionFilters().add(extFilter);
+        
+        File dbFile = fileChooser.showSaveDialog(window);
+        
+        if (dbFile != null) {
+            // Add a .db file extenstion to the name
+            String filePath = dbFile.getAbsolutePath() + ".db";
+            theatreService.createDatabase(filePath);
+            statusIndicator.getStyleClass().clear();
+            statusIndicator.getStyleClass().add("ready");
+            disableButtons(false);
+        }
         
     }
     

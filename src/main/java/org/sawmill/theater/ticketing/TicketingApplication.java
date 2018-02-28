@@ -27,9 +27,9 @@ public class TicketingApplication extends Application {
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add("/styles/Styles.css");
         MainController controller = loader.getController();
+        controller.checkDatabaseStatus();
         primaryStage.setScene(scene);
         primaryStage.show();
-        controller.checkDatabaseStatus();
     }
     
 }

@@ -38,8 +38,8 @@ public class TheatreServiceImpl implements TheatreService {
     }
 
     @Override
-    public void createDatabase() {
-        theatreDAO.createDatabase();
+    public void createDatabase(String filePath) {
+        theatreDAO.createDatabase(filePath);
     }
 
     @Override

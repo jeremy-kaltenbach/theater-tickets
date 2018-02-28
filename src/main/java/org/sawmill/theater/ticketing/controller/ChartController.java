@@ -163,6 +163,8 @@ public class ChartController implements Initializable {
     public void showMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         Parent tableViewParent = loader.load();
+        MainController controller = loader.getController();
+        controller.checkDatabaseStatus();
         
         Scene tableViewScene = new Scene(tableViewParent);
 

@@ -26,30 +26,19 @@ import org.sawmill.theater.ticketing.model.ShowSeating;
  */
 public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
-    private String connectionUrl;
-    
     private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME FROM SHOW_SEATING WHERE SHOW_ID=?";
     private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SHOWSEAT = "UPDATE SHOW_SEATING SET SECTION=?, ROW=?, SEAT_NUMBER=?, LAST_NAME=?, FIRST_NAME=? WHERE SEAT_ID=?";
     private static final String REMOVE_SHOWSEAT = "DELETE FROM SHOW_SEATING WHERE SEAT_ID=?";
     private static final String REMOVE_ALL_SHOW_SHOWSEATS = "DELETE FROM SHOW_SEATING WHERE SHOW_ID=?";
     
-    public ShowSeatingDAOImpl() {
-        // Set connection URL from database location stored in the properties file
-        InputStream in = getClass().getResourceAsStream("/application.properties");
-        Properties props = new Properties();
-        try {
-            props.load(in);
-            connectionUrl = "jdbc:sqlite:" + props.getProperty("database.location");
-            in.close();        
-        } catch (IOException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+    public ShowSeatingDAOImpl() {      
     }
 
     @Override
     public List<ShowSeating> getShowtimeSeats(int showId) {
         List<ShowSeating> seats = new ArrayList<>();
+        String connectionUrl = getConnectionUrl();
         
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
@@ -79,6 +68,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
 
     @Override
     public ShowSeating addShowSeat(ShowSeating seat) {
+        String connectionUrl = getConnectionUrl();
+        
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(ADD_SHOWSEAT);
@@ -108,6 +99,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
 
     @Override
     public void updateShowSeat(ShowSeating seat) {
+        String connectionUrl = getConnectionUrl();
+        
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWSEAT);
@@ -127,6 +120,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
 
     @Override
     public void deleteShowSeat(int seatId) {
+        String connectionUrl = getConnectionUrl();
+        
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWSEAT);
@@ -141,6 +136,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
 
     @Override
     public void deleteAllShowSeats(int showId) {
+        String connectionUrl = getConnectionUrl();
         try {
             Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(REMOVE_ALL_SHOW_SHOWSEATS);
@@ -151,6 +147,22 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private String getConnectionUrl() {
+        // Get connection URL from database location stored in the properties file
+        // This was moved from the constructor in order to get the latest settings
+        String url = "";
+        InputStream in = getClass().getResourceAsStream("/application.properties");
+        Properties props = new Properties();
+        try {
+            props.load(in);
+            url =  "jdbc:sqlite:" + props.getProperty("database.location");
+            in.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return url;
     }
     
 }
