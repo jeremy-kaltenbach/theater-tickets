@@ -294,7 +294,6 @@ public class ShowtimeController implements Initializable {
         }
 
         if (isValid) {
-            System.out.println("Fields are valid");
             if (editMode) {
                 updateShowtime(showName, showGroup, showDate, hour, minute, amPm);
             } else {

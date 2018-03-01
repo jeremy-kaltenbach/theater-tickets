@@ -43,27 +43,27 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
         Calendar calendar = Calendar.getInstance();
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(GET_ALL_SHOWTIMES);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(GET_ALL_SHOWTIMES);){
+            
+            try (ResultSet rs = stmt.executeQuery()) {
                 
-                Showtime showtime = new Showtime();
-                showtime.setShowId(rs.getInt("SHOW_ID"));
-                showtime.setShowName(rs.getString("SHOW_NAME"));
-                showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
+                while (rs.next()) {
                 
-                calendar.setTimeInMillis(Long.parseLong(rs.getString("SHOW_DATE")));
-                showtime.setShowDate(calendar.getTime());
-                calendar.setTimeInMillis(Long.parseLong(rs.getString("LAST_UPDATED")));
-                showtime.setLastUpdated(calendar.getTime());
-                
-                showtimes.add(showtime);
+                    Showtime showtime = new Showtime();
+                    showtime.setShowId(rs.getInt("SHOW_ID"));
+                    showtime.setShowName(rs.getString("SHOW_NAME"));
+                    showtime.setTheatreGroup(rs.getString("THEATRE_GROUP"));
+
+                    calendar.setTimeInMillis(Long.parseLong(rs.getString("SHOW_DATE")));
+                    showtime.setShowDate(calendar.getTime());
+                    calendar.setTimeInMillis(Long.parseLong(rs.getString("LAST_UPDATED")));
+                    showtime.setLastUpdated(calendar.getTime());
+
+                    showtimes.add(showtime);
+                }  
             }
-            rs.close();
-            stmt.close();
-            conn.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,24 +75,24 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     public Showtime addShowtime(Showtime showtime) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(ADD_SHOWTIME);
+            Statement stmt2 = conn.createStatement();){
+            
             stmt.setString(1, showtime.getShowName());
             stmt.setString(2, showtime.getTheatreGroup());
             stmt.setDate(3, new java.sql.Date(showtime.getShowDate().getTime()));
             stmt.setDate(4, new java.sql.Date(showtime.getLastUpdated().getTime()));
             stmt.execute();
             
-            Statement stmt2 = conn.createStatement();
-            ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()");
-            if (generatedKeys.next()) {
-                int generatedKey = generatedKeys.getInt(1);
-                showtime.setShowId(generatedKey);
-            }
             
-            stmt.close();
-            conn.close();
+            try (ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()")) {
+                if (generatedKeys.next()) {
+                    int generatedKey = generatedKeys.getInt(1);
+                    showtime.setShowId(generatedKey);
+                }
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -103,17 +103,14 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     public void updateShowtime(Showtime showtime) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWTIME);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWTIME);){
             stmt.setString(1, showtime.getShowName());
             stmt.setString(2, showtime.getTheatreGroup());
             stmt.setDate(3, new java.sql.Date(showtime.getShowDate().getTime()));
             stmt.setDate(4, new java.sql.Date(showtime.getLastUpdated().getTime()));
             stmt.setInt(5, showtime.getShowId());
             stmt.execute();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -123,13 +120,10 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
     public void deleteShowtime(int showtimeId) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWTIME);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWTIME);){
             stmt.setInt(1, showtimeId);
             stmt.execute();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

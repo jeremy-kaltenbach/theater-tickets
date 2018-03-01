@@ -88,13 +88,13 @@ public class TheatreDAOImpl implements TheatreDAO {
         boolean isDbValid = false;
         String connectionUrl = "jdbc:sqlite:" + filePath;
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
+        try (Connection conn = DriverManager.getConnection(connectionUrl)){
             DatabaseMetaData dbm = conn.getMetaData();
-            ResultSet showtimeTable = dbm.getTables(null, null, "SHOWTIME", null);
-            ResultSet seatingTable = dbm.getTables(null, null, "SHOW_SEATING", null);
-            if (showtimeTable.next() && seatingTable.next()) {
-                isDbValid = true;
+            try(ResultSet showtimeTable = dbm.getTables(null, null, "SHOWTIME", null);
+                ResultSet seatingTable = dbm.getTables(null, null, "SHOW_SEATING", null);) {
+                if (showtimeTable.next() && seatingTable.next()) {
+                   isDbValid = true;
+               }   
             }
         } catch (SQLException ex) {
             isDbValid = false;
@@ -150,7 +150,6 @@ public class TheatreDAOImpl implements TheatreDAO {
                 try (Statement stmt = conn.createStatement()) {
                     stmt.execute(CREATE_SHOWTIME_TABLE);
                     stmt.execute(CREATE_SHOW_SEATING_TABLE);
-                    
                 }
                 
                 System.out.println("Tables added");

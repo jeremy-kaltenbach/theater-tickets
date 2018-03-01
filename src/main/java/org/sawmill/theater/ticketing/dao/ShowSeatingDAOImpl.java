@@ -41,25 +41,22 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
         List<ShowSeating> seats = new ArrayList<>();
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(GET_SHOWSEATS);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(GET_SHOWSEATS);){
             stmt.setInt(1, showId);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                ShowSeating seat = new ShowSeating();
-                seat.setSeatId(rs.getInt("SEAT_ID"));
-                seat.setShowId(showId);
-                seat.setSection(rs.getInt("SECTION"));
-                seat.setRow(rs.getString("ROW"));
-                seat.setSeatNumber(rs.getInt("SEAT_NUMBER"));
-                seat.setLastName(rs.getString("LAST_NAME"));
-                seat.setFirstName(rs.getString("FIRST_NAME"));
-                seats.add(seat);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    ShowSeating seat = new ShowSeating();
+                    seat.setSeatId(rs.getInt("SEAT_ID"));
+                    seat.setShowId(showId);
+                    seat.setSection(rs.getInt("SECTION"));
+                    seat.setRow(rs.getString("ROW"));
+                    seat.setSeatNumber(rs.getInt("SEAT_NUMBER"));
+                    seat.setLastName(rs.getString("LAST_NAME"));
+                    seat.setFirstName(rs.getString("FIRST_NAME"));
+                    seats.add(seat);
+                }
             }
-            rs.close();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,9 +68,10 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     public ShowSeating addShowSeat(ShowSeating seat) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt = conn.prepareStatement(ADD_SHOWSEAT);
+            Statement stmt2 = conn.createStatement();){
+            
             stmt.setInt(1, seat.getShowId());
             stmt.setInt(2, seat.getSection());
             stmt.setString(3, seat.getRow());
@@ -82,15 +80,12 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setString(6, seat.getFirstName());
             stmt.execute();
             
-            Statement stmt2 = conn.createStatement();
-            ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()");
-            if (generatedKeys.next()) {
-                int generatedKey = generatedKeys.getInt(1);
-                seat.setSeatId(generatedKey);
+            try (ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()")){
+                if (generatedKeys.next()) {
+                    int generatedKey = generatedKeys.getInt(1);
+                    seat.setSeatId(generatedKey);
+                }
             }
-           
-            stmt.close();
-            conn.close();
             
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,9 +97,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     public void updateShowSeat(ShowSeating seat) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWSEAT);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(UPDATE_SHOWSEAT);){
             stmt.setInt(1, seat.getSection());
             stmt.setString(2, seat.getRow());
             stmt.setInt(3, seat.getSeatNumber());
@@ -112,8 +106,6 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setString(5, seat.getFirstName());
             stmt.setInt(6, seat.getSeatId());
             stmt.execute();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -123,13 +115,10 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     public void deleteShowSeat(int seatId) {
         String connectionUrl = getConnectionUrl();
         
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWSEAT);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(REMOVE_SHOWSEAT);){
             stmt.setInt(1, seatId);
             stmt.execute();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -138,13 +127,10 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     @Override
     public void deleteAllShowSeats(int showId) {
         String connectionUrl = getConnectionUrl();
-        try {
-            Connection conn = DriverManager.getConnection(connectionUrl);
-            PreparedStatement stmt = conn.prepareStatement(REMOVE_ALL_SHOW_SHOWSEATS);
+        try (Connection conn = DriverManager.getConnection(connectionUrl);
+            PreparedStatement stmt = conn.prepareStatement(REMOVE_ALL_SHOW_SHOWSEATS);){
             stmt.setInt(1, showId);
             stmt.execute();
-            stmt.close();
-            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
