@@ -8,21 +8,31 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import org.sawmill.theater.ticketing.fx.TextFieldLimited?>
 
 <AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1200.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sawmill.theater.ticketing.controller.ShowtimeController">
    <children>
-      <Label layoutX="39.0" layoutY="36.0" text="COOK FOREST SAWMILL CENTER FOR THE ARTS  |" textFill="WHITE">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="813.0" layoutY="43.0" text="Where nature meets the arts!" textFill="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
+      <HBox layoutX="56.0" layoutY="26.0" prefHeight="44.0" prefWidth="1096.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="809.0" text="COOK FOREST SAWMILL CENTER FOR THE ARTS" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="10.0" text="|" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="73.0" prefWidth="377.0" text="Where nature meets the arts!" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <VBox layoutX="70.0" layoutY="171.0" prefHeight="120.0" prefWidth="120.0">
           <Label fx:id="lblSelectShow" styleClass="form-label" text="Select Show:" wrapText="true" textFill="WHITE" />
       </VBox>
