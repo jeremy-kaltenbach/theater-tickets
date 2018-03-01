@@ -174,9 +174,7 @@ public class MainController implements Initializable {
         File dbFile = fileChooser.showSaveDialog(window);
         
         if (dbFile != null) {
-            // Add a .db file extenstion to the name
-            String filePath = dbFile.getAbsolutePath() + ".db";
-            theatreService.createDatabase(filePath);
+            theatreService.createDatabase(dbFile.getAbsolutePath());
             statusIndicator.getStyleClass().clear();
             statusIndicator.getStyleClass().add("ready");
             disableButtons(false);

@@ -5,9 +5,13 @@
  */
 package org.sawmill.theater.ticketing.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -45,14 +49,13 @@ public class TheatreDAOImpl implements TheatreDAO {
         // Check the properties file to see if the database is created yet
         // If so, then verify that the file path saved points to a valid database
         try {
-            input = getClass().getResourceAsStream("/application.properties");
+            input = new FileInputStream(System.getProperty("user.home") + "/SawmillTheatreTickets/config/application.properties");
             if (input != null) {
                 prop.load(input);
-                if (prop.getProperty("database.created").equals("true")) {
-                    isConnected = checkDatabaseAndTables(prop.getProperty("database.location"));
-                }
+                isConnected = checkDatabaseAndTables(prop.getProperty("database.location"));
             }
-            
+        } catch (FileNotFoundException ex) {
+            isConnected = false;
         } catch (IOException ex) {
             Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
 	} finally {
@@ -99,21 +102,35 @@ public class TheatreDAOImpl implements TheatreDAO {
         return isDbValid;
     }
     
+    private void createPropertiesFile(String dbFilePath) {
+        try {
+            // Create a new file called application.propertes and store the path of the
+            // database's location
+            new File(System.getProperty("user.home") + "/SawmillTheatreTickets/config").mkdirs();
+            Properties props = new Properties();
+            props.setProperty("database.location", dbFilePath);
+            File propFile = new File(System.getProperty("user.home") + "/SawmillTheatreTickets/config/application.properties");
+            FileOutputStream fileOut = new FileOutputStream(propFile);
+            props.store(fileOut, "Sawmill Theatre Database Properties");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void updatePropertiesFile(String dbFilePath) {
         try {
             // If the connection to the database is successful, then update the properties
             // file with the path
-            InputStream in = getClass().getResourceAsStream("/application.properties");
+            InputStream input = new FileInputStream(System.getProperty("user.home") + "/SawmillTheatreTickets/config/application.properties");
             Properties props = new Properties();
-            props.load(in);
-            in.close();
-
-            String outfile = getClass().getResource("/application.properties").getFile();
-            FileOutputStream out = new FileOutputStream(outfile);
-            props.setProperty("database.created", "true");
+            props.load(input);
+            input.close();
+            
+            OutputStream output = new FileOutputStream(System.getProperty("user.home") + "/SawmillTheatreTickets/config/application.properties");
             props.setProperty("database.location", dbFilePath);
-            props.store(out, null);
-            out.close();
+            props.store(output, "Sawmill Theatre Database Properties");
+            output.close();
         } catch (IOException ex) {
             Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,8 +145,7 @@ public class TheatreDAOImpl implements TheatreDAO {
         try (Connection conn = DriverManager.getConnection(connectionUrl)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("A new database has been created.");
+                System.out.println("New database has been created.");
                 
                 try (Statement stmt = conn.createStatement()) {
                     stmt.execute(CREATE_SHOWTIME_TABLE);
@@ -139,8 +155,8 @@ public class TheatreDAOImpl implements TheatreDAO {
                 
                 System.out.println("Tables added");
                 
-                // Update the properties file with the new database
-                updatePropertiesFile(filePath);
+                // Create the properties file with the database path
+                createPropertiesFile(filePath);
             }
         } catch (SQLException ex) {
             Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);

@@ -6,6 +6,7 @@
 package org.sawmill.theater.ticketing.dao;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -138,12 +139,13 @@ public class ShowtimeDAOImpl implements ShowtimeDAO {
         // Get connection URL from database location stored in the properties file
         // This was moved from the constructor in order to get the latest settings
         String url = "";
-        InputStream in = getClass().getResourceAsStream("/application.properties");
+        InputStream input;
         Properties props = new Properties();
         try {
-            props.load(in);
+            input = new FileInputStream(System.getProperty("user.home") + "/SawmillTheatreTickets/config/application.properties");
+            props.load(input);
             url =  "jdbc:sqlite:" + props.getProperty("database.location");
-            in.close();
+            input.close();
         } catch (IOException ex) {
             Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
