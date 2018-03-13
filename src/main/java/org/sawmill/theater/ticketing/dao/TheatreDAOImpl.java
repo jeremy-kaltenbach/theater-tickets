@@ -30,6 +30,7 @@ public class TheatreDAOImpl implements TheatreDAO {
    
     private Properties prop;
     private InputStream input;
+    private Logger logger;
     
     private static final String CREATE_SHOWTIME_TABLE = "CREATE TABLE SHOWTIME (SHOW_ID INTEGER PRIMARY KEY, "
             + "SHOW_NAME VARCHAR (255) NOT NULL, THEATRE_GROUP VARCHAR (255) NOT NULL, SHOW_DATE DATETIME NOT NULL, "
@@ -40,6 +41,7 @@ public class TheatreDAOImpl implements TheatreDAO {
     
     public TheatreDAOImpl() {
         prop = new Properties();
+        logger = Logger.getLogger("SawmillTheatreLogger");
     }
 
     @Override
@@ -55,15 +57,17 @@ public class TheatreDAOImpl implements TheatreDAO {
                 isConnected = checkDatabaseAndTables(prop.getProperty("database.location"));
             }
         } catch (FileNotFoundException ex) {
+            logger.log(Level.INFO, "Database config file not found.");
+            logger.log(Level.INFO, "This is expected upon first launch of the application.");
             isConnected = false;
         } catch (IOException ex) {
-            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error reading database config file", ex);
 	} finally {
             if (input != null) {
                 try {
                     input.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    logger.log(Level.SEVERE, "Error closing database config file", ex);
                 }
             }
 	}
@@ -76,6 +80,7 @@ public class TheatreDAOImpl implements TheatreDAO {
         boolean isValid = checkDatabaseAndTables(filePath);
         
         if (isValid) {
+            logger.log(Level.INFO, "Connected to database at: ".concat(filePath));
             updatePropertiesFile(filePath);
         }
         
@@ -97,6 +102,7 @@ public class TheatreDAOImpl implements TheatreDAO {
                }   
             }
         } catch (SQLException ex) {
+            logger.log(Level.WARNING, "Unable to connect to the database at the specified path: ".concat(filePath));
             isDbValid = false;
         }
         return isDbValid;
@@ -114,7 +120,7 @@ public class TheatreDAOImpl implements TheatreDAO {
             props.store(fileOut, "Sawmill Theatre Database Properties");
             
         } catch (IOException ex) {
-            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error creating database config file.", ex);
         }
     }
     
@@ -132,7 +138,7 @@ public class TheatreDAOImpl implements TheatreDAO {
             props.store(output, "Sawmill Theatre Database Properties");
             output.close();
         } catch (IOException ex) {
-            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error updating database config file.", ex);
         }
     }
     
@@ -145,20 +151,21 @@ public class TheatreDAOImpl implements TheatreDAO {
         try (Connection conn = DriverManager.getConnection(connectionUrl)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("New database has been created.");
+                logger.log(Level.INFO, "New database has been created.");
+                logger.log(Level.INFO, "Database location: ".concat(filePath));
                 
                 try (Statement stmt = conn.createStatement()) {
                     stmt.execute(CREATE_SHOWTIME_TABLE);
                     stmt.execute(CREATE_SHOW_SEATING_TABLE);
                 }
                 
-                System.out.println("Tables added");
+                logger.log(Level.INFO, "Database tables created");
                 
                 // Create the properties file with the database path
                 createPropertiesFile(filePath);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TheatreDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error creating database.", ex);
         }
     }
 

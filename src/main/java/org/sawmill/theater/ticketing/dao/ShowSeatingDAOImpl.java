@@ -27,13 +27,16 @@ import org.sawmill.theater.ticketing.model.ShowSeating;
  */
 public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
+    private Logger logger;
+    
     private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME FROM SHOW_SEATING WHERE SHOW_ID=?";
     private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SHOWSEAT = "UPDATE SHOW_SEATING SET SECTION=?, ROW=?, SEAT_NUMBER=?, LAST_NAME=?, FIRST_NAME=? WHERE SEAT_ID=?";
     private static final String REMOVE_SHOWSEAT = "DELETE FROM SHOW_SEATING WHERE SEAT_ID=?";
     private static final String REMOVE_ALL_SHOW_SHOWSEATS = "DELETE FROM SHOW_SEATING WHERE SHOW_ID=?";
     
-    public ShowSeatingDAOImpl() {      
+    public ShowSeatingDAOImpl() {
+        logger = Logger.getLogger("SawmillTheatreLogger");
     }
 
     @Override
@@ -58,7 +61,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error fetching show seats from the database.", ex);
         }
         
         return seats;
@@ -88,7 +91,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error adding show seat to the database.", ex);
         }
         return seat;
     }
@@ -107,7 +110,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setInt(6, seat.getSeatId());
             stmt.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error updating show seat in the database.", ex);
         }
     }
 
@@ -120,7 +123,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setInt(1, seatId);
             stmt.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error deleting show seat from the database.", ex);
         }
     }
 
@@ -132,7 +135,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setInt(1, showId);
             stmt.execute();
         } catch (SQLException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error deleting all show seats from the database.", ex);
         }
     }
     
@@ -148,7 +151,7 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             url =  "jdbc:sqlite:" + props.getProperty("database.location");
             input.close();
         } catch (IOException ex) {
-            Logger.getLogger(ShowtimeDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, "Error connecting to the database.", ex);
         } 
         return url;
     }
