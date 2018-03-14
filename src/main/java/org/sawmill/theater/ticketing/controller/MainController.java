@@ -45,15 +45,15 @@ public class MainController implements Initializable {
      */
     public void showNewShowtime(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
-        Parent tableViewParent = loader.load();
+        Parent mainParent = loader.load();
         ShowtimeController controller = loader.getController();
         controller.setEditMode(false);
-        Scene tableViewScene = new Scene(tableViewParent);
         
-        //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        Scene newShowtimeScene = new Scene(mainParent, currentScene.getWidth(), currentScene.getHeight());
         
-        window.setScene(tableViewScene);
+        window.setScene(newShowtimeScene);
         window.show();
     }
     
@@ -70,15 +70,15 @@ public class MainController implements Initializable {
             alert.show();
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
-            Parent tableViewParent = loader.load();
+            Parent mainParent = loader.load();
             ShowtimeController controller = loader.getController();
             controller.setEditMode(true);
-            Scene tableViewScene = new Scene(tableViewParent);
 
-            //This line gets the Stage information
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene currentScene = ((Node)event.getSource()).getScene();
+            Scene updateShowtimeScene = new Scene(mainParent, currentScene.getWidth(), currentScene.getHeight());
 
-            window.setScene(tableViewScene);
+            window.setScene(updateShowtimeScene);
             window.show();
         }
     }
@@ -96,15 +96,15 @@ public class MainController implements Initializable {
             alert.show();
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Showtime.fxml"));
-            Parent tableViewParent = loader.load();
+            Parent mainParent = loader.load();
             ShowtimeController controller = loader.getController();
             controller.setDeleteMode(true);
-            Scene tableViewScene = new Scene(tableViewParent);
 
-            //This line gets the Stage information
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene currentScene = ((Node)event.getSource()).getScene();
+            Scene deleteShowtimeScene = new Scene(mainParent, currentScene.getWidth(), currentScene.getHeight());
 
-            window.setScene(tableViewScene);
+            window.setScene(deleteShowtimeScene);
             window.show(); 
         }
     }

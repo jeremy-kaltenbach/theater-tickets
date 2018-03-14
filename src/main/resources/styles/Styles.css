@@ -5,7 +5,7 @@
     -fx-background-position: center center;
 }
 
-#AnchorPane {
+#ShowtimePane {
     -fx-background-color: #252525;
 }
 
@@ -25,19 +25,19 @@
 }
 
 .form-label {
-    -fx-font: 25px "Arial";
+    -fx-font: 14px "Arial";
 }
 
 .form-text-input {
-    -fx-font: 25px "Arial";
+    -fx-font: 14px "Arial";
 }
 
 .form-date-input {
-    -fx-font: 25px "Arial";
+    -fx-font: 14px "Arial";
 }
 
 .show-selector {
-    -fx-font: 25px "Arial";
+    -fx-font: 14px "Arial";
 }
 .seat-label {
     -fx-font: 20px "Arial";

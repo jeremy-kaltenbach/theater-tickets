@@ -136,16 +136,16 @@ public class ShowtimeController implements Initializable {
 
     public void showMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
-        Parent tableViewParent = loader.load();
+        Parent theatreParent = loader.load();
         MainController controller = loader.getController();
         controller.checkDatabaseStatus();
 
-        Scene tableViewScene = new Scene(tableViewParent);
-
         //This line gets the Stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        Scene mainScene = new Scene(theatreParent, currentScene.getWidth(), currentScene.getHeight());
 
-        window.setScene(tableViewScene);
+        window.setScene(mainScene);
         window.show();
     }
 
