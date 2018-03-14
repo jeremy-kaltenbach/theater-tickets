@@ -82,6 +82,10 @@ public class ChartController implements Initializable {
     private static final String LAST_NAME_TOO_LONG = "* Last name is too long";
     private static final String SEAT_OPEN_ERROR = "* Seat is open";
     
+    private static final String SEAT_ADDED = "-- Seat Added --";
+    private static final String SEAT_UPDATED = "-- Seat Updated --";
+    private static final String SEAT_REMOVED = "-- Seat Removed --";
+    
     private TheatreService theatreService = new TheatreServiceImpl();
     
     private Scene parentScene;
@@ -106,6 +110,8 @@ public class ChartController implements Initializable {
     
     @FXML
     private Label lblNameError;
+    @FXML
+    private Label lblSeatStatus;
     
     @FXML
     private TextField txtBxFirstName;
@@ -147,9 +153,11 @@ public class ChartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hideErrorLabel();
+        hideSeatStatusLabel();
         btnAdd.setDisable(true);
         btnDelete.setDisable(true);
         btnPrint.setDisable(true);
+        btnPrint.setVisible(false);
         txtBxFirstName.setEditable(false);
         txtBxLastName.setEditable(false);
         occupiedSeats = new HashMap<String, ShowSeating>();
@@ -158,6 +166,7 @@ public class ChartController implements Initializable {
     
     public void setPrintMode(boolean printMode) {
         this.printMode = printMode;
+        btnPrint.setVisible(printMode);
     }
     
     public void showMain(ActionEvent event) throws IOException {
@@ -224,6 +233,7 @@ public class ChartController implements Initializable {
     public void seatSelected(MouseEvent event) throws IOException {
         
         hideErrorLabel();
+        hideSeatStatusLabel();
         
         StackPane seatPane = ((StackPane) event.getSource());
         Rectangle selectedSeat = (Rectangle) seatPane.getChildren().get(0);
@@ -319,6 +329,7 @@ public class ChartController implements Initializable {
     public void showSelected() {
         
         hideErrorLabel();
+        hideSeatStatusLabel();
 
         // Clear occupied seats (if any)
         for (String seatId : occupiedSeats.keySet()) {
@@ -382,6 +393,7 @@ public class ChartController implements Initializable {
         boolean isValid = true;
         
         hideErrorLabel();
+        hideSeatStatusLabel();
         
         String firstName = txtBxFirstName.getText();
         String lastName = txtBxLastName.getText();
@@ -446,6 +458,9 @@ public class ChartController implements Initializable {
         btnAdd.setText("Update");
         editMode = true;
         
+        lblSeatStatus.setText(SEAT_ADDED);
+        lblSeatStatus.setVisible(true);
+        
     }
     
     private void updateSeat(String firstName, String lastName) {
@@ -455,6 +470,9 @@ public class ChartController implements Initializable {
         seat.setLastName(lastName);
         
         theatreService.updateShowSeat(seat);
+        
+        lblSeatStatus.setText(SEAT_UPDATED);
+        lblSeatStatus.setVisible(true);
     }
     
     public void deleteSeat(ActionEvent event) {
@@ -481,11 +499,18 @@ public class ChartController implements Initializable {
             txtBxLastName.setText("");
             btnAdd.setText("Add");
             editMode = false;
+            
+            lblSeatStatus.setText(SEAT_REMOVED);
+            lblSeatStatus.setVisible(true);
         }
     }
     
     private void hideErrorLabel() {
         lblNameError.setVisible(false);
+    }
+    
+    private void hideSeatStatusLabel() {
+        lblSeatStatus.setVisible(false);
     }
     
     public void printSetup(ActionEvent event) throws IOException {

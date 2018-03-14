@@ -931,14 +931,14 @@
       <Label layoutX="224.0" layoutY="75.0" styleClass="form-label" text="Group:" textFill="WHITE" />
       <Label layoutX="224.0" layoutY="117.0" styleClass="form-label" text="Date:" textFill="WHITE" />
       <ComboBox fx:id="cmboBxSelectShow" layoutX="317.0" layoutY="25.0" onAction="#showSelected" prefHeight="28.0" prefWidth="249.0" styleClass="show-selector" />
-      <Label fx:id="lblGroupOutput" layoutX="316.0" layoutY="74.0" styleClass="form-label" text="Sample Group" textFill="WHITE" />
-      <Label fx:id="lblDateOutput" layoutX="316.0" layoutY="115.0" styleClass="form-label" text="Sample Date" textFill="WHITE" />
+      <Label fx:id="lblGroupOutput" layoutX="316.0" layoutY="74.0" styleClass="form-label" textFill="WHITE" />
+      <Label fx:id="lblDateOutput" layoutX="316.0" layoutY="115.0" styleClass="form-label" textFill="WHITE" />
       <Label layoutX="224.0" layoutY="177.0" styleClass="form-label" text="Section:" textFill="WHITE" />
       <Label layoutX="363.0" layoutY="177.0" styleClass="form-label" text="Row:" textFill="WHITE" />
       <Label layoutX="476.0" layoutY="177.0" styleClass="form-label" text="Seat:" textFill="WHITE" />
-      <Label fx:id="lblSectionOutput" layoutX="305.0" layoutY="177.0" styleClass="form-label" text="1" textFill="WHITE" />
-      <Label fx:id="lblRowOutput" layoutX="417.0" layoutY="177.0" styleClass="form-label" text="A" textFill="WHITE" />
-      <Label fx:id="lblSeatOutput" layoutX="534.0" layoutY="177.0" styleClass="form-label" text="1" textFill="WHITE" />
+      <Label fx:id="lblSectionOutput" layoutX="305.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
+      <Label fx:id="lblRowOutput" layoutX="417.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
+      <Label fx:id="lblSeatOutput" layoutX="534.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
       <Label layoutX="252.0" layoutY="237.0" styleClass="form-label" text="First Name:" textFill="WHITE" />
       <Label layoutX="252.0" layoutY="276.0" styleClass="form-label" text="Last Name:" textFill="WHITE" />
       <TextField fx:id="txtBxFirstName" layoutX="365.0" layoutY="232.0" styleClass="form-text-input" />
@@ -947,5 +947,6 @@
       <Button fx:id="btnDelete" layoutX="415.0" layoutY="344.0" mnemonicParsing="false" onAction="#deleteSeat" prefHeight="30.0" prefWidth="80.0" text="Delete" />
       <Label fx:id="lblNameError" layoutX="362.0" layoutY="313.0" styleClass="form-label" text="* Please enter name" textFill="RED" />
       <Button fx:id="btnPrint" layoutX="666.0" layoutY="534.0" mnemonicParsing="false" onAction="#printSetup" prefHeight="30.0" prefWidth="100.0" text="Print" />
+      <Label fx:id="lblSeatStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="303.0" layoutY="397.0" prefHeight="18.0" prefWidth="192.0" styleClass="form-label" textFill="#00d9ff" />
     </children>
 </AnchorPane>
