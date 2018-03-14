@@ -140,7 +140,6 @@ public class ShowtimeController implements Initializable {
         MainController controller = loader.getController();
         controller.checkDatabaseStatus();
 
-        //This line gets the Stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene currentScene = ((Node)event.getSource()).getScene();
         Scene mainScene = new Scene(theatreParent, currentScene.getWidth(), currentScene.getHeight());
@@ -151,18 +150,18 @@ public class ShowtimeController implements Initializable {
 
     private void showChart(ActionEvent event, Showtime newShow) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
-        Parent tableViewParent = loader.load();
+        Parent theatreParent = loader.load();
         ChartController controller = loader.getController();
-        Scene tableViewScene = new Scene(tableViewParent);
-        controller.setScene(tableViewScene);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene currentScene = ((Node)event.getSource()).getScene();
+        Scene chartScene = new Scene(theatreParent, currentScene.getWidth(), currentScene.getHeight());
+        controller.setScene(chartScene);
         controller.setUpSeatLabels();
         controller.getShowtimes();
         controller.setSelectedShowtime(newShow);
-
-        //This line gets the Stage information
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
+        
+        window.setScene(chartScene);
         window.show();
     }
 

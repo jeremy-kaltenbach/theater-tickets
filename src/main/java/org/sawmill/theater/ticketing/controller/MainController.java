@@ -123,17 +123,17 @@ public class MainController implements Initializable {
             alert.show();
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
-            Parent tableViewParent = loader.load();
+            Parent mainParent = loader.load();
             ChartController controller = loader.getController();
-            Scene tableViewScene = new Scene(tableViewParent);
-            controller.setScene(tableViewScene);
+
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene currentScene = ((Node)event.getSource()).getScene();
+            Scene updateSeatsScene = new Scene(mainParent, currentScene.getWidth(), currentScene.getHeight());
+            controller.setScene(updateSeatsScene);
             controller.setUpSeatLabels();
             controller.getShowtimes();
 
-            //This line gets the Stage information
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-            window.setScene(tableViewScene);
+            window.setScene(updateSeatsScene);
             window.show();
         }
     }
@@ -148,18 +148,18 @@ public class MainController implements Initializable {
             alert.show();
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Chart.fxml"));
-            Parent tableViewParent = loader.load();
+            Parent mainParent = loader.load();
             ChartController controller = loader.getController();
-            Scene tableViewScene = new Scene(tableViewParent);
-            controller.setScene(tableViewScene);
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene currentScene = ((Node)event.getSource()).getScene();
+            Scene printTicketsScene = new Scene(mainParent, currentScene.getWidth(), currentScene.getHeight());
+            controller.setScene(printTicketsScene);
             controller.setUpSeatLabels();
             controller.getShowtimes();
             controller.setPrintMode(true);
-
-            //This line gets the Stage information
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-            window.setScene(tableViewScene);
+            
+            window.setScene(printTicketsScene);
             window.show();
         }
     }

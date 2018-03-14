@@ -9,6 +9,10 @@
     -fx-background-color: #252525;
 }
 
+#ChartPane {
+    -fx-background-color: #252525;
+}
+
 .ready {
     -fx-fill: limegreen;
 }
@@ -40,7 +44,7 @@
     -fx-font: 14px "Arial";
 }
 .seat-label {
-    -fx-font: 20px "Arial";
+    -fx-font: 14px "Arial";
     -fx-cursor: hand;
 }
 
