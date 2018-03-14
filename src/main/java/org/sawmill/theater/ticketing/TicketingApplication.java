@@ -3,7 +3,6 @@ package org.sawmill.theater.ticketing;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import javafx.application.Application;
@@ -33,8 +32,7 @@ public class TicketingApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Cook Forest Sawmill Theatre");
-        primaryStage.setResizable(false);
-        Scene scene = new Scene(root, 1200, 900);
+        Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().add("/styles/Styles.css");
         MainController controller = loader.getController();
         controller.checkDatabaseStatus();
