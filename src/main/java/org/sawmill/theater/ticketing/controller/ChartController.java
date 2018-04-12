@@ -21,6 +21,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.print.JobSettings;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -515,7 +520,8 @@ public class ChartController implements Initializable {
     
     public void printSetup(ActionEvent event) throws IOException {
         
-        HBox ticketBox = new HBox();
+//        HBox ticketBox = new HBox();
+        List<Parent> ticketList = new ArrayList<>();
         
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         
@@ -551,7 +557,9 @@ public class ChartController implements Initializable {
             ticketStub.getChildren().add(titleHolder);
             ticketStub.getChildren().add(dateHolder);
             
-            ticketBox.getChildren().add(ticketParent);
+            ticketList.add(ticketParent);
+            
+//            ticketBox.getChildren().add(ticketParent);
         }
 
         
@@ -561,22 +569,32 @@ public class ChartController implements Initializable {
             //Unable to print
             return;
         }
-        
+           
         boolean proceed = job.showPrintDialog(window);
         
         if (proceed) {
-            print(job, ticketBox);
+            Printer printer = job.getPrinter();
+            JobSettings jobSettings = job.getJobSettings();
+            PageLayout pageLayout = jobSettings.getPageLayout();
+            Paper selectedPaper = pageLayout.getPaper();
+            PageLayout layout = printer.createPageLayout(selectedPaper, PageOrientation.LANDSCAPE, Printer.MarginType.HARDWARE_MINIMUM);
+            print(job, layout, ticketList);
         }
     }
     
-    private void print(PrinterJob job, Node node) {
+    private void print(PrinterJob job, PageLayout layout, List<Parent> ticketList) {
 
-        // Print the node
-        boolean printed = job.printPage(node);
-        
-        if (printed) {
-            job.endJob();
+        // Print each ticket selected as their own page
+        for (Parent ticket : ticketList) {
+            boolean printed = job.printPage(layout, ticket);
+            if (!printed) {
+                job.cancelJob();
+                break;
+            }
         }
+        
+        // All tickets printed so, end the job
+        job.endJob();
     }
     
 }

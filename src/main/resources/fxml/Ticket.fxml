@@ -20,7 +20,7 @@
                       <Label alignment="CENTER" prefHeight="16.0" prefWidth="500.0" text="PRESENTS" />
                       <Label fx:id="lblShowName" alignment="CENTER" prefHeight="75.0" prefWidth="499.0" text="Test Show Title" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
                           <font>
-                              <Font size="30.0" />
+                              <Font size="27.0" />
                           </font>
                       </Label>
                       <Label fx:id="lblGroup" alignment="CENTER" prefHeight="32.0" prefWidth="500.0" text="BY: TEST SHOW GROUP">
