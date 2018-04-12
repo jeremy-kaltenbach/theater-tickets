@@ -520,7 +520,6 @@ public class ChartController implements Initializable {
     
     public void printSetup(ActionEvent event) throws IOException {
         
-//        HBox ticketBox = new HBox();
         List<Parent> ticketList = new ArrayList<>();
         
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -559,9 +558,7 @@ public class ChartController implements Initializable {
             
             ticketList.add(ticketParent);
             
-//            ticketBox.getChildren().add(ticketParent);
         }
-
         
         PrinterJob job = PrinterJob.createPrinterJob();
         
@@ -584,7 +581,7 @@ public class ChartController implements Initializable {
     
     private void print(PrinterJob job, PageLayout layout, List<Parent> ticketList) {
 
-        // Print each ticket selected as their own page
+        // Print each ticket selected on their own page
         for (Parent ticket : ticketList) {
             boolean printed = job.printPage(layout, ticket);
             if (!printed) {
