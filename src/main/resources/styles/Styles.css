@@ -50,22 +50,66 @@
 
 .seat-open {
     -fx-cursor: hand;
-    -fx-fill: #009918;    
+    -fx-background-color: #009918; 
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
 .seat-occupied {
     -fx-cursor: hand;
-    -fx-fill: #aaaaaa;
+    -fx-background-color: #aaaaaa;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
 .seat-selected {
     -fx-cursor: hand;
-    -fx-fill: #4286f4;
+    -fx-background-color: #4286f4;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
 }
 
 .seat-selected-printing {
     -fx-cursor: hand;
-    -fx-fill: #cd7cff;
+    -fx-background-color: #cd7cff;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;    
+}
+
+.seat-open-handicapped {
+    -fx-cursor: hand;
+    -fx-background-image: url("../handicap_green.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}
+
+.seat-occupied-handicapped {
+    -fx-cursor: hand;
+    -fx-background-image: url("../handicap_gray.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}
+
+.seat-selected-handicapped {
+    -fx-cursor: hand;
+    -fx-background-image: url("../handicap_blue.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}
+
+.seat-selected-printing-handicapped {
+    -fx-cursor: hand;
+    -fx-background-image: url("../handicap_purple.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
 }
 
 #theatreTicket {

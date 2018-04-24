@@ -41,8 +41,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -129,7 +129,7 @@ public class ChartController implements Initializable {
     @FXML
     private Button btnPrint;
     
-    private Rectangle previousSelectedSeat;
+    private Region previousSelectedSeat;
     private String previousSelectedSeatStyle;
     
     private int seatSection;
@@ -196,12 +196,15 @@ public class ChartController implements Initializable {
     
     private void addLabelsForSeatSection(String[] sectionSeats) {
         for (int i = 0; i < sectionSeats.length; i++) {
-            Rectangle seat = (Rectangle) parentScene.lookup("#" + sectionSeats[i]);
-            StackPane parent = (StackPane) seat.getParent();
-            Label seatLabel = new Label(sectionSeats[i].toUpperCase());
-            seatLabel.getStyleClass().clear();
-            seatLabel.getStyleClass().add("seat-label");
-            parent.getChildren().add(seatLabel);
+            // Don't add labels to the handicap seats
+            if (!sectionSeats[i].substring(0, 1).equals("h")) {
+                Region seat = (Region) parentScene.lookup("#" + sectionSeats[i]);
+                StackPane parent = (StackPane) seat.getParent();
+                Label seatLabel = new Label(sectionSeats[i].toUpperCase());
+                seatLabel.getStyleClass().clear();
+                seatLabel.getStyleClass().add("seat-label");
+                parent.getChildren().add(seatLabel);
+               }
         }
     }
     
@@ -240,8 +243,13 @@ public class ChartController implements Initializable {
         hideSeatStatusLabel();
         
         StackPane seatPane = ((StackPane) event.getSource());
-        Rectangle selectedSeat = (Rectangle) seatPane.getChildren().get(0);
+        Region selectedSeat = (Region) seatPane.getChildren().get(0);
         String seatId = selectedSeat.getId();
+        
+        seatRow = seatId.substring(0, 1).toUpperCase();
+        seatNumber = Integer.parseInt(seatId.substring(1));
+        
+        boolean isHandicapped = seatRow.equals("H");
         
         if (!printMode) {
             if (previousSelectedSeat != null) {
@@ -252,7 +260,11 @@ public class ChartController implements Initializable {
             previousSelectedSeatStyle = selectedSeat.getStyleClass().get(0);
             
             selectedSeat.getStyleClass().clear();
-            selectedSeat.getStyleClass().add("seat-selected");
+            if (isHandicapped) {
+                selectedSeat.getStyleClass().add("seat-selected-handicapped");
+            } else {
+                selectedSeat.getStyleClass().add("seat-selected");
+            }
         }
 
         //Find out which section the seat is located
@@ -265,9 +277,6 @@ public class ChartController implements Initializable {
         } else {
             seatSection = 4;
         }
-        
-        seatRow = seatId.substring(0, 1).toUpperCase();
-        seatNumber = Integer.parseInt(seatId.substring(1));
         
         lblSectionOutput.setText(String.valueOf(seatSection));
         lblRowOutput.setText(seatRow);
@@ -286,11 +295,19 @@ public class ChartController implements Initializable {
                     // If the seat is already added, then remove it (toggle) and un-select it
                     if (seatsToPrint.contains(seat)) {
                         selectedSeat.getStyleClass().clear();
-                        selectedSeat.getStyleClass().add("seat-occupied");
+                        if (isHandicapped) {
+                            selectedSeat.getStyleClass().add("seat-occupied-handicapped");                            
+                        } else {
+                            selectedSeat.getStyleClass().add("seat-occupied");                            
+                        }
                         seatsToPrint.remove(seat);
                     } else {
                         selectedSeat.getStyleClass().clear();
-                        selectedSeat.getStyleClass().add("seat-selected-printing");
+                        if (isHandicapped) {
+                            selectedSeat.getStyleClass().add("seat-selected-printing-handicapped");                            
+                        } else {
+                            selectedSeat.getStyleClass().add("seat-selected-printing");                           
+                        }
                         seatsToPrint.add(seat);
                     }
                     
@@ -335,9 +352,13 @@ public class ChartController implements Initializable {
 
         // Clear occupied seats (if any)
         for (String seatId : occupiedSeats.keySet()) {
-            Rectangle occupiedSeat = (Rectangle) parentScene.lookup("#" + seatId);
+            Region occupiedSeat = (Region) parentScene.lookup("#" + seatId);
             occupiedSeat.getStyleClass().clear();
-            occupiedSeat.getStyleClass().add("seat-open");
+            if (seatId.substring(0, 1).equals("h")) {
+                occupiedSeat.getStyleClass().add("seat-open-handicapped");
+            } else {
+                occupiedSeat.getStyleClass().add("seat-open");
+            }
         }
 
         // Clear seats selected to print
@@ -346,7 +367,11 @@ public class ChartController implements Initializable {
         // Remove previously selected seat
         if (previousSelectedSeat != null) {
             previousSelectedSeat.getStyleClass().clear();
-            previousSelectedSeat.getStyleClass().add("seat-open");
+            if (previousSelectedSeat.getId().substring(0, 1).equals("h")) {
+                previousSelectedSeat.getStyleClass().add("seat-open-handicapped");
+            } else {
+                previousSelectedSeat.getStyleClass().add("seat-open");
+            }
         }
         previousSelectedSeat = null;
         
@@ -382,9 +407,13 @@ public class ChartController implements Initializable {
         List<ShowSeating> seatList = theatreService.getShowtimeSeats(cmboBxSelectShow.getValue().getShowId());
         for (ShowSeating seat : seatList) {
             String seatId = seat.getRow().toLowerCase() + String.valueOf(seat.getSeatNumber());
-            Rectangle occupiedSeat = (Rectangle) parentScene.lookup("#" + seatId);
+            Region occupiedSeat = (Region) parentScene.lookup("#" + seatId);
             occupiedSeat.getStyleClass().clear();
-            occupiedSeat.getStyleClass().add("seat-occupied");
+            if (seatId.substring(0, 1).equals("h")) {
+                occupiedSeat.getStyleClass().add("seat-occupied-handicapped");
+            } else {
+                occupiedSeat.getStyleClass().add("seat-occupied");
+            }
             
             occupiedSeats.put(seatId, seat);
         }
@@ -451,9 +480,13 @@ public class ChartController implements Initializable {
 
         // Set this as the previous selected seat so it shows as occupied when selecting another
         String seatId = seatRow.toLowerCase() + seatNumber;
-        Rectangle occupiedSeat = (Rectangle) parentScene.lookup("#" + seatId);
+        Region occupiedSeat = (Region) parentScene.lookup("#" + seatId);
         previousSelectedSeat = occupiedSeat;
-        previousSelectedSeatStyle = "seat-occupied";
+        if (seatRow.equals("H")) {
+            previousSelectedSeatStyle = "seat-occupied-handicapped";
+        } else {
+            previousSelectedSeatStyle = "seat-occupied";
+        }
         
         occupiedSeats.put(seatId, newSeat);
         
@@ -491,10 +524,14 @@ public class ChartController implements Initializable {
             theatreService.deleteShowSeat(seat.getSeatId());
 
             // Set this as the previous selected seat so it shows as open when selecting another
-            Rectangle occupiedSeat = (Rectangle) parentScene.lookup("#" + seatId);
+            Region occupiedSeat = (Region) parentScene.lookup("#" + seatId);
             previousSelectedSeat = occupiedSeat;
-            previousSelectedSeatStyle = "seat-open";
-            
+            if (seatRow.equals("H")) {
+                previousSelectedSeatStyle = "seat-open-handicapped";
+            } else {
+                previousSelectedSeatStyle = "seat-open";
+            }
+
             occupiedSeats.remove(seatId);
             
             txtBxFirstName.setText("");
