@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,957 +14,957 @@
       <StackPane layoutX="23.0" layoutY="19.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 1st row -->
-              <Region fx:id="e36" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e36" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="19.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d42" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d42" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="19.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c38" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c38" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="19.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b34" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b34" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="19.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a30" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a30" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="20.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a1" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="20.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b1" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="20.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c1" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="20.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d1" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="20.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e1" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="52.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 2nd row -->
-              <Region fx:id="e35" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e35" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="52.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d41" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d41" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="52.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c37" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c37" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="52.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b33" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b33" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="52.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a29" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a29" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="53.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a2" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="53.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b2" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="53.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c2" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="53.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d2" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="53.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e2" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="85.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 3rd row -->
-              <Region fx:id="e34" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e34" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="85.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d40" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d40" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="85.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c36" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c36" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="85.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b32" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b32" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="85.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a28" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a28" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="86.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a3" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="86.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b3" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="86.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c3" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="86.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d3" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="86.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e3" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="118.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 4th row -->
-              <Region fx:id="e33" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e33" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="118.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d39" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d39" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="118.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c35" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c35" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="118.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b31" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b31" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="118.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a27" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a27" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a4" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b4" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c4" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d4" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="119.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e4" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="151.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 5th row -->
-              <Region fx:id="e32" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e32" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="151.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d38" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d38" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="151.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c34" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c34" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="151.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b30" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b30" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="151.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a26" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a26" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="152.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a5" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="152.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b5" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="152.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c5" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="152.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d5" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="152.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e5" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="184.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 6th row -->
-              <Region fx:id="e31" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e31" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="184.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d37" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d37" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="184.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c33" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c33" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="184.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b29" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b29" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="184.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a25" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a25" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="185.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a6" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="185.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b6" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="185.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c6" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="185.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d6" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="185.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e6" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="217.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 7th row -->
-              <Region fx:id="e30" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e30" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="217.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d36" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d36" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="217.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c32" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c32" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="217.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b28" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b28" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="217.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a24" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a24" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="218.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a7" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="218.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b7" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="218.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c7" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="218.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d7" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="218.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e7" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="23.0" layoutY="250.0" onMouseClicked="#seatSelected">
          <children>
               <!-- 8th row -->
-              <Region fx:id="e29" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e29" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="250.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d35" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d35" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="91.0" layoutY="250.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c31" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c31" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="125.0" layoutY="250.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b27" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b27" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="159.0" layoutY="250.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a23" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a23" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="608.0" layoutY="251.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="a8" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="642.0" layoutY="251.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="b8" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="676.0" layoutY="251.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="c8" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="710.0" layoutY="251.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="d8" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="744.0" layoutY="251.0" onMouseClicked="#seatSelected">
          <children>
-              <Region fx:id="e8" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
          </children>
       </StackPane>
       
       <!-- Section 2 -->
       <StackPane layoutX="528.0" layoutY="408.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="a12" prefHeight="32.0" rotate="51.44"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="a12" prefHeight="32.0" prefWidth="32.0" rotate="51.44" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="550.0" layoutY="433.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b13" prefHeight="32.0" rotate="50.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b13" prefHeight="32.0" prefWidth="32.0" rotate="50.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="572.0" layoutY="458.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c14" prefHeight="32.0" rotate="49.08"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c14" prefHeight="32.0" prefWidth="32.0" rotate="49.08" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="595.0" layoutY="483.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d15" prefHeight="32.0" rotate="48.44"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d15" prefHeight="32.0" prefWidth="32.0" rotate="48.44" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="617.0" layoutY="507.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e16" prefHeight="32.0" rotate="48.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e16" prefHeight="32.0" prefWidth="32.0" rotate="48.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="411.0" layoutY="447.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a15" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a15" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>      
       <StackPane layoutX="411.0" layoutY="482.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b17" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b17" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>         
       <StackPane layoutX="411.0" layoutY="516.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c19" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c19" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>     
       <StackPane layoutX="411.0" layoutY="550.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d21" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d21" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>        
       <StackPane layoutX="452.0" layoutY="442.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a14" prefHeight="32.0" rotate="77.16"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a14" prefHeight="32.0" prefWidth="32.0" rotate="77.16" styleClass="seat-open" />
           </children>
       </StackPane>            
       <StackPane layoutX="492.0" layoutY="429.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a13" prefHeight="32.0" rotate="64.3"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a13" prefHeight="32.0" prefWidth="32.0" rotate="64.3" styleClass="seat-open" />
           </children>
       </StackPane>        
       <StackPane layoutX="450.0" layoutY="479.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b16" prefHeight="32.0" rotate="80.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b16" prefHeight="32.0" prefWidth="32.0" rotate="80.0" styleClass="seat-open" />
           </children>
       </StackPane>        
       <StackPane layoutX="487.0" layoutY="469.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b15" prefHeight="32.0" rotate="70.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b15" prefHeight="32.0" prefWidth="32.0" rotate="70.0" styleClass="seat-open" />
           </children>
       </StackPane>         
       <StackPane layoutX="519.0" layoutY="454.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b14" prefHeight="32.0" rotate="60.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b14" prefHeight="32.0" prefWidth="32.0" rotate="60.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="446.0" layoutY="514.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c18" prefHeight="32.0" rotate="81.8"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c18" prefHeight="32.0" prefWidth="32.0" rotate="81.8" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="480.0" layoutY="507.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c17" prefHeight="32.0" rotate="73.62"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c17" prefHeight="32.0" prefWidth="32.0" rotate="73.62" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="513.0" layoutY="495.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c16" prefHeight="32.0" rotate="65.44"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c16" prefHeight="32.0" prefWidth="32.0" rotate="65.44" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="544.0" layoutY="478.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c15" prefHeight="32.0" rotate="57.26"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c15" prefHeight="32.0" prefWidth="32.0" rotate="57.26" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="445.0" layoutY="549.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d20" prefHeight="32.0" rotate="83.04"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d20" prefHeight="32.0" prefWidth="32.0" rotate="83.04" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="478.0" layoutY="543.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d19" prefHeight="32.0" rotate="76.12"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d19" prefHeight="32.0" prefWidth="32.0" rotate="76.12" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="510.0" layoutY="533.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d18" prefHeight="32.0" rotate="69.2"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d18" prefHeight="32.0" prefWidth="32.0" rotate="69.2" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="540.0" layoutY="520.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d17" prefHeight="32.0" rotate="62.28"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d17" prefHeight="32.0" prefWidth="32.0" rotate="62.28" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="568.0" layoutY="503.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d16" prefHeight="32.0" rotate="55.36"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d16" prefHeight="32.0" prefWidth="32.0" rotate="55.36" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="590.0" layoutY="528.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e17" prefHeight="32.0" rotate="54.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e17" prefHeight="32.0" prefWidth="32.0" rotate="54.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="562.0" layoutY="546.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e18" prefHeight="32.0" layoutX="536.0" layoutY="524.0" rotate="60.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e18" layoutX="536.0" layoutY="524.0" prefHeight="32.0" prefWidth="32.0" rotate="60.0" styleClass="seat-open" />
           </children>
       </StackPane>      
 
       <!-- Section 3 -->
       <StackPane layoutX="354.0" layoutY="447.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a16" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a16" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="354.0" layoutY="482.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b18" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b18" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="354.0" layoutY="516.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c20" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c20" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="354.0" layoutY="550.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d22" prefHeight="32.0" styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d22" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="315.0" layoutY="443.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a17" prefHeight="32.0" rotate="-77.16"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a17" prefHeight="32.0" prefWidth="32.0" rotate="-77.16" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="317.0" layoutY="479.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b19" prefHeight="32.0" rotate="-80.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b19" prefHeight="32.0" prefWidth="32.0" rotate="-80.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="319.0" layoutY="514.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c21" prefHeight="32.0" rotate="-81.8"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c21" prefHeight="32.0" prefWidth="32.0" rotate="-81.8" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="320.0" layoutY="548.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d23" prefHeight="32.0" rotate="-83.04"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d23" prefHeight="32.0" prefWidth="32.0" rotate="-83.04" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="275.0" layoutY="428.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a18" prefHeight="32.0" rotate="-64.3"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a18" prefHeight="32.0" prefWidth="32.0" rotate="-64.3" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="281.0" layoutY="469.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b20" prefHeight="32.0" rotate="-70.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b20" prefHeight="32.0" prefWidth="32.0" rotate="-70.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="284.0" layoutY="506.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c22" prefHeight="32.0" rotate="-73.62"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c22" prefHeight="32.0" prefWidth="32.0" rotate="-73.62" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="287.0" layoutY="542.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d24" prefHeight="32.0" rotate="-76.12"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d24" prefHeight="32.0" prefWidth="32.0" rotate="-76.12" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="238.0" layoutY="405.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a19" prefHeight="32.0" rotate="-51.44"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a19" prefHeight="32.0" prefWidth="32.0" rotate="-51.44" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="216.0" layoutY="430.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b22" prefHeight="32.0" rotate="-50.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b22" prefHeight="32.0" prefWidth="32.0" rotate="-50.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="193.0" layoutY="455.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c25" prefHeight="32.0" rotate="-49.08"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c25" prefHeight="32.0" prefWidth="32.0" rotate="-49.08" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="170.0" layoutY="480.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d28" prefHeight="32.0" rotate="-48.44"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d28" prefHeight="32.0" prefWidth="32.0" rotate="-48.44" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="147.0" layoutY="504.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e21" prefHeight="32.0" rotate="-48.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e21" prefHeight="32.0" prefWidth="32.0" rotate="-48.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="247.0" layoutY="452.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="b21" prefHeight="32.0" rotate="-60.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="b21" prefHeight="32.0" prefWidth="32.0" rotate="-60.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="251.0" layoutY="493.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c23" prefHeight="32.0" rotate="-65.44"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c23" prefHeight="32.0" prefWidth="32.0" rotate="-65.44" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="255.0" layoutY="532.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d25" prefHeight="32.0" rotate="-69.2"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d25" prefHeight="32.0" prefWidth="32.0" rotate="-69.2" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="221.0" layoutY="476.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="c24" prefHeight="32.0" rotate="-57.26"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="c24" prefHeight="32.0" prefWidth="32.0" rotate="-57.26" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="225.0" layoutY="518.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d26" prefHeight="32.0" rotate="-62.28"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d26" prefHeight="32.0" prefWidth="32.0" rotate="-62.28" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="197.0" layoutY="501.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="d27" prefHeight="32.0" rotate="-55.36"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="d27" prefHeight="32.0" prefWidth="32.0" rotate="-55.36" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="173.0" layoutY="525.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e20" prefHeight="32.0" rotate="-54.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e20" prefHeight="32.0" prefWidth="32.0" rotate="-54.0" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="201.0" layoutY="543.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="e19" prefHeight="32.0" rotate="-60.0"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="e19" prefHeight="32.0" prefWidth="32.0" rotate="-60.0" styleClass="seat-open" />
           </children>
       </StackPane>
       
       <!-- Section 4 -->
       <StackPane layoutX="166.0" layoutY="292.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a22" prefHeight="32.0" rotate="-12.86"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a22" prefHeight="32.0" prefWidth="32.0" rotate="-12.86" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="182.0" layoutY="333.0" onMouseClicked="#seatSelected">
           <children>
-              <Region fx:id="a21" prefHeight="32.0" rotate="-25.72"   styleClass="seat-open" prefWidth="32.0" />
+              <Region fx:id="a21" prefHeight="32.0" prefWidth="32.0" rotate="-25.72" styleClass="seat-open" />
           </children>
       </StackPane>
       <StackPane layoutX="205.0" layoutY="371.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="a20" prefHeight="32.0" rotate="-38.58"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="a20" prefHeight="32.0" prefWidth="32.0" rotate="-38.58" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="180.0" layoutY="393.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b23" prefHeight="32.0" rotate="-40.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b23" prefHeight="32.0" prefWidth="32.0" rotate="-40.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="155.0" layoutY="416.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c26" prefHeight="32.0" rotate="-40.9"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c26" prefHeight="32.0" prefWidth="32.0" rotate="-40.9" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="130.0" layoutY="439.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d29" prefHeight="32.0" rotate="-41.52"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d29" prefHeight="32.0" prefWidth="32.0" rotate="-41.52" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="105.0" layoutY="462.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e22" prefHeight="32.0" rotate="-42.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e22" prefHeight="32.0" prefWidth="32.0" rotate="-42.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="129.0" layoutY="285.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b26" prefHeight="32.0" rotate="-10.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b26" prefHeight="32.0" prefWidth="32.0" rotate="-10.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="141.0" layoutY="325.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b25" prefHeight="32.0" rotate="-20.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b25" prefHeight="32.0" prefWidth="32.0" rotate="-20.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="158.0" layoutY="362.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b24" prefHeight="32.0" rotate="-30.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b24" prefHeight="32.0" prefWidth="32.0" rotate="-30.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="92.0" layoutY="284.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c30" prefHeight="32.0" rotate="-8.18"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c30" prefHeight="32.0" prefWidth="32.0" rotate="-8.18" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="104.0" layoutY="319.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c29" prefHeight="32.0" rotate="-16.36"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c29" prefHeight="32.0" prefWidth="32.0" rotate="-16.36" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="116.0" layoutY="353.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c28" prefHeight="32.0" rotate="-24.54"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c28" prefHeight="32.0" prefWidth="32.0" rotate="-24.54" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="133.0" layoutY="386.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c27" prefHeight="32.0" rotate="-32.72"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c27" prefHeight="32.0" prefWidth="32.0" rotate="-32.72" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="108.0" layoutY="411.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d30" prefHeight="32.0" rotate="-34.6"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d30" prefHeight="32.0" prefWidth="32.0" rotate="-34.6" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="89.0" layoutY="381.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d31" prefHeight="32.0" rotate="-27.68"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d31" prefHeight="32.0" prefWidth="32.0" rotate="-27.68" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="75.0" layoutY="350.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d32" prefHeight="32.0" rotate="-20.76"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d32" prefHeight="32.0" prefWidth="32.0" rotate="-20.76" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="64.0" layoutY="318.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d33" prefHeight="32.0" rotate="-13.84"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d33" prefHeight="32.0" prefWidth="32.0" rotate="-13.84" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="57.0" layoutY="284.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d34" prefHeight="32.0" rotate="-6.92"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d34" prefHeight="32.0" prefWidth="32.0" rotate="-6.92" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="24.0" layoutY="283.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e28" prefHeight="32.0" rotate="-6.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e28" prefHeight="32.0" prefWidth="32.0" rotate="-6.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="29.0" layoutY="316.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e27" prefHeight="32.0" rotate="-12.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e27" prefHeight="32.0" prefWidth="32.0" rotate="-12.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="38.0" layoutY="348.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e26" prefHeight="32.0" rotate="-18.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e26" prefHeight="32.0" prefWidth="32.0" rotate="-18.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="50.0" layoutY="379.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e25" prefHeight="32.0" rotate="-24.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e25" prefHeight="32.0" prefWidth="32.0" rotate="-24.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="66.0" layoutY="408.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e24" prefHeight="32.0" rotate="-30.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e24" prefHeight="32.0" prefWidth="32.0" rotate="-30.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="84.0" layoutY="436.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e23" prefHeight="32.0" rotate="-36.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e23" prefHeight="32.0" prefWidth="32.0" rotate="-36.0" styleClass="seat-open" />
          </children>
       </StackPane>
       
       <!-- Section 1 -->
       <StackPane layoutX="744.0" layoutY="286.0" onMouseClicked="#seatSelected">
          <children> 
-            <Region fx:id="e9" prefHeight="32.0" rotate="6.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e9" prefHeight="32.0" prefWidth="32.0" rotate="6.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="709.0" layoutY="285.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d9" prefHeight="32.0" rotate="6.92"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d9" prefHeight="32.0" prefWidth="32.0" rotate="6.92" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="674.0" layoutY="286.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c9" prefHeight="32.0" rotate="8.18"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c9" prefHeight="32.0" prefWidth="32.0" rotate="8.18" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="639.0" layoutY="287.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b9" prefHeight="32.0" rotate="10.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b9" prefHeight="32.0" prefWidth="32.0" rotate="10.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="602.0" layoutY="293.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="a9" prefHeight="32.0" rotate="12.86"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="a9" prefHeight="32.0" prefWidth="32.0" rotate="12.86" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="585.0" layoutY="336.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="a10" prefHeight="32.0" rotate="25.72"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="a10" prefHeight="32.0" prefWidth="32.0" rotate="25.72" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="560.0" layoutY="376.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="a11" prefHeight="32.0" rotate="38.58"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="a11" prefHeight="32.0" prefWidth="32.0" rotate="38.58" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="586.0" layoutY="398.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b12" prefHeight="32.0" rotate="40.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b12" prefHeight="32.0" prefWidth="32.0" rotate="40.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="611.0" layoutY="420.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c13" prefHeight="32.0" rotate="40.9"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c13" prefHeight="32.0" prefWidth="32.0" rotate="40.9" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="636.0" layoutY="442.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d14" prefHeight="32.0" rotate="41.52"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d14" prefHeight="32.0" prefWidth="32.0" rotate="41.52" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="661.0" layoutY="464.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e15" prefHeight="32.0" rotate="42.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e15" prefHeight="32.0" prefWidth="32.0" rotate="42.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="626.0" layoutY="327.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b10" prefHeight="32.0" rotate="20.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b10" prefHeight="32.0" prefWidth="32.0" rotate="20.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="609.0" layoutY="364.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="b11" prefHeight="32.0" rotate="30.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="b11" prefHeight="32.0" prefWidth="32.0" rotate="30.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="666.0" layoutY="323.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c10" prefHeight="32.0" rotate="16.36"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c10" prefHeight="32.0" prefWidth="32.0" rotate="16.36" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="651.0" layoutY="357.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c11" prefHeight="32.0" rotate="24.54"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c11" prefHeight="32.0" prefWidth="32.0" rotate="24.54" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="633.0" layoutY="390.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="c12" prefHeight="32.0" rotate="32.72"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="c12" prefHeight="32.0" prefWidth="32.0" rotate="32.72" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="658.0" layoutY="414.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d13" prefHeight="32.0" rotate="34.6"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d13" prefHeight="32.0" prefWidth="32.0" rotate="34.6" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="679.0" layoutY="384.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d12" prefHeight="32.0" rotate="27.68"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d12" prefHeight="32.0" prefWidth="32.0" rotate="27.68" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="694.0" layoutY="353.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d11" prefHeight="32.0" rotate="20.76"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d11" prefHeight="32.0" prefWidth="32.0" rotate="20.76" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="704.0" layoutY="320.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="d10" prefHeight="32.0" rotate="13.84"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="d10" prefHeight="32.0" prefWidth="32.0" rotate="13.84" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="739.0" layoutY="319.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e10" prefHeight="32.0" rotate="12.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e10" prefHeight="32.0" prefWidth="32.0" rotate="12.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="731.0" layoutY="351.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e11" prefHeight="32.0" rotate="18.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e11" prefHeight="32.0" prefWidth="32.0" rotate="18.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="719.0" layoutY="382.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e12" prefHeight="32.0" rotate="24.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e12" prefHeight="32.0" prefWidth="32.0" rotate="24.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="704.0" layoutY="412.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e13" prefHeight="32.0" rotate="30.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e13" prefHeight="32.0" prefWidth="32.0" rotate="30.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="684.0" layoutY="439.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="e14" prefHeight="32.0" rotate="36.0"   styleClass="seat-open" prefWidth="32.0" />
+            <Region fx:id="e14" prefHeight="32.0" prefWidth="32.0" rotate="36.0" styleClass="seat-open" />
          </children>
       </StackPane>
       <StackPane layoutX="76.0" layoutY="489.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h5" prefHeight="32.0"  styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h5" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="54.0" layoutY="457.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h6" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h6" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="34.0" layoutY="425.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h7" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h7" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="17.0" layoutY="392.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h8" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h8" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="689.0" layoutY="492.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h4" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h4" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="712.0" layoutY="464.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h3" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h3" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="734.0" layoutY="433.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h2" prefHeight="32.0"  styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h2" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <StackPane layoutX="751.0" layoutY="400.0" onMouseClicked="#seatSelected">
          <children>
-            <Region fx:id="h1" prefHeight="32.0" styleClass="seat-open-handicapped" prefWidth="32.0" />
+            <Region fx:id="h1" prefHeight="32.0" prefWidth="32.0" styleClass="seat-open-handicapped" />
          </children>
       </StackPane>
       <Button fx:id="btnBack" layoutX="34.0" layoutY="534.0" mnemonicParsing="false" onAction="#showMain" prefHeight="32.0" prefWidth="100.0" text="Back" />
@@ -973,12 +974,12 @@
       <ComboBox fx:id="cmboBxSelectShow" layoutX="317.0" layoutY="25.0" onAction="#showSelected" prefHeight="28.0" prefWidth="249.0" styleClass="show-selector" />
       <Label fx:id="lblGroupOutput" layoutX="316.0" layoutY="73.0" styleClass="form-label" textFill="WHITE" />
       <Label fx:id="lblDateOutput" layoutX="316.0" layoutY="116.0" styleClass="form-label" textFill="WHITE" />
-      <Label layoutX="224.0" layoutY="177.0" styleClass="form-label" text="Section:" textFill="WHITE" />
-      <Label layoutX="363.0" layoutY="177.0" styleClass="form-label" text="Row:" textFill="WHITE" />
-      <Label layoutX="476.0" layoutY="177.0" styleClass="form-label" text="Seat:" textFill="WHITE" />
-      <Label fx:id="lblSectionOutput" layoutX="305.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
-      <Label fx:id="lblRowOutput" layoutX="417.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
-      <Label fx:id="lblSeatOutput" layoutX="534.0" layoutY="177.0" styleClass="form-label" textFill="WHITE" />
+      <Label layoutX="224.0" layoutY="159.0" styleClass="form-label" text="Section:" textFill="WHITE" />
+      <Label layoutX="363.0" layoutY="159.0" styleClass="form-label" text="Row:" textFill="WHITE" />
+      <Label layoutX="476.0" layoutY="159.0" styleClass="form-label" text="Seat:" textFill="WHITE" />
+      <Label fx:id="lblSectionOutput" layoutX="305.0" layoutY="159.0" styleClass="form-label" textFill="WHITE" />
+      <Label fx:id="lblRowOutput" layoutX="417.0" layoutY="159.0" styleClass="form-label" textFill="WHITE" />
+      <Label fx:id="lblSeatOutput" layoutX="534.0" layoutY="159.0" styleClass="form-label" textFill="WHITE" />
       <Label layoutX="252.0" layoutY="237.0" styleClass="form-label" text="First Name:" textFill="WHITE" />
       <Label layoutX="252.0" layoutY="276.0" styleClass="form-label" text="Last Name:" textFill="WHITE" />
       <TextField fx:id="txtBxFirstName" layoutX="365.0" layoutY="232.0" styleClass="form-text-input" />
@@ -988,5 +989,6 @@
       <Label fx:id="lblNameError" layoutX="362.0" layoutY="313.0" styleClass="form-label" text="* Please enter name" textFill="RED" />
       <Button fx:id="btnPrint" layoutX="666.0" layoutY="534.0" mnemonicParsing="false" onAction="#printSetup" prefHeight="32.0" prefWidth="100.0" text="Print" />
       <Label fx:id="lblSeatStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="303.0" layoutY="397.0" prefHeight="18.0" prefWidth="192.0" styleClass="form-label" textFill="#00d9ff" />
+      <CheckBox fx:id="chkBxSelectMultiple" layoutX="365.0" layoutY="201.0" mnemonicParsing="false" onAction="#toggleMultiSelect" text="Select Multiple Seats" textFill="WHITE" />
     </children>
 </AnchorPane>
