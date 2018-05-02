@@ -138,7 +138,6 @@ public class ChartController implements Initializable {
 
     private Region previousSelectedSeat;
     private String previousSelectedSeatStyle;
-    private Map<String, String> selectedSeatStyleMap;
 
     private int seatSection;
     private String seatRow;
@@ -178,7 +177,6 @@ public class ChartController implements Initializable {
         occupiedSeats = new HashMap<>();
         seatsToPrint = new ArrayList<>();
         selectedSeats = new HashMap<>();
-        selectedSeatStyleMap = new HashMap<>();
     }
 
     public void setPrintMode(boolean printMode) {
@@ -314,15 +312,12 @@ public class ChartController implements Initializable {
                                 selectedSeat.getStyleClass().add("seat-occupied");
                             }
                             seatsToPrint.remove(seat);
-                            selectedSeatStyleMap.remove(seatId);
                         } else {
                             selectedSeat.getStyleClass().clear();
                             if (isHandicapped) {
                                 selectedSeat.getStyleClass().add("seat-selected-printing-handicapped");
-                                selectedSeatStyleMap.put(seatId, "seat-occupied-handicapped");
                             } else {
                                 selectedSeat.getStyleClass().add("seat-selected-printing");
-                                selectedSeatStyleMap.put(seatId, "seat-occupied");
                             }
                             seatsToPrint.add(seat);
                         }
@@ -333,10 +328,8 @@ public class ChartController implements Initializable {
                         selectedSeat.getStyleClass().clear();
                         if (isHandicapped) {
                             selectedSeat.getStyleClass().add("seat-selected-printing-handicapped");
-                            selectedSeatStyleMap.put(seatId, "seat-occupied-handicapped");
                         } else {
                             selectedSeat.getStyleClass().add("seat-selected-printing");
-                            selectedSeatStyleMap.put(seatId, "seat-occupied");
                         }
                         seatsToPrint.add(seat);
                     }
@@ -371,15 +364,12 @@ public class ChartController implements Initializable {
                                 selectedSeat.getStyleClass().add("seat-open");
                             }
                             selectedSeats.remove(seatId);
-                            selectedSeatStyleMap.remove(seatId);
                         } else {
                             selectedSeat.getStyleClass().clear();
                             if (isHandicapped) {
                                 selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                                selectedSeatStyleMap.put(seatId, "seat-open-handicapped");
                             } else {
                                 selectedSeat.getStyleClass().add("seat-selected");
-                                selectedSeatStyleMap.put(seatId, "seat-open");
                             }
                             ShowSeating seat = new ShowSeating();
                             seat.setSection(seatSection);
@@ -394,10 +384,8 @@ public class ChartController implements Initializable {
                         selectedSeat.getStyleClass().clear();
                         if (isHandicapped) {
                             selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                            selectedSeatStyleMap.put(seatId, "seat-open-handicapped");
                         } else {
                             selectedSeat.getStyleClass().add("seat-selected");
-                            selectedSeatStyleMap.put(seatId, "seat-open");
                         }
                         ShowSeating seat = new ShowSeating();
                         seat.setSection(seatSection);
@@ -442,22 +430,17 @@ public class ChartController implements Initializable {
                                     selectedSeat.getStyleClass().add("seat-occupied");
                                 }
                                 selectedSeats.remove(seatId);
-                                selectedSeatStyleMap.remove(seatId);
-                                System.out.println("Removing seat: " + seatId);
                             } else {
                                 selectedSeat.getStyleClass().clear();
                                 if (isHandicapped) {
                                     selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                                    selectedSeatStyleMap.put(seatId, "seat-occupied-handicapped");
                                 } else {
                                     selectedSeat.getStyleClass().add("seat-selected");
-                                    selectedSeatStyleMap.put(seatId, "seat-occupied");
                                 }
                                 ShowSeating seat = occupiedSeats.get(seatId);
                                 txtBxFirstName.setText(seat.getFirstName());
                                 txtBxLastName.setText(seat.getLastName());
                                 selectedSeats.put(seatId, seat);
-                                System.out.println("Adding seat: " + seatId);
                             }
                         } else {
                             // The selected list should only contain one seat
@@ -466,16 +449,13 @@ public class ChartController implements Initializable {
                             selectedSeat.getStyleClass().clear();
                             if (isHandicapped) {
                                 selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                                selectedSeatStyleMap.put(seatId, "seat-occupied-handicapped");
                             } else {
                                 selectedSeat.getStyleClass().add("seat-selected");
-                                selectedSeatStyleMap.put(seatId, "seat-occupied");
                             }
                             ShowSeating seat = occupiedSeats.get(seatId);
                             txtBxFirstName.setText(seat.getFirstName());
                             txtBxLastName.setText(seat.getLastName());
                             selectedSeats.put(seatId, seat);
-                            System.out.println("Adding seat: " + seatId);
                         }
 
                         if (selectedSeats.size() > 0) {
@@ -748,6 +728,7 @@ public class ChartController implements Initializable {
             txtBxFirstName.setText("");
             txtBxLastName.setText("");
             btnAdd.setText("Add");
+            btnDelete.setDisable(true);
         }
     }
 
@@ -790,7 +771,6 @@ public class ChartController implements Initializable {
         // Clear seats selected
         seatsToPrint.clear();
         selectedSeats.clear();
-        selectedSeatStyleMap.clear();
 
         previousSelectedSeat = null;
         editMode = false;
