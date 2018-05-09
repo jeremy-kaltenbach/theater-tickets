@@ -86,7 +86,6 @@ public class ChartController implements Initializable {
     private static final String LAST_NAME_MISSING_ERROR = "* Please enter last name";
     private static final String FIRST_NAME_TOO_LONG = "* First name is too long";
     private static final String LAST_NAME_TOO_LONG = "* Last name is too long";
-    private static final String SEAT_OPEN_ERROR = "* Seat is open";
 
     private static final String SEAT_ADDED = "-- Seat Added --";
     private static final String SEATS_ADDED = "-- Seats Added --";
@@ -145,7 +144,6 @@ public class ChartController implements Initializable {
 
     private boolean showSelected = false;
     private boolean editMode = false;
-    private boolean printMode = false;
     private boolean selectMultiple = false;
 
     private String selectedShowName;
@@ -153,7 +151,6 @@ public class ChartController implements Initializable {
     private String selectedShowDate;
     private String selectedShowDateShortened;
     private Map<String, ShowSeating> occupiedSeats;
-    private List<ShowSeating> seatsToPrint;
     private Map<String, ShowSeating> selectedSeats;
 
     public void setScene(Scene scene) {
@@ -170,18 +167,11 @@ public class ChartController implements Initializable {
         btnAdd.setDisable(true);
         btnDelete.setDisable(true);
         btnPrint.setDisable(true);
-        btnPrint.setVisible(false);
         txtBxFirstName.setEditable(false);
         txtBxLastName.setEditable(false);
         chkBxSelectMultiple.setSelected(false);
         occupiedSeats = new HashMap<>();
-        seatsToPrint = new ArrayList<>();
         selectedSeats = new HashMap<>();
-    }
-
-    public void setPrintMode(boolean printMode) {
-        this.printMode = printMode;
-        btnPrint.setVisible(printMode);
     }
 
     public void toggleMultiSelect(ActionEvent event) {
@@ -294,74 +284,86 @@ public class ChartController implements Initializable {
         // Only select seats after a show is selected
         if (showSelected) {
 
-            // Handle selecting seats for printing with multi-select on
-            if (printMode) {
-                // If the seat selected is occupied, then add it to the list of seats to print
-                if (occupiedSeats.containsKey(seatId)) {
-                    ShowSeating seat = occupiedSeats.get(seatId);
-                    txtBxFirstName.setText(seat.getFirstName());
-                    txtBxLastName.setText(seat.getLastName());
+            // Handle selecting seats with mult-select on
+            // If the seat selected is open, then add it to the list of selected seats
+            if (!occupiedSeats.containsKey(seatId) && !editMode
+                    || (!occupiedSeats.containsKey(seatId) && editMode && !selectMultiple)) {
 
-                    if (selectMultiple) {
-                        // If the seat is already added, then remove it (toggle) and un-select it
-                        if (seatsToPrint.contains(seat)) {
-                            selectedSeat.getStyleClass().clear();
-                            if (isHandicapped) {
-                                selectedSeat.getStyleClass().add("seat-occupied-handicapped");
-                            } else {
-                                selectedSeat.getStyleClass().add("seat-occupied");
-                            }
-                            seatsToPrint.remove(seat);
-                        } else {
-                            selectedSeat.getStyleClass().clear();
-                            if (isHandicapped) {
-                                selectedSeat.getStyleClass().add("seat-selected-printing-handicapped");
-                            } else {
-                                selectedSeat.getStyleClass().add("seat-selected-printing");
-                            }
-                            seatsToPrint.add(seat);
-                        }
-                    } else {
-                        // The seats to print list should only contain one seat
-                        // so remove any previous selected seat and add the new one
-                        seatsToPrint.clear();
+                if (selectMultiple) {
+                    // If the seat is already added, then remove it (toggle) and un-select it
+                    if (selectedSeats.containsKey(seatId)) {
                         selectedSeat.getStyleClass().clear();
                         if (isHandicapped) {
-                            selectedSeat.getStyleClass().add("seat-selected-printing-handicapped");
+                            selectedSeat.getStyleClass().add("seat-open-handicapped");
                         } else {
-                            selectedSeat.getStyleClass().add("seat-selected-printing");
+                            selectedSeat.getStyleClass().add("seat-open");
                         }
-                        seatsToPrint.add(seat);
-                    }
-
-                    if (seatsToPrint.size() > 0) {
-                        btnPrint.setDisable(false);
+                        selectedSeats.remove(seatId);
                     } else {
-                        btnPrint.setDisable(true);
+                        selectedSeat.getStyleClass().clear();
+                        if (isHandicapped) {
+                            selectedSeat.getStyleClass().add("seat-selected-handicapped");
+                        } else {
+                            selectedSeat.getStyleClass().add("seat-selected");
+                        }
+                        ShowSeating seat = new ShowSeating();
+                        seat.setSection(seatSection);
+                        seat.setRow(seatRow);
+                        seat.setSeatNumber(seatNumber);
+                        selectedSeats.put(seatId, seat);
                     }
-
-                    lblSectionOutput.setText(String.valueOf(seatSection));
-                    lblRowOutput.setText(seatRow);
-                    lblSeatOutput.setText(String.valueOf(seatNumber));
                 } else {
+                    // The selected list should only contain one seat
+                    // so remove any previous selected seat and add the new one
+                    selectedSeats.clear();
+                    selectedSeat.getStyleClass().clear();
+                    if (isHandicapped) {
+                        selectedSeat.getStyleClass().add("seat-selected-handicapped");
+                    } else {
+                        selectedSeat.getStyleClass().add("seat-selected");
+                    }
+                    ShowSeating seat = new ShowSeating();
+                    seat.setSection(seatSection);
+                    seat.setRow(seatRow);
+                    seat.setSeatNumber(seatNumber);
+                    selectedSeats.put(seatId, seat);
+
                     // Clear name from text field
                     txtBxFirstName.setText("");
                     txtBxLastName.setText("");
                 }
-            } else {
-                // Handle selecting seats with mult-select on (no printing)
-                // If the seat selected is open, then add it to the list of selected seats
-                if (!occupiedSeats.containsKey(seatId) && !editMode
-                        || (!occupiedSeats.containsKey(seatId) && editMode && !selectMultiple)) {
+
+                if (selectedSeats.size() > 0) {
+                    btnAdd.setText("Add");
+                    btnAdd.setDisable(false);
+                    btnDelete.setDisable(true);
+                    btnPrint.setDisable(true);
+                    txtBxFirstName.setEditable(true);
+                    txtBxLastName.setEditable(true);
+                    editMode = false;
+                } else {
+                    txtBxFirstName.setEditable(false);
+                    txtBxLastName.setEditable(false);
+                    btnAdd.setDisable(true);
+                }
+
+                lblSectionOutput.setText(String.valueOf(seatSection));
+                lblRowOutput.setText(seatRow);
+                lblSeatOutput.setText(String.valueOf(seatNumber));
+
+            } else if (occupiedSeats.containsKey(seatId)) {
+                // If the selected seat list is empty or if edit mode is already set,
+                // then add the occupied seat
+                if (selectedSeats.isEmpty() || editMode || (!selectedSeats.isEmpty() && !selectMultiple)) {
 
                     if (selectMultiple) {
                         // If the seat is already added, then remove it (toggle) and un-select it
                         if (selectedSeats.containsKey(seatId)) {
                             selectedSeat.getStyleClass().clear();
                             if (isHandicapped) {
-                                selectedSeat.getStyleClass().add("seat-open-handicapped");
+                                selectedSeat.getStyleClass().add("seat-occupied-handicapped");
                             } else {
-                                selectedSeat.getStyleClass().add("seat-open");
+                                selectedSeat.getStyleClass().add("seat-occupied");
                             }
                             selectedSeats.remove(seatId);
                         } else {
@@ -371,10 +373,9 @@ public class ChartController implements Initializable {
                             } else {
                                 selectedSeat.getStyleClass().add("seat-selected");
                             }
-                            ShowSeating seat = new ShowSeating();
-                            seat.setSection(seatSection);
-                            seat.setRow(seatRow);
-                            seat.setSeatNumber(seatNumber);
+                            ShowSeating seat = occupiedSeats.get(seatId);
+                            txtBxFirstName.setText(seat.getFirstName());
+                            txtBxLastName.setText(seat.getLastName());
                             selectedSeats.put(seatId, seat);
                         }
                     } else {
@@ -387,103 +388,40 @@ public class ChartController implements Initializable {
                         } else {
                             selectedSeat.getStyleClass().add("seat-selected");
                         }
-                        ShowSeating seat = new ShowSeating();
-                        seat.setSection(seatSection);
-                        seat.setRow(seatRow);
-                        seat.setSeatNumber(seatNumber);
+                        ShowSeating seat = occupiedSeats.get(seatId);
+                        txtBxFirstName.setText(seat.getFirstName());
+                        txtBxLastName.setText(seat.getLastName());
                         selectedSeats.put(seatId, seat);
-
-                        // Clear name from text field
-                        txtBxFirstName.setText("");
-                        txtBxLastName.setText("");
                     }
 
                     if (selectedSeats.size() > 0) {
-                        btnAdd.setText("Add");
+                        btnAdd.setText("Update");
                         btnAdd.setDisable(false);
-                        btnDelete.setDisable(true);
+                        btnDelete.setDisable(false);
+                        btnPrint.setDisable(false);
+
                         txtBxFirstName.setEditable(true);
                         txtBxLastName.setEditable(true);
-                        editMode = false;
+
+                        editMode = true;
                     } else {
+                        btnAdd.setText("Add");
+                        btnAdd.setDisable(true);
+                        btnDelete.setDisable(true);
+                        btnPrint.setDisable(true);
+
                         txtBxFirstName.setEditable(false);
                         txtBxLastName.setEditable(false);
-                        btnAdd.setDisable(true);
+                        // Clear name from text fields
+                        txtBxFirstName.setText("");
+                        txtBxLastName.setText("");
+
+                        editMode = false;
                     }
 
                     lblSectionOutput.setText(String.valueOf(seatSection));
                     lblRowOutput.setText(seatRow);
                     lblSeatOutput.setText(String.valueOf(seatNumber));
-
-                } else if (occupiedSeats.containsKey(seatId)) {
-                    // If the selected seat list is empty or if edit mode is already set,
-                    // then add the occupied seat
-                    if (selectedSeats.isEmpty() || editMode || (!selectedSeats.isEmpty() && !selectMultiple)) {
-
-                        if (selectMultiple) {
-                            // If the seat is already added, then remove it (toggle) and un-select it
-                            if (selectedSeats.containsKey(seatId)) {
-                                selectedSeat.getStyleClass().clear();
-                                if (isHandicapped) {
-                                    selectedSeat.getStyleClass().add("seat-occupied-handicapped");
-                                } else {
-                                    selectedSeat.getStyleClass().add("seat-occupied");
-                                }
-                                selectedSeats.remove(seatId);
-                            } else {
-                                selectedSeat.getStyleClass().clear();
-                                if (isHandicapped) {
-                                    selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                                } else {
-                                    selectedSeat.getStyleClass().add("seat-selected");
-                                }
-                                ShowSeating seat = occupiedSeats.get(seatId);
-                                txtBxFirstName.setText(seat.getFirstName());
-                                txtBxLastName.setText(seat.getLastName());
-                                selectedSeats.put(seatId, seat);
-                            }
-                        } else {
-                            // The selected list should only contain one seat
-                            // so remove any previous selected seat and add the new one
-                            selectedSeats.clear();
-                            selectedSeat.getStyleClass().clear();
-                            if (isHandicapped) {
-                                selectedSeat.getStyleClass().add("seat-selected-handicapped");
-                            } else {
-                                selectedSeat.getStyleClass().add("seat-selected");
-                            }
-                            ShowSeating seat = occupiedSeats.get(seatId);
-                            txtBxFirstName.setText(seat.getFirstName());
-                            txtBxLastName.setText(seat.getLastName());
-                            selectedSeats.put(seatId, seat);
-                        }
-
-                        if (selectedSeats.size() > 0) {
-                            btnAdd.setText("Update");
-                            btnAdd.setDisable(false);
-                            btnDelete.setDisable(false);
-                            txtBxFirstName.setEditable(true);
-                            txtBxLastName.setEditable(true);
-
-                            editMode = true;
-                        } else {
-                            btnAdd.setText("Add");
-                            btnAdd.setDisable(true);
-                            btnDelete.setDisable(true);
-
-                            txtBxFirstName.setEditable(false);
-                            txtBxLastName.setEditable(false);
-                            // Clear name from text fields
-                            txtBxFirstName.setText("");
-                            txtBxLastName.setText("");
-
-                            editMode = false;
-                        }
-
-                        lblSectionOutput.setText(String.valueOf(seatSection));
-                        lblRowOutput.setText(seatRow);
-                        lblSeatOutput.setText(String.valueOf(seatNumber));
-                    }
                 }
             }
         }
@@ -644,6 +582,7 @@ public class ChartController implements Initializable {
 
             btnAdd.setText("Update");
             btnDelete.setDisable(false);
+            btnPrint.setDisable(false);
             editMode = true;
 
             lblSeatStatus.setText(SEAT_ADDED);
@@ -729,47 +668,32 @@ public class ChartController implements Initializable {
             txtBxLastName.setText("");
             btnAdd.setText("Add");
             btnDelete.setDisable(true);
+            btnPrint.setDisable(true);
         }
     }
 
     private void clearSelectedSeats(boolean updatingSeat) {
 
-        if (printMode) {
-            // Reset selected seats to print back to occupied style
-            for (ShowSeating printSeat : seatsToPrint) {
-                String seatId = printSeat.getRow().toLowerCase() + printSeat.getSeatNumber();
-                Region seat = (Region) parentScene.lookup("#" + seatId);
-                seat.getStyleClass().clear();
+        // Reset selected seats back to their previous style
+        for (String seatId : selectedSeats.keySet()) {
+            Region seat = (Region) parentScene.lookup("#" + seatId);
+            seat.getStyleClass().clear();
+            if (editMode || updatingSeat) {
                 if (seatId.substring(0, 1).equals("h")) {
                     seat.getStyleClass().add("seat-occupied-handicapped");
                 } else {
                     seat.getStyleClass().add("seat-occupied");
                 }
-            }
-            btnPrint.setDisable(true);
-        } else {
-            // Reset selected seats back to their previous style
-            for (String seatId : selectedSeats.keySet()) {
-                Region seat = (Region) parentScene.lookup("#" + seatId);
-                seat.getStyleClass().clear();
-                if (editMode || updatingSeat) {
-                    if (seatId.substring(0, 1).equals("h")) {
-                        seat.getStyleClass().add("seat-occupied-handicapped");
-                    } else {
-                        seat.getStyleClass().add("seat-occupied");
-                    }
+            } else {
+                if (seatId.substring(0, 1).equals("h")) {
+                    seat.getStyleClass().add("seat-open-handicapped");
                 } else {
-                    if (seatId.substring(0, 1).equals("h")) {
-                        seat.getStyleClass().add("seat-open-handicapped");
-                    } else {
-                        seat.getStyleClass().add("seat-open");
-                    }
+                    seat.getStyleClass().add("seat-open");
                 }
             }
         }
 
         // Clear seats selected
-        seatsToPrint.clear();
         selectedSeats.clear();
 
         previousSelectedSeat = null;
@@ -787,6 +711,7 @@ public class ChartController implements Initializable {
         btnAdd.setText("Add");
         btnAdd.setDisable(true);
         btnDelete.setDisable(true);
+        btnPrint.setDisable(true);
     }
 
     private void hideErrorLabel() {
@@ -801,6 +726,7 @@ public class ChartController implements Initializable {
         btnAdd.setText("Add");
         btnAdd.setDisable(true);
         btnDelete.setDisable(true);
+        btnPrint.setDisable(true);
     }
 
     public void printSetup(ActionEvent event) throws IOException {
@@ -809,7 +735,7 @@ public class ChartController implements Initializable {
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        for (ShowSeating seat : seatsToPrint) {
+        for (ShowSeating seat : selectedSeats.values()) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Ticket.fxml"));
             Parent ticketParent = loader.load();
             TicketController controller = loader.getController();

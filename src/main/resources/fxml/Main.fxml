@@ -57,12 +57,7 @@
                 <Insets bottom="5.0" left="20.0" top="5.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btnUpdateSeats" mnemonicParsing="false" onAction="#updateSeats" prefHeight="100.0" prefWidth="400.0" styleClass="button" text="UPDATE SEATS" GridPane.rowIndex="8">
-            <GridPane.margin>
-                <Insets bottom="5.0" left="20.0" top="5.0" />
-            </GridPane.margin>
-        </Button>
-        <Button fx:id="btnPrintTickets" mnemonicParsing="false" onAction="#printTickets" prefHeight="100.0" prefWidth="400.0" styleClass="button" text="PRINT TICKETS" GridPane.rowIndex="9">
+        <Button fx:id="btnUpdateSeats" mnemonicParsing="false" onAction="#updateSeats" prefHeight="100.0" prefWidth="400.0" styleClass="button" text="UPDATE/PRINT SEATS" GridPane.rowIndex="8">
             <GridPane.margin>
                 <Insets bottom="5.0" left="20.0" top="5.0" />
             </GridPane.margin>
@@ -99,5 +94,9 @@
                 <Circle fx:id="statusIndicator" radius="9.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
             </children>
         </GridPane>
+      <Label alignment="CENTER" contentDisplay="TOP" text="Version 1.2" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+         <font>
+            <Font size="11.0" />
+         </font></Label>
     </children>
 </GridPane>

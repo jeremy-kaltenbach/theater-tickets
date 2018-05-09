@@ -30,8 +30,6 @@ public class MainController implements Initializable {
     @FXML
     private Button btnUpdateSeats;
     @FXML
-    private Button btnPrintTickets;
-    @FXML
     private Circle statusIndicator;
     
     private TheatreService theatreService = new TheatreServiceImpl();
@@ -157,7 +155,6 @@ public class MainController implements Initializable {
             controller.setScene(printTicketsScene);
             controller.setUpSeatLabels();
             controller.getShowtimes();
-            controller.setPrintMode(true);
             
             window.setScene(printTicketsScene);
             window.show();
@@ -213,7 +210,6 @@ public class MainController implements Initializable {
         btnUpdateShow.setDisable(isDisabled);
         btnRemoveShow.setDisable(isDisabled);
         btnUpdateSeats.setDisable(isDisabled);
-        btnPrintTickets.setDisable(isDisabled);
     }
     
     public void closeApplication() {

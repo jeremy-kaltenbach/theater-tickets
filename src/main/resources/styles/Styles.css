@@ -72,14 +72,6 @@
     -fx-border-width: 1px;
 }
 
-.seat-selected-printing {
-    -fx-cursor: hand;
-    -fx-background-color: #cd7cff;
-    -fx-border-color: black;
-    -fx-border-style: solid;
-    -fx-border-width: 1px;    
-}
-
 .seat-open-handicapped {
     -fx-cursor: hand;
     -fx-background-image: url("../handicap_green.png");
@@ -99,14 +91,6 @@
 .seat-selected-handicapped {
     -fx-cursor: hand;
     -fx-background-image: url("../handicap_blue.png");
-    -fx-background-repeat: stretch;
-    -fx-background-size: 100% 100%;
-    -fx-background-position: center center;
-}
-
-.seat-selected-printing-handicapped {
-    -fx-cursor: hand;
-    -fx-background-image: url("../handicap_purple.png");
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
