@@ -178,7 +178,7 @@ public class ChartController implements Initializable {
         CheckBox selectMultipleChk = (CheckBox) event.getSource();
         selectMultiple = selectMultipleChk.isSelected();
 
-        clearSelectedSeats(false);
+        clearSelectedSeats();
         resetSeatControlButtons();
         hideErrorLabel();
         hideSeatStatusLabel();
@@ -448,7 +448,7 @@ public class ChartController implements Initializable {
             }
         }
 
-        clearSelectedSeats(false);
+        clearSelectedSeats();
 
         DateFormat shortDateFormat = new SimpleDateFormat("M/dd/yyyy h:mm aaa");
         DateFormat longDateFormat = new SimpleDateFormat("EEEE, MMMM dd, yyyy, h:mm aaaa");
@@ -555,7 +555,6 @@ public class ChartController implements Initializable {
                 lblSeatStatus.setText(SEATS_ADDED);
                 lblSeatStatus.setVisible(true);
             }
-            clearSelectedSeats(true);
         } else {
             ShowSeating newSeat = new ShowSeating();
             newSeat.setShowId(cmboBxSelectShow.getValue().getShowId());
@@ -580,14 +579,14 @@ public class ChartController implements Initializable {
 
             occupiedSeats.put(seatId, newSeat);
 
-            btnAdd.setText("Update");
-            btnDelete.setDisable(false);
-            btnPrint.setDisable(false);
-            editMode = true;
-
             lblSeatStatus.setText(SEAT_ADDED);
             lblSeatStatus.setVisible(true);
         }
+
+        btnAdd.setText("Update");
+        btnDelete.setDisable(false);
+        btnPrint.setDisable(false);
+        editMode = true;
     }
 
     private void updateSeat(String firstName, String lastName) {
@@ -602,9 +601,6 @@ public class ChartController implements Initializable {
             }
             lblSeatStatus.setText(SEATS_UPDATED);
             lblSeatStatus.setVisible(true);
-
-            clearSelectedSeats(true);
-
         } else {
             ShowSeating seat = occupiedSeats.get(seatRow.toLowerCase() + seatNumber);
             seat.setFirstName(firstName);
@@ -642,7 +638,7 @@ public class ChartController implements Initializable {
                 lblSeatStatus.setText(SEATS_REMOVED);
                 lblSeatStatus.setVisible(true);
 
-                clearSelectedSeats(false);
+                clearSelectedSeats();
 
             } else {
                 String seatId = seatRow.toLowerCase() + seatNumber;
@@ -672,13 +668,13 @@ public class ChartController implements Initializable {
         }
     }
 
-    private void clearSelectedSeats(boolean updatingSeat) {
+    private void clearSelectedSeats() {
 
         // Reset selected seats back to their previous style
         for (String seatId : selectedSeats.keySet()) {
             Region seat = (Region) parentScene.lookup("#" + seatId);
             seat.getStyleClass().clear();
-            if (editMode || updatingSeat) {
+            if (editMode) {
                 if (seatId.substring(0, 1).equals("h")) {
                     seat.getStyleClass().add("seat-occupied-handicapped");
                 } else {
