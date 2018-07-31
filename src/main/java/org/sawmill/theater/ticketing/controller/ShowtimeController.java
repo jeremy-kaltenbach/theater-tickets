@@ -95,6 +95,7 @@ public class ShowtimeController implements Initializable {
 
     private boolean editMode = false;
     private boolean deleteMode = false;
+    private boolean updatingShow = false;
     private boolean deletingShow = false;
 
     public void setEditMode(boolean editMode) {
@@ -178,6 +179,8 @@ public class ShowtimeController implements Initializable {
                 setText(empty ? "" : item.getShowName() + "  |  " + df.format(item.getShowDate()));
             }
         };
+        
+        cmboBxSelectShow.getItems().clear();
         cmboBxSelectShow.setCellFactory(factory);
         cmboBxSelectShow.setButtonCell(factory.call(null));
         cmboBxSelectShow.getItems().addAll(showtimeList);
@@ -187,7 +190,7 @@ public class ShowtimeController implements Initializable {
 
         // Check if we're in the middle of deleting a show
         // This event gets triggered when resetting the show select combo box for some reason
-        if (!deletingShow) {
+        if (!deletingShow && !updatingShow) {
 
             hideErrorLabels();
 
@@ -356,9 +359,12 @@ public class ShowtimeController implements Initializable {
 
     private void updateShowtime(String name, String group, LocalDate showDate, String hour, String minute, String amPm) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm aaa");
+        updatingShow = true;
 
         // Parse the date fields into the full datetime
         String dateString = showDate.toString() + " " + hour + ":" + minute + " " + amPm;
+        
+        int selectedIndex = cmboBxSelectShow.getSelectionModel().getSelectedIndex();
 
         Showtime updatedShow = cmboBxSelectShow.getValue();
         updatedShow.setShowName(name);
@@ -372,6 +378,11 @@ public class ShowtimeController implements Initializable {
         alert.setTitle("Success");
         alert.setHeaderText("Show has been updated");
         alert.show();
+        
+        // Refresh showtime list with updated name if it was changed and select the updated show
+        getShowtimes();
+        cmboBxSelectShow.getSelectionModel().select(selectedIndex);
+        updatingShow = false;
 
     }
 
@@ -411,6 +422,7 @@ public class ShowtimeController implements Initializable {
         showDatePicker.setValue(null);
         txtBxTimeHour.setText("");
         txtBxTimeMinute.setText("");
+        updatingShow = false;
         deletingShow = false;
     }
 
