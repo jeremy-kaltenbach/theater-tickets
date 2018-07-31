@@ -577,6 +577,7 @@ public class ChartController implements Initializable {
                 previousSelectedSeatStyle = "seat-occupied";
             }
 
+            selectedSeats.put(seatId, newSeat);
             occupiedSeats.put(seatId, newSeat);
 
             lblSeatStatus.setText(SEAT_ADDED);
