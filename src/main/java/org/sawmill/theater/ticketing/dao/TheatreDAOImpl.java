@@ -37,7 +37,9 @@ public class TheatreDAOImpl implements TheatreDAO {
             + "LAST_UPDATED DATETIME);";
     private static final String CREATE_SHOW_SEATING_TABLE = "CREATE TABLE SHOW_SEATING (SEAT_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
             + "SHOW_ID INTEGER NOT NULL, SECTION INT NOT NULL, \"ROW\" VARCHAR (1) NOT NULL, SEAT_NUMBER INTEGER NOT NULL, "
-            + "LAST_NAME VARCHAR (255) NOT NULL, FIRST_NAME VARCHAR (255));";
+            + "LAST_NAME VARCHAR (255) NOT NULL, FIRST_NAME VARCHAR (255), EMAIL VARCHAR (255), PHONE VARCHAR (15));";
+    private static final String ADD_SHOW_SEATING_EMAIL_COLUMN = "ALTER TABLE SHOW_SEATING ADD COLUMN EMAIL VARCHAR (255)";
+    private static final String ADD_SHOW_SEATING_PHONE_COLUMN = "ALTER TABLE SHOW_SEATING ADD COLUMN PHONE VARCHAR (15)";
     
     public TheatreDAOImpl() {
         prop = new Properties();
@@ -95,14 +97,28 @@ public class TheatreDAOImpl implements TheatreDAO {
         
         try (Connection conn = DriverManager.getConnection(connectionUrl)){
             DatabaseMetaData dbm = conn.getMetaData();
-            try(ResultSet showtimeTable = dbm.getTables(null, null, "SHOWTIME", null);
-                ResultSet seatingTable = dbm.getTables(null, null, "SHOW_SEATING", null);) {
-                if (showtimeTable.next() && seatingTable.next()) {
+            try(ResultSet showtimeTableRs = dbm.getTables(null, null, "SHOWTIME", null);
+                ResultSet seatingTableRs = dbm.getTables(null, null, "SHOW_SEATING", null);) {
+                if (showtimeTableRs.next() && seatingTableRs.next()) {
                    isDbValid = true;
+                   
+                   // Check if the SHOW_SEATING table has the EMAIL and PHONE columns
+                   ResultSet emailColumnRs = dbm.getColumns(null, null, "SHOW_SEATING", "EMAIL");
+                   ResultSet phoneColumnRs = dbm.getColumns(null, null, "SHOW_SEATING", "PHONE");
+                   
+                   if (!emailColumnRs.next()) {
+                       logger.log(Level.WARNING, "EMAIL field not found in the SHOW_SEATING database table. Creating column.");
+                       addEmailColumn(conn);
+                   }
+                   if (!phoneColumnRs.next()) {
+                       logger.log(Level.WARNING, "PHONE field not found in the SHOW_SEATING database table. Creating column.");
+                       addPhoneColumn(conn);
+                   }
                }   
             }
         } catch (SQLException ex) {
             logger.log(Level.WARNING, "Unable to connect to the database at the specified path: ".concat(filePath));
+            logger.log(Level.WARNING, ex.getLocalizedMessage());
             isDbValid = false;
         }
         return isDbValid;
@@ -166,6 +182,26 @@ public class TheatreDAOImpl implements TheatreDAO {
             }
         } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Error creating database.", ex);
+        }
+    }
+    
+    private void addPhoneColumn(Connection conn) {
+        
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute(ADD_SHOW_SEATING_PHONE_COLUMN);
+            logger.log(Level.INFO, "PHONE column added to SHOW_SEATING table");
+        } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Error adding PHONE column to SHOW_SEATING table.", ex);
+        }
+    }
+    
+    private void addEmailColumn(Connection conn) {
+        
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute(ADD_SHOW_SEATING_EMAIL_COLUMN);
+            logger.log(Level.INFO, "EMAIL column added to SHOW_SEATING table");
+        } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Error adding EMAIL column to SHOW_SEATING table.", ex);
         }
     }
 

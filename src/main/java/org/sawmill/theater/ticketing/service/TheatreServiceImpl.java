@@ -5,7 +5,6 @@
  */
 package org.sawmill.theater.ticketing.service;
 
-import java.io.File;
 import java.util.List;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAO;
 import org.sawmill.theater.ticketing.dao.ShowSeatingDAOImpl;
