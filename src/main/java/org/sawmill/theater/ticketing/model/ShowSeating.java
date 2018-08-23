@@ -10,7 +10,7 @@ package org.sawmill.theater.ticketing.model;
  * @author jeremy
  */
 public class ShowSeating {
-    
+
     private int seatId;
     private int showId;
     private int section;
@@ -18,6 +18,8 @@ public class ShowSeating {
     private int seatNumber;
     private String lastName;
     private String firstName;
+    private String email;
+    private String phone;
     
     public ShowSeating() {
     }
@@ -76,6 +78,22 @@ public class ShowSeating {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
     
 }

@@ -29,9 +29,9 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
     
     private Logger logger;
     
-    private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME FROM SHOW_SEATING WHERE SHOW_ID=?";
-    private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME) VALUES (?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_SHOWSEAT = "UPDATE SHOW_SEATING SET SECTION=?, ROW=?, SEAT_NUMBER=?, LAST_NAME=?, FIRST_NAME=? WHERE SEAT_ID=?";
+    private static final String GET_SHOWSEATS = "SELECT SEAT_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM SHOW_SEATING WHERE SHOW_ID=?";
+    private static final String ADD_SHOWSEAT = "INSERT INTO SHOW_SEATING (SHOW_ID, SECTION, ROW, SEAT_NUMBER, LAST_NAME, FIRST_NAME, EMAIL, PHONE) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_SHOWSEAT = "UPDATE SHOW_SEATING SET SECTION=?, ROW=?, SEAT_NUMBER=?, LAST_NAME=?, FIRST_NAME=?, EMAIL=?, PHONE=? WHERE SEAT_ID=?";
     private static final String REMOVE_SHOWSEAT = "DELETE FROM SHOW_SEATING WHERE SEAT_ID=?";
     private static final String REMOVE_ALL_SHOW_SHOWSEATS = "DELETE FROM SHOW_SEATING WHERE SHOW_ID=?";
     
@@ -57,6 +57,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
                     seat.setSeatNumber(rs.getInt("SEAT_NUMBER"));
                     seat.setLastName(rs.getString("LAST_NAME"));
                     seat.setFirstName(rs.getString("FIRST_NAME"));
+                    seat.setEmail(rs.getString("EMAIL"));
+                    seat.setPhone(rs.getString("PHONE"));
                     seats.add(seat);
                 }
             }
@@ -81,6 +83,8 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setInt(4, seat.getSeatNumber());
             stmt.setString(5, seat.getLastName());
             stmt.setString(6, seat.getFirstName());
+            stmt.setString(7, seat.getEmail());
+            stmt.setString(8, seat.getPhone());
             stmt.execute();
             
             try (ResultSet generatedKeys = stmt2.executeQuery("SELECT last_insert_rowid()")){
@@ -107,7 +111,9 @@ public class ShowSeatingDAOImpl implements ShowSeatingDAO {
             stmt.setInt(3, seat.getSeatNumber());
             stmt.setString(4, seat.getLastName());
             stmt.setString(5, seat.getFirstName());
-            stmt.setInt(6, seat.getSeatId());
+            stmt.setString(6, seat.getEmail());
+            stmt.setString(7, seat.getPhone());
+            stmt.setInt(8, seat.getSeatId());
             stmt.execute();
         } catch (SQLException ex) {
             logger.log(Level.SEVERE, "Error updating show seat in the database.", ex);

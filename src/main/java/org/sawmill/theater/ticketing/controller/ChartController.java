@@ -86,6 +86,8 @@ public class ChartController implements Initializable {
     private static final String LAST_NAME_MISSING_ERROR = "* Please enter last name";
     private static final String FIRST_NAME_TOO_LONG = "* First name is too long";
     private static final String LAST_NAME_TOO_LONG = "* Last name is too long";
+    private static final String EMAIL_TOO_LONG = "* Email is too long";
+    private static final String PHONE_TOO_LONG = "* Phone number is too long";
 
     private static final String SEAT_ADDED = "-- Seat Added --";
     private static final String SEATS_ADDED = "-- Seats Added --";
@@ -129,6 +131,10 @@ public class ChartController implements Initializable {
     @FXML
     private TextField txtBxLastName;
     @FXML
+    private TextField txtBxEmail;
+    @FXML
+    private TextField txtBxPhone;
+    @FXML
     private Button btnAdd;
     @FXML
     private Button btnDelete;
@@ -169,6 +175,8 @@ public class ChartController implements Initializable {
         btnPrint.setDisable(true);
         txtBxFirstName.setEditable(false);
         txtBxLastName.setEditable(false);
+        txtBxEmail.setEditable(false);
+        txtBxPhone.setEditable(false);
         chkBxSelectMultiple.setSelected(false);
         occupiedSeats = new HashMap<>();
         selectedSeats = new HashMap<>();
@@ -328,9 +336,11 @@ public class ChartController implements Initializable {
                     seat.setSeatNumber(seatNumber);
                     selectedSeats.put(seatId, seat);
 
-                    // Clear name from text field
+                    // Clear name, email, and phone from text field
                     txtBxFirstName.setText("");
                     txtBxLastName.setText("");
+                    txtBxEmail.setText("");
+                    txtBxPhone.setText("");
                 }
 
                 if (selectedSeats.size() > 0) {
@@ -340,10 +350,14 @@ public class ChartController implements Initializable {
                     btnPrint.setDisable(true);
                     txtBxFirstName.setEditable(true);
                     txtBxLastName.setEditable(true);
+                    txtBxEmail.setEditable(true);
+                    txtBxPhone.setEditable(true);
                     editMode = false;
                 } else {
                     txtBxFirstName.setEditable(false);
                     txtBxLastName.setEditable(false);
+                    txtBxEmail.setEditable(false);
+                    txtBxPhone.setEditable(false);
                     btnAdd.setDisable(true);
                 }
 
@@ -376,6 +390,8 @@ public class ChartController implements Initializable {
                             ShowSeating seat = occupiedSeats.get(seatId);
                             txtBxFirstName.setText(seat.getFirstName());
                             txtBxLastName.setText(seat.getLastName());
+                            txtBxEmail.setText(seat.getEmail());
+                            txtBxPhone.setText(seat.getPhone());
                             selectedSeats.put(seatId, seat);
                         }
                     } else {
@@ -391,6 +407,8 @@ public class ChartController implements Initializable {
                         ShowSeating seat = occupiedSeats.get(seatId);
                         txtBxFirstName.setText(seat.getFirstName());
                         txtBxLastName.setText(seat.getLastName());
+                        txtBxEmail.setText(seat.getEmail());
+                        txtBxPhone.setText(seat.getPhone());
                         selectedSeats.put(seatId, seat);
                     }
 
@@ -402,6 +420,8 @@ public class ChartController implements Initializable {
 
                         txtBxFirstName.setEditable(true);
                         txtBxLastName.setEditable(true);
+                        txtBxEmail.setEditable(true);
+                        txtBxPhone.setEditable(true);
 
                         editMode = true;
                     } else {
@@ -412,10 +432,15 @@ public class ChartController implements Initializable {
 
                         txtBxFirstName.setEditable(false);
                         txtBxLastName.setEditable(false);
-                        // Clear name from text fields
+                        txtBxEmail.setEditable(false);
+                        txtBxPhone.setEditable(false);
+                        
+                        // Clear name, email, and phone from text fields
                         txtBxFirstName.setText("");
                         txtBxLastName.setText("");
-
+                        txtBxEmail.setText("");
+                        txtBxPhone.setText("");
+                        
                         editMode = false;
                     }
 
@@ -498,6 +523,8 @@ public class ChartController implements Initializable {
 
         String firstName = txtBxFirstName.getText();
         String lastName = txtBxLastName.getText();
+        String email = txtBxEmail.getText();
+        String phone = txtBxPhone.getText();
 
         // Validate first and last name
         if (firstName.isEmpty() && lastName.isEmpty()) {
@@ -521,28 +548,40 @@ public class ChartController implements Initializable {
             lblNameError.setVisible(true);
             isValid = false;
         } else if (lastName.length() > 255) {
-            // Check if first name is too long
+            // Check if last name is too long
             lblNameError.setText(LAST_NAME_TOO_LONG);
+            lblNameError.setVisible(true);
+            isValid = false;
+        } else if (email != null && email.length() > 255) {
+            // Check if email is too long
+            lblNameError.setText(EMAIL_TOO_LONG);
+            lblNameError.setVisible(true);
+            isValid = false;
+        } else if (phone != null && phone.length() > 15) {
+            // Check if phone is too long
+            lblNameError.setText(PHONE_TOO_LONG);
             lblNameError.setVisible(true);
             isValid = false;
         }
 
         if (isValid) {
             if (editMode) {
-                updateSeat(firstName, lastName);
+                updateSeat(firstName, lastName, email, phone);
             } else {
-                addSeat(firstName, lastName);
+                addSeat(firstName, lastName, email, phone);
             }
         }
     }
 
-    private void addSeat(String firstName, String lastName) {
+    private void addSeat(String firstName, String lastName, String email, String phone) {
 
         if (selectMultiple) {
             for (ShowSeating newSeat : selectedSeats.values()) {
                 // Add the entered name to the list of selected seats
                 newSeat.setFirstName(firstName);
                 newSeat.setLastName(lastName);
+                newSeat.setEmail(email);
+                newSeat.setPhone(phone);
 
                 newSeat.setShowId(cmboBxSelectShow.getValue().getShowId());
 
@@ -563,6 +602,8 @@ public class ChartController implements Initializable {
             newSeat.setSeatNumber(seatNumber);
             newSeat.setFirstName(firstName);
             newSeat.setLastName(lastName);
+            newSeat.setEmail(email);
+            newSeat.setPhone(phone);
 
             // Returned seat will have its generated ID
             newSeat = theatreService.addShowSeat(newSeat);
@@ -590,13 +631,15 @@ public class ChartController implements Initializable {
         editMode = true;
     }
 
-    private void updateSeat(String firstName, String lastName) {
+    private void updateSeat(String firstName, String lastName, String email, String phone) {
 
         if (selectMultiple) {
             for (ShowSeating updatedSeat : selectedSeats.values()) {
                 // Add the entered name to the list of selected seats
                 updatedSeat.setFirstName(firstName);
                 updatedSeat.setLastName(lastName);
+                updatedSeat.setEmail(email);
+                updatedSeat.setPhone(phone);
 
                 theatreService.updateShowSeat(updatedSeat);
             }
@@ -606,6 +649,8 @@ public class ChartController implements Initializable {
             ShowSeating seat = occupiedSeats.get(seatRow.toLowerCase() + seatNumber);
             seat.setFirstName(firstName);
             seat.setLastName(lastName);
+            seat.setEmail(email);
+            seat.setPhone(phone);
 
             theatreService.updateShowSeat(seat);
 
@@ -663,6 +708,9 @@ public class ChartController implements Initializable {
 
             txtBxFirstName.setText("");
             txtBxLastName.setText("");
+            txtBxEmail.setText("");
+            txtBxPhone.setText("");
+            
             btnAdd.setText("Add");
             btnDelete.setDisable(true);
             btnPrint.setDisable(true);
@@ -702,8 +750,13 @@ public class ChartController implements Initializable {
         lblSeatOutput.setText("");
         txtBxFirstName.setText("");
         txtBxLastName.setText("");
+        txtBxEmail.setText("");
+        txtBxPhone.setText("");
+        
         txtBxFirstName.setEditable(false);
         txtBxLastName.setEditable(false);
+        txtBxEmail.setEditable(false);
+        txtBxPhone.setEditable(false);
 
         btnAdd.setText("Add");
         btnAdd.setDisable(true);

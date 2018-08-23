@@ -94,7 +94,7 @@
                 <Circle fx:id="statusIndicator" radius="9.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
             </children>
         </GridPane>
-      <Label alignment="CENTER" contentDisplay="TOP" text="Version 1.3" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+      <Label alignment="CENTER" contentDisplay="TOP" text="Version 1.4" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <font>
             <Font size="11.0" />
          </font></Label>
